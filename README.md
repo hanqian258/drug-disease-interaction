@@ -1,2 +1,2 @@
 # drug-disease-interaction
-This GCN network aims to accelerate drug development by providing the correlation of a drug with the disease via machine learning networks. 
+This 3-layer Graph Convolutional Network (GCN) models the interactome hierarchy from molecular drug structures to protein networks, specifically targeting the Tau protein's spatial distribution. By simulating interactions within the Tau-Amyloid pathway , the model predicts drugs'  therapeutic efficacy for Alzheimer’s disease through multimodal node featurization and graph-based risk stratification.
