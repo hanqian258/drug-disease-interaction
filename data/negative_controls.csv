@@ -1,0 +1,6 @@
+name,smiles,label
+Loperamide,CN(C)C(=O)C(C1=CC=CC=C1)(C2=CC=CC=C2)CCCN3CCC(CC3)(C4=CC=C(C=C4)Cl)O,0
+Domperidone,C1CN(CCC1N2C(=O)NC3=CC=CC=C32)CCCN4C5=CC=CC=C5NC4=O,0
+Fexofenadine,CC(C)(C(=O)O)C1=CC=C(C=C1)C(CN2CCC(CC2)C(C3=CC=CC=C3)O)O,0
+Cetirizine,C1CN(CCN1CC(C2=CC=CC=C2)C3=CC=C(C=C3)Cl)CC(=O)O,0
+Atenolol,CC(C)NCC(COC1=CC=C(C=C1)CC(=O)N)O,0
