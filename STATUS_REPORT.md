@@ -68,9 +68,19 @@ def get_smiles(drug_name):
 
 ---
 
-## Next Steps
-1. **Inference & Drug Repurposing:** Use the trained `LinkPredictor` to score all drugs against `Frontotemporal Dementia` to identify potential repurposing candidates.
-2. **Feature Engineering:** Replace one-hot protein features with UniProt/Gene Ontology embeddings to improve generalization.
-3. **Cross-Validation:** Implement k-fold cross-validation to robustly evaluate performance on the small-scale biological network.
+## Scientific Audit & Next Steps (Tau Focus)
 
-**Immediate Priority (Next 48 Hours):** Perform the first inference run on FTD and validate the top 3 drug hits against existing literature in `03_Literature`.
+### Audit Findings
+- **Status:** Evaluated for ISEF Scientific Rigor.
+- **Details:**
+    - Pipeline is functionally sound but requires a dedicated `test` split (currently `num_test=0.0`) to meet fair standards.
+    - Protein featurization is currently identity-based (one-hot), which limits generalization to the broader Tau interactome.
+    - Inference logic is not yet automated; predicting novel drug-disease links requires manual script execution.
+
+### Tau-Specific Expansion Plan
+1. **Network Densitification:** Transition from the broad AD network to a dense Tau-focused interactome (MAPT, GSK3B, CDK5, etc.) using BioGRID/STRING.
+2. **Inference & Drug Repurposing:** Implement a dedicated `06_inference.py` script to score the library against Tau-associated diseases.
+3. **Biological Featurization:** Replace one-hot protein features with Gene Ontology (GO) or UniProt embeddings to allow the model to learn biological properties rather than just node identities.
+4. **Validation Rigor:** Implement a 3-way split (Train/Val/Test) and k-fold cross-validation to ensure results are statistically significant and free of data leakage.
+
+**Immediate Priority:** Integrate the BioGRID API to fetch a high-density Tau-protein network and refactor `02_Code/04_expand_graph.py` for automated disease mapping.
