@@ -1,0 +1,6 @@
+drug_name,protein_target,weight
+Tacrine,ACHE,1.0
+Donepezil,ACHE,1.0
+Memantine,GRIN1,1.0
+Rivastigmine,ACHE,1.0
+Galantamine,ACHE,1.0
