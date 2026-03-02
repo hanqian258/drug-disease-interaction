@@ -47,9 +47,30 @@ def get_smiles(drug_name):
 
 ---
 
-## Next Steps
-1. **Model Architecture Design:** Define the 3-layer GCN architecture in `02_Code/05_gcn_model.py`.
-2. **Feature Engineering:** Expand protein node features beyond one-hot encoding (e.g., using UniProt annotations).
-3. **Training Pipeline:** Set up the training loop with cross-validation to assess model performance on the small dataset.
+## Technical Progress: Graph Expansion & GNN Pipeline
 
-**Immediate Priority (Next 48 Hours):** Finalize the multimodal feature integration to ensure the GCN has rich node embeddings before the training phase begins.
+### Graph Expansion (The Disease Node)
+- **Status:** Completed
+- **Details:**
+  - Implemented `02_Code/04_expand_graph.py` to transition from node classification to link prediction.
+  - Added 3 disease nodes: `Alzheimer's Disease`, `Parkinson's Disease`, and `Frontotemporal Dementia`.
+  - Added `Levodopa` as a new drug node to serve as a biological control for PD.
+  - Manually mapped 11 proteins and 6 drugs to diseases based on biological consensus to ensure specific pathway biases (e.g., MAPT/Tau bias).
+  - Automatically generated reverse edges for all 4 primary edge types to support deep message passing.
+
+### GNN Model Architecture (HeteroGNN)
+- **Status:** Completed
+- **Details:**
+  - Implemented a 3-layer `HeteroConv` architecture in `02_Code/05_train_gcn.py` using `SAGEConv` layers.
+  - Designed a custom `LinkPredictor` MLP head (Linear -> ReLU -> Linear) for drug-disease association scoring.
+  - Configured `T.RandomLinkSplit` to handle heterogeneous bipartite edge splitting with negative sampling.
+- **Results:** Successfully executed the training pipeline. The model achieves rapid convergence on the training set, establishing a functional baseline for drug repurposing.
+
+---
+
+## Next Steps
+1. **Inference & Drug Repurposing:** Use the trained `LinkPredictor` to score all drugs against `Frontotemporal Dementia` to identify potential repurposing candidates.
+2. **Feature Engineering:** Replace one-hot protein features with UniProt/Gene Ontology embeddings to improve generalization.
+3. **Cross-Validation:** Implement k-fold cross-validation to robustly evaluate performance on the small-scale biological network.
+
+**Immediate Priority (Next 48 Hours):** Perform the first inference run on FTD and validate the top 3 drug hits against existing literature in `03_Literature`.
