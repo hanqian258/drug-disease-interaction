@@ -1,0 +1,6 @@
+name,smiles,label
+Tacrine,Nc1c2ccccc2nc3ccccc13,1
+Donepezil,COC1=C(C=C2C(=C1)CC(C2=O)CC3CCN(CC3)CC4=CC=CC=C4)OC,1
+Memantine,CC12CC3CC(C1)(CC(C3)(C2)N)C,1
+Rivastigmine,CCN(C)C(=O)OC1=CC=CC=C1C(C)N(C)C,1
+Galantamine,CN1CCC23C=CC(CC2OC4=C(C=CC(=C34)O1)OC)O,1
