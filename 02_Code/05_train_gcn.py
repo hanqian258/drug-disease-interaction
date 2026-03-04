@@ -1,31 +1,48 @@
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-from torch_geometric.nn import SAGEConv, HeteroConv
+from torch_geometric.nn import SAGEConv, HeteroConv, Linear
 from torch_geometric.data import HeteroData
 import torch_geometric.transforms as T
 import os
 
 class HeteroGNN(nn.Module):
-    def __init__(self, hidden_channels, out_channels, edge_types):
+    def __init__(self, hidden_channels, out_channels, node_types, edge_types):
         super().__init__()
+
+        # Initial projection layers for each node type to match hidden_channels
+        self.lins = nn.ModuleDict()
+        for node_type in node_types:
+            self.lins[node_type] = Linear(-1, hidden_channels)
+
+        self.dropout = nn.Dropout(0.2)
 
         self.convs = nn.ModuleList()
         for _ in range(3):
+            # Each layer uses separate learned weights for each edge type
             conv = HeteroConv({
                 edge_type: SAGEConv((-1, -1), hidden_channels)
                 for edge_type in edge_types
             }, aggr='sum')
             self.convs.append(conv)
 
-        self.lin = nn.Linear(hidden_channels, out_channels)
+        # Final projection to output channels
+        self.final_lin = nn.Linear(hidden_channels, out_channels)
 
     def forward(self, x_dict, edge_index_dict):
+        # 1. Project all node features to the same dimension (hidden_channels)
+        x_dict = {
+            node_type: self.dropout(F.relu(self.lins[node_type](x)))
+            for node_type, x in x_dict.items()
+        }
+
+        # 2. Pass through 3 HeteroConv layers
         for conv in self.convs:
             x_dict = conv(x_dict, edge_index_dict)
             x_dict = {key: F.relu(x) for key, x in x_dict.items()}
 
-        return {key: self.lin(x) for key, x in x_dict.items()}
+        # 3. Final linear layer to get the final embeddings
+        return {key: self.final_lin(x) for key, x in x_dict.items()}
 
 class LinkPredictor(nn.Module):
     def __init__(self, in_channels, hidden_channels):
@@ -55,21 +72,8 @@ def train():
 
     data = torch.load('01_Cleaned_Data/expanded_graph.pt', weights_only=False)
 
-    # Define edge types and reverse edge types for RandomLinkSplit
-    edge_types = [
-        ('drug', 'binds', 'protein'),
-        ('protein', 'interacts_with', 'protein'),
-        ('protein', 'associated_with', 'disease'),
-        ('drug', 'treats', 'disease')
-    ]
-    rev_edge_types = [
-        ('protein', 'rev_binds', 'drug'),
-        ('protein', 'interacts_with', 'protein'),
-        ('disease', 'rev_associated_with', 'protein'),
-        ('disease', 'rev_treats', 'drug')
-    ]
-
     # Random Link Split for ('drug', 'treats', 'disease')
+    # Note: expanded_graph.pt already has reverse edges from T.ToUndirected()
     transform = T.RandomLinkSplit(
         num_val=0.2,
         num_test=0.0,
@@ -83,8 +87,8 @@ def train():
 
     # Model Setup
     hidden_channels = 64
-    # Note: edge_index_dict needs all edges (including interactions, etc)
-    model = HeteroGNN(hidden_channels, hidden_channels, train_data.edge_types)
+    # Model now accepts node_types for initial projection
+    model = HeteroGNN(hidden_channels, hidden_channels, train_data.node_types, train_data.edge_types)
     predictor = LinkPredictor(hidden_channels, hidden_channels)
 
     optimizer = torch.optim.Adam(list(model.parameters()) + list(predictor.parameters()), lr=0.01)
@@ -119,10 +123,10 @@ def train():
                 val_preds = predictor(x_dict_val['drug'], x_dict_val['disease'], val_edge_label_index)
                 val_loss = criterion(val_preds, val_edge_label)
 
-                # Simple accuracy/AUC could be added here
                 print(f"Epoch: {epoch:03d}, Loss: {loss:.4f}, Val Loss: {val_loss:.4f}")
 
     print("\nTraining Complete.")
+    os.makedirs('01_Cleaned_Data', exist_ok=True)
     torch.save(model.state_dict(), '01_Cleaned_Data/gnn_model.pt')
     torch.save(predictor.state_dict(), '01_Cleaned_Data/predictor.pt')
     print("Models saved to 01_Cleaned_Data/")
