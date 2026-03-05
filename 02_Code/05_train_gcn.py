@@ -17,7 +17,7 @@ class HeteroGNN(nn.Module):
         for node_type in node_types:
             self.lins[node_type] = nn.Linear(in_channels_dict[node_type], hidden_channels)
 
-        self.dropout = nn.Dropout(0.3)
+        self.dropout = nn.Dropout(0.5)
 
         self.convs = nn.ModuleList()
         for _ in range(3):
@@ -90,8 +90,16 @@ def train():
 
     # Model Setup
     hidden_channels = 128
-    # Model now accepts node_types for initial projection
-    model = HeteroGNN(hidden_channels, hidden_channels, train_data.node_types, train_data.edge_types)
+
+    # Get input channels for each node type to avoid lazy initialization
+    in_channels_dict = {node_type: train_data[node_type].x.shape[1] for node_type in train_data.node_types}
+
+    model = HeteroGNN(hidden_channels, hidden_channels, train_data.node_types, train_data.edge_types, in_channels_dict)
+
+    # Perform a dry run to initialize lazy layers (SAGEConv)
+    with torch.no_grad():
+        model(train_data.x_dict, train_data.edge_index_dict)
+
     predictor = LinkPredictor(hidden_channels, hidden_channels)
 
     # Updated Optimizer with lr=0.001 and weight_decay=1e-4
