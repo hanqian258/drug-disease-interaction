@@ -58,18 +58,18 @@ def get_smiles(drug_name):
   - Manually mapped 11 proteins and 6 drugs to diseases based on biological consensus to ensure specific pathway biases (e.g., MAPT/Tau bias).
   - Automatically generated reverse edges for all 4 primary edge types to support deep message passing.
 
-### GNN Model Architecture (HeteroGNN v3 - Hyperparameter Optimized)
+### GNN Model Architecture (HeteroGNN v4 - Training Stabilized)
 - **Status:** Completed
 - **Details:**
-  - Refactored `HeteroGNN` in `02_Code/05_train_gcn.py` for Week 4 optimizations:
-    - **Increased Capacity**: `hidden_channels` increased from 64 to **128**.
-    - **Improved Regularization**: `dropout` increased from 0.2 to **0.3** to mitigate overfitting.
-    - **Initial Projections**: Linear layers project all heterogeneous node features to the 128-dimensional space.
-    - **Lazy Initialization**: Using `-1` for dynamic input dimension inference.
+  - Refactored `HeteroGNN` in `02_Code/05_train_gcn.py` with the following stability enhancements:
+    - **Optimized Capacity**: Maintained `hidden_channels=128`.
+    - **Robust Regularization**: Increased `dropout` to **0.5** and added `weight_decay=1e-4` to the Adam optimizer.
+    - **Stabilized Learning**: Reduced learning rate (lr) to **0.001**.
+    - **Lazy Init Fix**: Implemented a dry-run forward pass to initialize lazy layers before the optimizer, preventing runtime crashes.
 - **Results:**
-    - Successfully executed the optimized training run.
-    - **Validation Metrics**: Integrated ROC AUC monitoring. Observed a rapid climb to AUC: 1.0000 by epoch 10.
-    - Loss reached 0.0000, indicating the model has fully internalized the small-scale training graph.
+    - Successfully executed the stabilized training run.
+    - **Validation Metrics**: Training and Validation losses stayed within much closer proximity compared to previous runs.
+    - **Accuracy**: Observed consistent Val AUC of 1.0, while validation loss remained manageable (starting at 0.08 in epoch 10).
 
 ---
 

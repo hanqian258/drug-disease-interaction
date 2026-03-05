@@ -8,19 +8,22 @@ import os
 from sklearn.metrics import roc_auc_score
 
 class HeteroGNN(nn.Module):
-    def __init__(self, hidden_channels, out_channels, node_types, edge_types):
+    def __init__(self, hidden_channels, out_channels, node_types, edge_types, in_channels_dict):
         super().__init__()
 
         # Initial projection layers for each node type to match hidden_channels
+        # Using explicit dimensions to avoid lazy initialization issues with Adam
         self.lins = nn.ModuleDict()
         for node_type in node_types:
-            self.lins[node_type] = Linear(-1, hidden_channels)
+            self.lins[node_type] = nn.Linear(in_channels_dict[node_type], hidden_channels)
 
-        self.dropout = nn.Dropout(0.3) # Hyperparameter Tuning: 0.3
+        self.dropout = nn.Dropout(0.5)
 
         self.convs = nn.ModuleList()
         for _ in range(3):
             # Each layer uses separate learned weights for each edge type
+            # SAGEConv still uses -1 for lazy initialization of its inputs,
+            # which is fine as long as the weights are initialized before the optimizer
             conv = HeteroConv({
                 edge_type: SAGEConv((-1, -1), hidden_channels)
                 for edge_type in edge_types
@@ -75,7 +78,7 @@ def train():
 
     # Random Link Split for ('drug', 'treats', 'disease')
     transform = T.RandomLinkSplit(
-        num_val=0.2,
+        num_val=0.3,
         num_test=0.0,
         is_undirected=True,
         edge_types=[('drug', 'treats', 'disease')],
@@ -86,11 +89,25 @@ def train():
     train_data, val_data, _ = transform(data)
 
     # Model Setup
-    hidden_channels = 128 # Hyperparameter Tuning: 128
-    model = HeteroGNN(hidden_channels, hidden_channels, train_data.node_types, train_data.edge_types)
+    hidden_channels = 128
+
+    # Get input channels for each node type to avoid lazy initialization
+    in_channels_dict = {node_type: train_data[node_type].x.shape[1] for node_type in train_data.node_types}
+
+    model = HeteroGNN(hidden_channels, hidden_channels, train_data.node_types, train_data.edge_types, in_channels_dict)
+
+    # Perform a dry run to initialize lazy layers (SAGEConv)
+    with torch.no_grad():
+        model(train_data.x_dict, train_data.edge_index_dict)
+
     predictor = LinkPredictor(hidden_channels, hidden_channels)
 
-    optimizer = torch.optim.Adam(list(model.parameters()) + list(predictor.parameters()), lr=0.01)
+    # Updated Optimizer with lr=0.001 and weight_decay=1e-4
+    optimizer = torch.optim.Adam(
+        list(model.parameters()) + list(predictor.parameters()),
+        lr=0.001,
+        weight_decay=1e-4
+    )
     criterion = nn.BCEWithLogitsLoss()
 
     for epoch in range(1, 101):
@@ -126,7 +143,7 @@ def train():
                 try:
                     val_auc = roc_auc_score(val_edge_label.cpu().numpy(), val_preds.cpu().numpy())
                 except ValueError:
-                    val_auc = 0.0 # Handle cases with only one class in val split
+                    val_auc = 0.0
 
                 print(f"Epoch: {epoch:03d}, Loss: {loss:.4f}, Val Loss: {val_loss:.4f}, Val AUC: {val_auc:.4f}")
 
