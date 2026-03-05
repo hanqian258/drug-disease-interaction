@@ -15,7 +15,7 @@ class HeteroGNN(nn.Module):
         for node_type in node_types:
             self.lins[node_type] = Linear(-1, hidden_channels)
 
-        self.dropout = nn.Dropout(0.2)
+        self.dropout = nn.Dropout(0.3)
 
         self.convs = nn.ModuleList()
         for _ in range(3):
@@ -75,7 +75,7 @@ def train():
     # Random Link Split for ('drug', 'treats', 'disease')
     # Note: expanded_graph.pt already has reverse edges from T.ToUndirected()
     transform = T.RandomLinkSplit(
-        num_val=0.2,
+        num_val=0.3,
         num_test=0.0,
         is_undirected=True,
         edge_types=[('drug', 'treats', 'disease')],
@@ -86,7 +86,7 @@ def train():
     train_data, val_data, _ = transform(data)
 
     # Model Setup
-    hidden_channels = 64
+    hidden_channels = 128
     # Model now accepts node_types for initial projection
     model = HeteroGNN(hidden_channels, hidden_channels, train_data.node_types, train_data.edge_types)
     predictor = LinkPredictor(hidden_channels, hidden_channels)
