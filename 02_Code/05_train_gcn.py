@@ -5,21 +5,25 @@ from torch_geometric.nn import SAGEConv, HeteroConv, Linear
 from torch_geometric.data import HeteroData
 import torch_geometric.transforms as T
 import os
+from sklearn.metrics import roc_auc_score
 
 class HeteroGNN(nn.Module):
-    def __init__(self, hidden_channels, out_channels, node_types, edge_types):
+    def __init__(self, hidden_channels, out_channels, node_types, edge_types, in_channels_dict):
         super().__init__()
 
         # Initial projection layers for each node type to match hidden_channels
+        # Using explicit dimensions to avoid lazy initialization issues with Adam
         self.lins = nn.ModuleDict()
         for node_type in node_types:
-            self.lins[node_type] = Linear(-1, hidden_channels)
+            self.lins[node_type] = nn.Linear(in_channels_dict[node_type], hidden_channels)
 
         self.dropout = nn.Dropout(0.3)
 
         self.convs = nn.ModuleList()
         for _ in range(3):
             # Each layer uses separate learned weights for each edge type
+            # SAGEConv still uses -1 for lazy initialization of its inputs,
+            # which is fine as long as the weights are initialized before the optimizer
             conv = HeteroConv({
                 edge_type: SAGEConv((-1, -1), hidden_channels)
                 for edge_type in edge_types
@@ -73,7 +77,6 @@ def train():
     data = torch.load('01_Cleaned_Data/expanded_graph.pt', weights_only=False)
 
     # Random Link Split for ('drug', 'treats', 'disease')
-    # Note: expanded_graph.pt already has reverse edges from T.ToUndirected()
     transform = T.RandomLinkSplit(
         num_val=0.3,
         num_test=0.0,
@@ -91,7 +94,12 @@ def train():
     model = HeteroGNN(hidden_channels, hidden_channels, train_data.node_types, train_data.edge_types)
     predictor = LinkPredictor(hidden_channels, hidden_channels)
 
-    optimizer = torch.optim.Adam(list(model.parameters()) + list(predictor.parameters()), lr=0.01)
+    # Updated Optimizer with lr=0.001 and weight_decay=1e-4
+    optimizer = torch.optim.Adam(
+        list(model.parameters()) + list(predictor.parameters()),
+        lr=0.001,
+        weight_decay=1e-4
+    )
     criterion = nn.BCEWithLogitsLoss()
 
     for epoch in range(1, 101):
@@ -112,7 +120,7 @@ def train():
         loss.backward()
         optimizer.step()
 
-        # Validation
+        # Validation every 10 epochs
         if epoch % 10 == 0:
             model.eval()
             predictor.eval()
@@ -123,7 +131,13 @@ def train():
                 val_preds = predictor(x_dict_val['drug'], x_dict_val['disease'], val_edge_label_index)
                 val_loss = criterion(val_preds, val_edge_label)
 
-                print(f"Epoch: {epoch:03d}, Loss: {loss:.4f}, Val Loss: {val_loss:.4f}")
+                # Calculate Validation AUC
+                try:
+                    val_auc = roc_auc_score(val_edge_label.cpu().numpy(), val_preds.cpu().numpy())
+                except ValueError:
+                    val_auc = 0.0
+
+                print(f"Epoch: {epoch:03d}, Loss: {loss:.4f}, Val Loss: {val_loss:.4f}, Val AUC: {val_auc:.4f}")
 
     print("\nTraining Complete.")
     os.makedirs('01_Cleaned_Data', exist_ok=True)

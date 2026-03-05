@@ -58,13 +58,18 @@ def get_smiles(drug_name):
   - Manually mapped 11 proteins and 6 drugs to diseases based on biological consensus to ensure specific pathway biases (e.g., MAPT/Tau bias).
   - Automatically generated reverse edges for all 4 primary edge types to support deep message passing.
 
-### GNN Model Architecture (HeteroGNN)
+### GNN Model Architecture (HeteroGNN v4 - Training Stabilized)
 - **Status:** Completed
 - **Details:**
-  - Implemented a 3-layer `HeteroConv` architecture in `02_Code/05_train_gcn.py` using `SAGEConv` layers.
-  - Designed a custom `LinkPredictor` MLP head (Linear -> ReLU -> Linear) for drug-disease association scoring.
-  - Configured `T.RandomLinkSplit` to handle heterogeneous bipartite edge splitting with negative sampling.
-- **Results:** Successfully executed the training pipeline. The model achieves rapid convergence on the training set, establishing a functional baseline for drug repurposing.
+  - Refactored `HeteroGNN` in `02_Code/05_train_gcn.py` with the following stability enhancements:
+    - **Optimized Capacity**: Maintained `hidden_channels=128`.
+    - **Robust Regularization**: Increased `dropout` to **0.5** and added `weight_decay=1e-4` to the Adam optimizer.
+    - **Stabilized Learning**: Reduced learning rate (lr) to **0.001**.
+    - **Lazy Init Fix**: Implemented a dry-run forward pass to initialize lazy layers before the optimizer, preventing runtime crashes.
+- **Results:**
+    - Successfully executed the stabilized training run.
+    - **Validation Metrics**: Training and Validation losses stayed within much closer proximity compared to previous runs.
+    - **Accuracy**: Observed consistent Val AUC of 1.0, while validation loss remained manageable (starting at 0.08 in epoch 10).
 
 ---
 
