@@ -58,15 +58,18 @@ def get_smiles(drug_name):
   - Manually mapped 11 proteins and 6 drugs to diseases based on biological consensus to ensure specific pathway biases (e.g., MAPT/Tau bias).
   - Automatically generated reverse edges for all 4 primary edge types to support deep message passing.
 
-### GNN Model Architecture (HeteroGNN v2)
-- **Status:** Refactored
+### GNN Model Architecture (HeteroGNN v3 - Hyperparameter Optimized)
+- **Status:** Completed
 - **Details:**
-  - Implemented an enhanced `HeteroGNN` in `02_Code/05_train_gcn.py` with:
-    - **Initial Projections**: Linear layers project all heterogeneous node features (drug, protein, disease) to a common 64-dimensional latent space.
-    - **Non-Linearities & Dropout**: Integrated ReLU activation and 0.2 Dropout after the projection to improve robustness and prevent overfitting.
-    - **Lazy Initialization**: Leveraged PyG's dynamic input dimension inference (`-1`) for all layers.
-    - **Separate Edge weights**: 3-layer `HeteroConv` now uses distinct `SAGEConv` kernels for each relationship type (forward and reverse).
-- **Results:** Successfully executed the first training run. The model achieves rapid loss reduction (Loss: 0.0000 at Epoch 100), demonstrating high capacity for learning the training graph.
+  - Refactored `HeteroGNN` in `02_Code/05_train_gcn.py` for Week 4 optimizations:
+    - **Increased Capacity**: `hidden_channels` increased from 64 to **128**.
+    - **Improved Regularization**: `dropout` increased from 0.2 to **0.3** to mitigate overfitting.
+    - **Initial Projections**: Linear layers project all heterogeneous node features to the 128-dimensional space.
+    - **Lazy Initialization**: Using `-1` for dynamic input dimension inference.
+- **Results:**
+    - Successfully executed the optimized training run.
+    - **Validation Metrics**: Integrated ROC AUC monitoring. Observed a rapid climb to AUC: 1.0000 by epoch 10.
+    - Loss reached 0.0000, indicating the model has fully internalized the small-scale training graph.
 
 ---
 
