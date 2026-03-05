@@ -5,6 +5,7 @@ from torch_geometric.nn import SAGEConv, HeteroConv, Linear
 from torch_geometric.data import HeteroData
 import torch_geometric.transforms as T
 import os
+from sklearn.metrics import roc_auc_score
 
 class HeteroGNN(nn.Module):
     def __init__(self, hidden_channels, out_channels, node_types, edge_types):
@@ -15,7 +16,7 @@ class HeteroGNN(nn.Module):
         for node_type in node_types:
             self.lins[node_type] = Linear(-1, hidden_channels)
 
-        self.dropout = nn.Dropout(0.2)
+        self.dropout = nn.Dropout(0.3) # Increased dropout to 0.3
 
         self.convs = nn.ModuleList()
         for _ in range(3):
@@ -73,7 +74,6 @@ def train():
     data = torch.load('01_Cleaned_Data/expanded_graph.pt', weights_only=False)
 
     # Random Link Split for ('drug', 'treats', 'disease')
-    # Note: expanded_graph.pt already has reverse edges from T.ToUndirected()
     transform = T.RandomLinkSplit(
         num_val=0.2,
         num_test=0.0,
@@ -86,8 +86,7 @@ def train():
     train_data, val_data, _ = transform(data)
 
     # Model Setup
-    hidden_channels = 64
-    # Model now accepts node_types for initial projection
+    hidden_channels = 128 # Increased capacity
     model = HeteroGNN(hidden_channels, hidden_channels, train_data.node_types, train_data.edge_types)
     predictor = LinkPredictor(hidden_channels, hidden_channels)
 
@@ -123,7 +122,10 @@ def train():
                 val_preds = predictor(x_dict_val['drug'], x_dict_val['disease'], val_edge_label_index)
                 val_loss = criterion(val_preds, val_edge_label)
 
-                print(f"Epoch: {epoch:03d}, Loss: {loss:.4f}, Val Loss: {val_loss:.4f}")
+                # Calculate AUC
+                val_auc = roc_auc_score(val_edge_label.cpu().numpy(), val_preds.cpu().numpy())
+
+                print(f"Epoch: {epoch:03d}, Loss: {loss:.4f}, Val Loss: {val_loss:.4f}, Val AUC: {val_auc:.4f}")
 
     print("\nTraining Complete.")
     os.makedirs('01_Cleaned_Data', exist_ok=True)
