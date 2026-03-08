@@ -2,88 +2,60 @@ import torch
 import pandas as pd
 from torch_geometric.data import HeteroData
 import torch_geometric.transforms as T
-from featurizer import DrugFeaturizer
 import os
 
 def expand_graph():
-    print("--- Expanding Heterogeneous Graph ---")
+    print("--- Expanding Heterogeneous Graph (Targeting Alzheimer's) ---")
 
-    # Load existing graph
-    if not os.path.exists('01_Cleaned_Data/master_graph.pt'):
-        print("Error: master_graph.pt not found. Run 02_Code/03_build_hetero_graph.py first.")
+    # Load existing graph and mappings
+    if not os.path.exists('01_Cleaned_Data/master_graph.pt') or not os.path.exists('01_Cleaned_Data/mappings.pt'):
+        print("Error: Required files not found. Run 02_Code/03_build_hetero_graph.py first.")
         return
 
     data = torch.load('01_Cleaned_Data/master_graph.pt', weights_only=False)
+    maps = torch.load('01_Cleaned_Data/mappings.pt', weights_only=False)
 
-    # 1. Add Levodopa
-    levodopa_smiles = "C1=CC(=C(C=C1CC(C(=O)O)N)O)O"
-    feat = DrugFeaturizer()
-    levo_g = feat.smiles_to_graph(levodopa_smiles)
-    levo_embed = torch.mean(levo_g.x, dim=0, keepdim=True)
+    d_map = maps['d_map']
+    p_map = maps['p_map']
+    drug_names = maps['drug_names']
+    all_proteins = maps['all_proteins']
 
-    # Append to drug nodes
-    data['drug'].x = torch.cat([data['drug'].x, levo_embed], dim=0)
-    # Label for Levodopa (it's not an AD drug, so 0 for AD classification,
-    # though we are moving to link prediction)
-    data['drug'].y = torch.cat([data['drug'].y, torch.tensor([0.0])])
-
-    levo_idx = data['drug'].num_nodes - 1
-
-    # 2. Add Disease Nodes (AD, PD, FTD)
-    diseases = ['Alzheimer\'s Disease', 'Parkinson\'s Disease', 'Frontotemporal Dementia']
+    # 1. Add Disease Nodes
+    # We'll focus on Alzheimer's as requested
+    diseases = ['Alzheimer\'s Disease']
     data['disease'].x = torch.eye(len(diseases))
     dis_map = {name: i for i, name in enumerate(diseases)}
 
-    # 3. Protein-Disease Associations
-    # AD: All 11 proteins
-    # FTD: MAPT, GSK3B, APOE, TREM2
-    # PD: MAPT, APOE, GSK3B
-
-    # Need to get p_map from original build script or derive it
-    # Since we don't have the original p_map, let's look at ppi_interactions.csv to rebuild it
-    ppi = pd.read_csv('01_Cleaned_Data/ppi_interactions.csv')
-    links = pd.read_csv('01_Cleaned_Data/drug_links.csv')
-    all_proteins = sorted(list(set(links['protein_target'].unique()) |
-                               set(ppi['preferredName_A'].unique()) |
-                               set(ppi['preferredName_B'].unique())))
-    p_map = {p: i for i, p in enumerate(all_proteins)}
-
+    # 2. Protein-Disease Associations
+    # Associate ALL proteins in our Amyloid/Tau focused network with AD
     prot_dis_edges = []
-    # AD
     for p in all_proteins:
         prot_dis_edges.append((p_map[p], dis_map['Alzheimer\'s Disease']))
-
-    # FTD
-    for p in ['MAPT', 'GSK3B', 'APOE', 'TREM2']:
-        if p in p_map:
-            prot_dis_edges.append((p_map[p], dis_map['Frontotemporal Dementia']))
-
-    # PD
-    for p in ['MAPT', 'APOE', 'GSK3B']:
-        if p in p_map:
-            prot_dis_edges.append((p_map[p], dis_map['Parkinson\'s Disease']))
 
     src, dst = zip(*prot_dis_edges)
     data['protein', 'associated_with', 'disease'].edge_index = torch.tensor([src, dst], dtype=torch.long)
 
-    # 4. Drug-Treats-Disease Edges (Ground Truth)
-    # AD drugs (first 5 in original) to AD
-    # Levodopa (last one) to PD
+    # 3. Drug-Treats-Disease Edges (Ground Truth)
+    # We need to identify which drugs in our list are "Approved" or "Successful" for AD
+    drugs_df = pd.read_csv('00_Raw_Data/drugs_raw.csv')
 
     drug_dis_edges = []
-    # Original AD drugs: Tacrine, Donepezil, Memantine, Rivastigmine, Galantamine
-    # They should be indices 0 to 4
-    for i in range(5):
-        drug_dis_edges.append((i, dis_map['Alzheimer\'s Disease']))
+    for i, row in drugs_df.iterrows():
+        d_name = row['Drug Name/Treatment']
+        status = row['Current Status']
 
-    # Levodopa to PD
-    drug_dis_edges.append((levo_idx, dis_map['Parkinson\'s Disease']))
+        if d_name in d_map:
+            # If status is "Approved", we consider it a ground truth link for AD
+            if status == 'Approved':
+                drug_dis_edges.append((d_map[d_name], dis_map['Alzheimer\'s Disease']))
 
-    d_src, d_dst = zip(*drug_dis_edges)
-    data['drug', 'treats', 'disease'].edge_index = torch.tensor([d_src, d_dst], dtype=torch.long)
+    if drug_dis_edges:
+        d_src, d_dst = zip(*drug_dis_edges)
+        data['drug', 'treats', 'disease'].edge_index = torch.tensor([d_src, d_dst], dtype=torch.long)
+    else:
+        print("Warning: No 'Approved' drugs found for ground truth.")
 
-    # 5. Add Reverse Edges
-    # This is important for message passing
+    # 4. Add Reverse Edges
     data = T.ToUndirected()(data)
 
     print("\nExpanded Graph Summary:")

@@ -91,7 +91,8 @@ def train():
     # Model Setup
     hidden_channels = 128
     # Model now accepts node_types for initial projection
-    model = HeteroGNN(hidden_channels, hidden_channels, train_data.node_types, train_data.edge_types)
+    in_channels_dict = {node_type: data[node_type].x.size(-1) for node_type in data.node_types}
+    model = HeteroGNN(hidden_channels, hidden_channels, train_data.node_types, train_data.edge_types, in_channels_dict)
     predictor = LinkPredictor(hidden_channels, hidden_channels)
 
     # Updated Optimizer with lr=0.001 and weight_decay=1e-4
