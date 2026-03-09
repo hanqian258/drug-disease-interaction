@@ -22,7 +22,7 @@ def expand_graph():
 
     # 1. Add Disease Nodes
     # We'll focus on Alzheimer's as requested
-    diseases = ['Alzheimer\'s Disease']
+    diseases = ['Alzheimer\'s Disease', 'Healthy Control']
     data['disease'].x = torch.eye(len(diseases))
     dis_map = {name: i for i, name in enumerate(diseases)}
 
@@ -35,25 +35,32 @@ def expand_graph():
     src, dst = zip(*prot_dis_edges)
     data['protein', 'associated_with', 'disease'].edge_index = torch.tensor([src, dst], dtype=torch.long)
 
-    # 3. Drug-Treats-Disease Edges (Ground Truth)
-    # We need to identify which drugs in our list are "Approved" or "Successful" for AD
+    # 3. Drug-Treats-Disease Edges with Confidence Weights
+    # Logic: Approved = 1.0, Experimental/Trial = 0.5, Failed/Other = 0.1
     drugs_df = pd.read_csv('00_Raw_Data/drugs_raw.csv')
 
-    drug_dis_edges = []
+    drug_dis_edges, d_dis_weights = [], []
     for i, row in drugs_df.iterrows():
         d_name = row['Drug Name/Treatment']
-        status = row['Current Status']
+        status = str(row['Current Status'])
 
         if d_name in d_map:
-            # If status is "Approved", we consider it a ground truth link for AD
             if status == 'Approved':
-                drug_dis_edges.append((d_map[d_name], dis_map['Alzheimer\'s Disease']))
+                weight = 1.0
+            elif status in ['Experimental', 'Clinical Trial']:
+                weight = 0.5
+            else:
+                weight = 0.1 # Helps model learn "low potential"
+
+            drug_dis_edges.append((d_map[d_name], dis_map['Alzheimer\'s Disease']))
+            d_dis_weights.append(weight)
 
     if drug_dis_edges:
         d_src, d_dst = zip(*drug_dis_edges)
         data['drug', 'treats', 'disease'].edge_index = torch.tensor([d_src, d_dst], dtype=torch.long)
+        data['drug', 'treats', 'disease'].edge_attr = torch.tensor(d_dis_weights, dtype=torch.float).view(-1, 1)
     else:
-        print("Warning: No 'Approved' drugs found for ground truth.")
+        print("Warning: No drugs found for AD therapeutic links.")
 
     # 4. Add Reverse Edges
     data = T.ToUndirected()(data)

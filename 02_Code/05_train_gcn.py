@@ -1,7 +1,7 @@
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-from torch_geometric.nn import SAGEConv, HeteroConv, Linear
+from torch_geometric.nn import SAGEConv, HeteroConv, Linear, GraphConv
 from torch_geometric.data import HeteroData
 import torch_geometric.transforms as T
 import os
@@ -22,10 +22,9 @@ class HeteroGNN(nn.Module):
         self.convs = nn.ModuleList()
         for _ in range(3):
             # Each layer uses separate learned weights for each edge type
-            # SAGEConv still uses -1 for lazy initialization of its inputs,
-            # which is fine as long as the weights are initialized before the optimizer
+            # GraphConv supports edge_weight
             conv = HeteroConv({
-                edge_type: SAGEConv((-1, -1), hidden_channels)
+                edge_type: GraphConv((-1, -1), hidden_channels)
                 for edge_type in edge_types
             }, aggr='sum')
             self.convs.append(conv)
@@ -33,7 +32,7 @@ class HeteroGNN(nn.Module):
         # Final projection to output channels
         self.final_lin = nn.Linear(hidden_channels, out_channels)
 
-    def forward(self, x_dict, edge_index_dict):
+    def forward(self, x_dict, edge_index_dict, edge_weight_dict=None):
         # 1. Project all node features to the same dimension (hidden_channels)
         x_dict = {
             node_type: self.dropout(F.relu(self.lins[node_type](x)))
@@ -42,7 +41,8 @@ class HeteroGNN(nn.Module):
 
         # 2. Pass through 3 HeteroConv layers
         for conv in self.convs:
-            x_dict = conv(x_dict, edge_index_dict)
+            # Pass edge weights if available
+            x_dict = conv(x_dict, edge_index_dict, edge_weight_dict=edge_weight_dict)
             x_dict = {key: F.relu(x) for key, x in x_dict.items()}
 
         # 3. Final linear layer to get the final embeddings
@@ -77,13 +77,15 @@ def train():
     data = torch.load('01_Cleaned_Data/expanded_graph.pt', weights_only=False)
 
     # Random Link Split for ('drug', 'treats', 'disease')
+    # Use neg_sampling_ratio=1.0 to ensure negative samples are created
     transform = T.RandomLinkSplit(
         num_val=0.3,
         num_test=0.0,
         is_undirected=True,
         edge_types=[('drug', 'treats', 'disease')],
         rev_edge_types=[('disease', 'rev_treats', 'drug')],
-        add_negative_train_samples=True
+        add_negative_train_samples=True,
+        neg_sampling_ratio=1.0
     )
 
     train_data, val_data, _ = transform(data)
@@ -109,7 +111,7 @@ def train():
         optimizer.zero_grad()
 
         # 1. Forward pass GNN to get embeddings
-        x_dict = model(train_data.x_dict, train_data.edge_index_dict)
+        x_dict = model(train_data.x_dict, train_data.edge_index_dict, train_data.edge_attr_dict)
 
         # 2. Predict on training edges
         edge_label_index = train_data['drug', 'treats', 'disease'].edge_label_index
@@ -126,7 +128,7 @@ def train():
             model.eval()
             predictor.eval()
             with torch.no_grad():
-                x_dict_val = model(val_data.x_dict, val_data.edge_index_dict)
+                x_dict_val = model(val_data.x_dict, val_data.edge_index_dict, val_data.edge_attr_dict)
                 val_edge_label_index = val_data['drug', 'treats', 'disease'].edge_label_index
                 val_edge_label = val_data['drug', 'treats', 'disease'].edge_label
                 val_preds = predictor(x_dict_val['drug'], x_dict_val['disease'], val_edge_label_index)
