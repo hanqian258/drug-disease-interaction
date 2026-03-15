@@ -40,20 +40,60 @@ def expand_graph():
     drugs_df = pd.read_csv('00_Raw_Data/drugs_raw.csv')
 
     drug_dis_edges, d_dis_weights = [], []
-    for i, row in drugs_df.iterrows():
-        d_name = row['Drug Name/Treatment']
-        status = str(row['Current Status'])
+    existing_edges = set()
 
-        if d_name in d_map:
+    def add_drug_disease_edge(drug_name, weight):
+        drug_key = drug_name.strip()
+        if drug_key not in d_map:
+            return False
+        edge = (d_map[drug_key], dis_map['Alzheimer\'s Disease'])
+        if edge in existing_edges:
+            return False
+        existing_edges.add(edge)
+        drug_dis_edges.append(edge)
+        d_dis_weights.append(weight)
+        return True
+
+    for i, row in drugs_df.iterrows():
+        d_name = str(row.get('Drug Name/Treatment', '')).strip()
+        status = str(row.get('Current Status', '')).strip()
+
+        if d_name and d_name in d_map:
             if status == 'Approved':
                 weight = 1.0
             elif status in ['Experimental', 'Clinical Trial']:
                 weight = 0.5
             else:
-                weight = 0.1 # Helps model learn "low potential"
+                weight = 0.1  # Helps model learn "low potential"
 
-            drug_dis_edges.append((d_map[d_name], dis_map['Alzheimer\'s Disease']))
-            d_dis_weights.append(weight)
+            add_drug_disease_edge(d_name, weight)
+
+    # 3a. Add CTD Alzheimer-associated chemicals from the curated file
+    #    Use adjusted confidence based on CTD inference score.
+    ctd_path = '01_Cleaned_Data/CTD_D000544_chemicals_20260315024131.csv'
+    if os.path.exists(ctd_path):
+        ctd_df = pd.read_csv(ctd_path)
+        for _, row in ctd_df.iterrows():
+            chem = str(row.get('Chemical Name', '')).strip()
+            score = row.get('Inference Score', None)
+            if pd.isna(chem) or not chem:
+                continue
+            try:
+                score = float(score) if score is not None and not pd.isna(score) else 0.0
+            except Exception:
+                score = 0.0
+
+            # Rescale inference score 0-100 to 0.2-0.8
+            weight = 0.2 + 0.6 * min(max(score / 100.0, 0.0), 1.0)
+            if add_drug_disease_edge(chem, weight):
+                print(f"Added CTD drug-disease edge {chem} (score={score:.2f}, weight={weight:.3f})")
+            elif chem in d_map:
+                # already present via drugs_raw route, possibly upweight if higher
+                pass
+            else:
+                print(f"CTD chemical not in drug map (skip): {chem}")
+    else:
+        print(f"CTD file not found: {ctd_path}")
 
     if drug_dis_edges:
         d_src, d_dst = zip(*drug_dis_edges)

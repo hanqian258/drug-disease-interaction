@@ -1,0 +1,65 @@
+[
+  {
+    "drug": "octane",
+    "type": "synthetic_inert",
+    "score": null,
+    "expected": "null_or_low",
+    "status": "INFO",
+    "message": "No score returned (drug may not be in the library)",
+    "rationale": "8-carbon alkane \u2014 no functional groups, no protein binding capacity"
+  },
+  {
+    "drug": "cyclohexane",
+    "type": "synthetic_inert",
+    "score": null,
+    "expected": "null_or_low",
+    "status": "INFO",
+    "message": "No score returned (drug may not be in the library)",
+    "rationale": "Simple cyclic hydrocarbon \u2014 no known biological activity"
+  },
+  {
+    "drug": "ethanol",
+    "type": "synthetic_inert",
+    "score": null,
+    "expected": "null_or_low",
+    "status": "INFO",
+    "message": "No score returned (drug may not be in the library)",
+    "rationale": "Simple alcohol \u2014 no AD protein targets, minimal structural complexity"
+  },
+  {
+    "drug": "Warfarin",
+    "type": "off_pathway_drug",
+    "score": 1.0,
+    "expected": "low",
+    "status": "WARN",
+    "message": "Score 1.0000 is HIGH \u2014 unexpected for a dummy/null case",
+    "rationale": "Anticoagulant \u2014 acts on Vitamin K cycle (VKORC1/CYP2C9), no AD overlap"
+  },
+  {
+    "drug": "Salbutamol",
+    "type": "off_pathway_drug",
+    "score": null,
+    "expected": "low",
+    "status": "INFO",
+    "message": "No score returned (drug may not be in the library)",
+    "rationale": "Beta-2 agonist bronchodilator \u2014 ADRB2 target, no connection to Tau/Abeta"
+  },
+  {
+    "drug": "Insulin",
+    "type": "borderline",
+    "score": null,
+    "expected": "low_to_medium",
+    "status": "INFO",
+    "message": "No score returned (drug may not be in the library)",
+    "rationale": "Insulin resistance is linked to AD (Type 3 diabetes hypothesis) \u2014 a higher-than-null score here is scientifically interesting, not wrong"
+  },
+  {
+    "drug": "XYZABCNONEXISTENTMOLECULE123",
+    "type": "nonsense",
+    "score": null,
+    "expected": "error_or_null",
+    "status": "PASS",
+    "message": "Drug not found \u2014 model handled unknown input gracefully",
+    "rationale": "Not a real drug \u2014 model must handle gracefully without crashing"
+  }
+]

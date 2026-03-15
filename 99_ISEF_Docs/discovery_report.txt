@@ -1,0 +1,6 @@
+DISCOVERY SCREEN REPORT
+Drugs screened: 34
+Successfully scored: 0
+
+Rank  Drug               Score  Tier      Class             Mechanism
+--------------------------------------------------------------------------------

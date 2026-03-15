@@ -137,7 +137,11 @@ def main():
         print(f"  [{i:02d}/{len(DRUG_LIBRARY)}] {name:<16}", end=" ", flush=True)
         score = run_inference(name)
         t = tier(score)
-        print(f"score={score:.4f if score is not None else 'N/A':>8}  [{t}]")
+        if score is None:
+            score_display = "N/A"
+        else:
+            score_display = f"{score:.4f}"
+        print(f"score={score_display:>8}  [{t}]")
         results.append({**drug, "score": score, "tier": t})
         time.sleep(0.05)  # slight pause to avoid overwhelming subprocess queue
 

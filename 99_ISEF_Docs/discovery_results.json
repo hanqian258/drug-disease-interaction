@@ -1,0 +1,274 @@
+[
+  {
+    "name": "Donepezil",
+    "class": "AD_approved",
+    "mechanism": "AChE inhibitor",
+    "ad_trial": true,
+    "score": null,
+    "tier": "N/A"
+  },
+  {
+    "name": "Memantine",
+    "class": "AD_approved",
+    "mechanism": "NMDA antagonist",
+    "ad_trial": true,
+    "score": null,
+    "tier": "N/A"
+  },
+  {
+    "name": "Rivastigmine",
+    "class": "AD_approved",
+    "mechanism": "AChE/BuChE inhibitor",
+    "ad_trial": true,
+    "score": null,
+    "tier": "N/A"
+  },
+  {
+    "name": "Galantamine",
+    "class": "AD_approved",
+    "mechanism": "AChE inhibitor + nAChR",
+    "ad_trial": true,
+    "score": null,
+    "tier": "N/A"
+  },
+  {
+    "name": "Lecanemab",
+    "class": "AD_pipeline",
+    "mechanism": "Anti-amyloid antibody",
+    "ad_trial": true,
+    "score": null,
+    "tier": "N/A"
+  },
+  {
+    "name": "Aducanumab",
+    "class": "AD_pipeline",
+    "mechanism": "Anti-amyloid antibody",
+    "ad_trial": true,
+    "score": null,
+    "tier": "N/A"
+  },
+  {
+    "name": "Lithium",
+    "class": "CNS",
+    "mechanism": "GSK-3b inhibitor (tau phosphorylation)",
+    "ad_trial": true,
+    "score": null,
+    "tier": "N/A"
+  },
+  {
+    "name": "Valproate",
+    "class": "CNS",
+    "mechanism": "HDAC inhibitor / mood stabilizer",
+    "ad_trial": true,
+    "score": null,
+    "tier": "N/A"
+  },
+  {
+    "name": "Risperidone",
+    "class": "CNS",
+    "mechanism": "D2/5-HT2A antagonist",
+    "ad_trial": false,
+    "score": null,
+    "tier": "N/A"
+  },
+  {
+    "name": "Quetiapine",
+    "class": "CNS",
+    "mechanism": "Atypical antipsychotic",
+    "ad_trial": false,
+    "score": null,
+    "tier": "N/A"
+  },
+  {
+    "name": "Sertraline",
+    "class": "CNS_SSRI",
+    "mechanism": "SERT inhibitor",
+    "ad_trial": true,
+    "score": null,
+    "tier": "N/A"
+  },
+  {
+    "name": "Fluoxetine",
+    "class": "CNS_SSRI",
+    "mechanism": "SERT inhibitor",
+    "ad_trial": true,
+    "score": null,
+    "tier": "N/A"
+  },
+  {
+    "name": "Escitalopram",
+    "class": "CNS_SSRI",
+    "mechanism": "SERT inhibitor",
+    "ad_trial": true,
+    "score": null,
+    "tier": "N/A"
+  },
+  {
+    "name": "Venlafaxine",
+    "class": "CNS_SNRI",
+    "mechanism": "SERT + NET inhibitor",
+    "ad_trial": false,
+    "score": null,
+    "tier": "N/A"
+  },
+  {
+    "name": "Duloxetine",
+    "class": "CNS_SNRI",
+    "mechanism": "SERT + NET inhibitor",
+    "ad_trial": false,
+    "score": null,
+    "tier": "N/A"
+  },
+  {
+    "name": "Minocycline",
+    "class": "anti_inflam",
+    "mechanism": "Tetracycline / neuroinflammation",
+    "ad_trial": true,
+    "score": null,
+    "tier": "N/A"
+  },
+  {
+    "name": "Indomethacin",
+    "class": "anti_inflam",
+    "mechanism": "COX inhibitor / NSAID",
+    "ad_trial": true,
+    "score": null,
+    "tier": "N/A"
+  },
+  {
+    "name": "Celecoxib",
+    "class": "anti_inflam",
+    "mechanism": "COX-2 selective NSAID",
+    "ad_trial": true,
+    "score": null,
+    "tier": "N/A"
+  },
+  {
+    "name": "Dexamethasone",
+    "class": "anti_inflam",
+    "mechanism": "Glucocorticoid / immune",
+    "ad_trial": false,
+    "score": null,
+    "tier": "N/A"
+  },
+  {
+    "name": "Metformin",
+    "class": "metabolic",
+    "mechanism": "AMPK activator / insulin sensitizer",
+    "ad_trial": true,
+    "score": null,
+    "tier": "N/A"
+  },
+  {
+    "name": "Liraglutide",
+    "class": "metabolic",
+    "mechanism": "GLP-1 agonist",
+    "ad_trial": true,
+    "score": null,
+    "tier": "N/A"
+  },
+  {
+    "name": "Semaglutide",
+    "class": "metabolic",
+    "mechanism": "GLP-1 agonist (Ozempic)",
+    "ad_trial": true,
+    "score": null,
+    "tier": "N/A"
+  },
+  {
+    "name": "Pioglitazone",
+    "class": "metabolic",
+    "mechanism": "PPAR-gamma agonist",
+    "ad_trial": true,
+    "score": null,
+    "tier": "N/A"
+  },
+  {
+    "name": "Rapamycin",
+    "class": "autophagy",
+    "mechanism": "mTOR inhibitor / autophagy",
+    "ad_trial": true,
+    "score": null,
+    "tier": "N/A"
+  },
+  {
+    "name": "Everolimus",
+    "class": "autophagy",
+    "mechanism": "mTOR inhibitor",
+    "ad_trial": false,
+    "score": null,
+    "tier": "N/A"
+  },
+  {
+    "name": "Atorvastatin",
+    "class": "statin",
+    "mechanism": "HMG-CoA reductase / cholesterol",
+    "ad_trial": true,
+    "score": null,
+    "tier": "N/A"
+  },
+  {
+    "name": "Simvastatin",
+    "class": "statin",
+    "mechanism": "HMG-CoA reductase / cholesterol",
+    "ad_trial": true,
+    "score": null,
+    "tier": "N/A"
+  },
+  {
+    "name": "Losartan",
+    "class": "cardiovascular",
+    "mechanism": "AT1 receptor blocker",
+    "ad_trial": true,
+    "score": null,
+    "tier": "N/A"
+  },
+  {
+    "name": "Amlodipine",
+    "class": "cardiovascular",
+    "mechanism": "Calcium channel blocker",
+    "ad_trial": false,
+    "score": null,
+    "tier": "N/A"
+  },
+  {
+    "name": "Rifampicin",
+    "class": "antibiotic",
+    "mechanism": "RNA polymerase / amyloid disaggregation",
+    "ad_trial": true,
+    "score": null,
+    "tier": "N/A"
+  },
+  {
+    "name": "Doxycycline",
+    "class": "antibiotic",
+    "mechanism": "Tetracycline / neuroinflammation",
+    "ad_trial": true,
+    "score": null,
+    "tier": "N/A"
+  },
+  {
+    "name": "Amoxicillin",
+    "class": "negative_ctrl",
+    "mechanism": "Penicillin antibiotic",
+    "ad_trial": false,
+    "score": null,
+    "tier": "N/A"
+  },
+  {
+    "name": "Warfarin",
+    "class": "negative_ctrl",
+    "mechanism": "Anticoagulant / Vitamin K",
+    "ad_trial": false,
+    "score": null,
+    "tier": "N/A"
+  },
+  {
+    "name": "Omeprazole",
+    "class": "negative_ctrl",
+    "mechanism": "Proton pump inhibitor",
+    "ad_trial": false,
+    "score": null,
+    "tier": "N/A"
+  }
+]
