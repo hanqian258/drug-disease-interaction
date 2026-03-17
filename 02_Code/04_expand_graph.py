@@ -161,15 +161,16 @@ def expand_graph():
     print("\nExpanded Graph Summary:")
     print(data)
     
-# Add before torch.save(data, ...)
-n_drugs = data['drug'].x.shape[0]
-ei = data['drug', 'binds', 'protein'].edge_index
-assert ei[0].max().item() < n_drugs, \
-    f"Drug index {ei[0].max().item()} out of range for {n_drugs} drugs"
-print(f"  Index check passed: max drug index {ei[0].max().item()} < {n_drugs}")
+
+    # Add before torch.save(data, ...)
+    n_drugs = data['drug'].x.shape[0]
+    ei = data['drug', 'binds', 'protein'].edge_index
+    assert ei[0].max().item() < n_drugs, \
+        f"Drug index {ei[0].max().item()} out of range for {n_drugs} drugs"
+    print(f"  Index check passed: max drug index {ei[0].max().item()} < {n_drugs}")
 
     torch.save(data, '01_Cleaned_Data/expanded_graph.pt')
-    print("\nSaved → 01_Cleaned_Data/expanded_graph.pt")
+    print("\nSaved  01_Cleaned_Data/expanded_graph.pt")
 
 if __name__ == "__main__":
     expand_graph()

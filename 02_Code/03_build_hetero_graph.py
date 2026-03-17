@@ -48,12 +48,12 @@ def build_hetero_graph():
 
     # Map drug names to indices
     # Build d_map using sequential position in drug_embeds, not original dataframe index
-        d_map = {}
-        embed_position = 0
-        for i, row in drugs_df.iterrows():
-            if i in valid_drug_indices:
-                d_map[row['Drug Name/Treatment']] = embed_position
-                embed_position += 1
+    d_map = {}
+    embed_position = 0
+    for i, row in drugs_df.iterrows():
+        if i in valid_drug_indices:
+            d_map[row['Drug Name/Treatment']] = embed_position
+            embed_position += 1
 
     # 3. Process Protein Nodes
     all_proteins = sorted(
