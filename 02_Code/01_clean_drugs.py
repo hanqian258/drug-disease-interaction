@@ -16,6 +16,16 @@ def get_smiles(drug_name):
     return None
 
 def clean_drug_list(input_path, output_path):
+    NAME_CORRECTIONS = {
+    "N2-((2S)-2-(3,5-difluorophenyl)-2-hydroxyethanoyl)-N1-((7S)-5-methyl-6-oxo-6,7-dihydro-5H-dibenzo(b,d)azepin-7-yl)-L-alaninamide": "Semagacestat",
+    "3-methyl-5-(1-methyl-2-pyrrolidinyl)isoxazole": "ABT-418",
+    "BMS 708163": "Avagacestat",
+    "Vitamin D": "Cholecalciferol",
+    "Raloxifene Hydrochloride": "Raloxifene",
+}
+
+# Apply before PubChem lookup
+drug_name = NAME_CORRECTIONS.get(drug_name, drug_name)
     logging.info(f"Processing {input_path}...")
     df = pd.read_csv(input_path)
 
