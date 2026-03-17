@@ -10,49 +10,90 @@ import ast
 from rdkit import Chem
 from rdkit.Chem import AllChem, Descriptors
 
-# Reuse the model architectures from training
 class HeteroGNN(nn.Module):
+    """
+    Three-layer heterogeneous GNN with:
+      • BatchNorm after each conv layer   → stabilizes training on small graphs
+      • Residual (skip) connections       → prevents over-smoothing of embeddings
+      • SAGEConv instead of GraphConv     → better inductive generalization
+      • Dropout only on input projection  → keeps message passing stable
+    """
     def __init__(self, hidden_channels, out_channels, node_types, edge_types, in_channels_dict):
         super().__init__()
-        self.lins = nn.ModuleDict()
-        for node_type in node_types:
-            self.lins[node_type] = nn.Linear(in_channels_dict[node_type], hidden_channels)
+
+        # Input projection: map each node type to the same hidden dimension
+        self.input_lins = nn.ModuleDict()
+        self.input_norms = nn.ModuleDict()
+        for ntype in node_types:
+            self.input_lins[ntype] = nn.Linear(in_channels_dict[ntype], hidden_channels)
+            self.input_norms[ntype] = nn.BatchNorm1d(hidden_channels)
 
         self.dropout = nn.Dropout(0.3)
+
+        # FIX: use SAGEConv (mean aggregation) instead of GraphConv (sum).
+        # Sum aggregation on a small graph causes embedding values to grow
+        # unboundedly, pushing sigmoid outputs toward 1.0 for all nodes.
         self.convs = nn.ModuleList()
-        from torch_geometric.nn import GraphConv, HeteroConv
+        self.norms = nn.ModuleList()
         for _ in range(3):
-            conv = HeteroConv({
-                edge_type: GraphConv((-1, -1), hidden_channels)
-                for edge_type in edge_types
-            }, aggr='sum')
+            conv = HeteroConv(
+                {etype: SAGEConv((-1, -1), hidden_channels) for etype in edge_types},
+                aggr='mean'   # FIX: was 'sum' — mean prevents value explosion
+            )
             self.convs.append(conv)
+            # Per-layer norm dict (one BN per node type per layer)
+            layer_norms = nn.ModuleDict({
+                ntype: nn.BatchNorm1d(hidden_channels) for ntype in node_types
+            })
+            self.norms.append(layer_norms)
+
         self.final_lin = nn.Linear(hidden_channels, out_channels)
 
     def forward(self, x_dict, edge_index_dict, edge_weight_dict=None):
+        # --- Input projection ---
         x_dict = {
-            node_type: self.dropout(F.relu(self.lins[node_type](x)))
-            for node_type, x in x_dict.items()
+            ntype: self.dropout(
+                F.relu(self.input_norms[ntype](self.input_lins[ntype](x)))
+            )
+            for ntype, x in x_dict.items()
         }
-        for conv in self.convs:
-            x_dict = conv(x_dict, edge_index_dict, edge_weight_dict=edge_weight_dict)
-            x_dict = {key: F.relu(x) for key, x in x_dict.items()}
-        return {key: self.final_lin(x) for key, x in x_dict.items()}
+
+        # --- Message passing with residual connections ---
+        for conv, norms in zip(self.convs, self.norms):
+            residual = x_dict                         # save for skip connection
+            x_dict = conv(x_dict, edge_index_dict)    # no edge_weight_dict for SAGEConv
+            x_dict = {
+                ntype: F.relu(norms[ntype](x)) + residual.get(ntype, 0)
+                for ntype, x in x_dict.items()
+            }
+        return {ntype: self.final_lin(x) for ntype, x in x_dict.items()}
 
 class LinkPredictor(nn.Module):
+    """
+    MLP that takes the concatenation of a drug embedding and a disease
+    embedding and outputs a single logit (pre-sigmoid score).
+
+    Added BatchNorm and a third hidden layer so it can learn non-trivial
+    decision boundaries even when the GNN embeddings are similar.
+    """
     def __init__(self, in_channels, hidden_channels):
         super().__init__()
-        self.lin1 = nn.Linear(in_channels * 2, hidden_channels)
-        self.lin2 = nn.Linear(hidden_channels, 1)
+        self.net = nn.Sequential(
+            nn.Linear(in_channels * 2, hidden_channels),
+            nn.BatchNorm1d(hidden_channels),
+            nn.ReLU(),
+            nn.Dropout(0.3),
+            nn.Linear(hidden_channels, hidden_channels // 2),
+            nn.BatchNorm1d(hidden_channels // 2),
+            nn.ReLU(),
+            nn.Linear(hidden_channels // 2, 1)
+        )
 
     def forward(self, x_drug, x_disease, edge_label_index):
-        nodes_s = x_drug[edge_label_index[0]]
-        nodes_t = x_disease[edge_label_index[1]]
-        x = torch.cat([nodes_s, nodes_t], dim=-1)
-        x = self.lin1(x)
-        x = F.relu(x)
-        x = self.lin2(x)
-        return torch.sigmoid(x).view(-1)
+        src = x_drug[edge_label_index[0]]
+        dst = x_disease[edge_label_index[1]]
+        return self.net(torch.cat([src, dst], dim=-1)).view(-1)
+
 
 def calculate_drug_properties(smiles):
     mol = Chem.MolFromSmiles(smiles)
