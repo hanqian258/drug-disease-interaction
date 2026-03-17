@@ -24,10 +24,17 @@ def fetch_string_interactions(proteins, required_score=700):
 
 def main():
     proteins = [
-        "MAPT", "APP", "APOE", "BACE1", "PSEN1",
-        "PSEN2", "TREM2", "CLU", "PICALM", "CR1", "GSK3B"
-    ]
-
+    # Direct drug targets (your current drugs)
+    "ACHE", "BACE1", "GRIN1", "GRIN2B", "CHRNA7",
+    # Core AD genetic risk genes
+    "MAPT", "APP", "APOE", "PSEN1", "PSEN2",
+    "TREM2", "CLU", "PICALM", "BIN1", "CR1",
+    # PPI bridge proteins (connect targets to disease)
+    "GSK3B", "CDK5", "ADAM10", "IDE", "MMP9",
+    "IL6", "TNF", "CASP3", "BECN1", "SQSTM1",
+    # For multi-disease expansion (Parkinson's)
+    "SNCA", "LRRK2", "PRKN", "PINK1", "UCHL1",
+]
     logging.info(f"Fetching interactions for {len(proteins)} proteins from STRING DB...")
     interactions = fetch_string_interactions(proteins)
 
