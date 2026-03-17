@@ -1,6 +1,72 @@
-name,smiles,label
-Tacrine,Nc1c2ccccc2nc3ccccc13,1
-Donepezil,COC1=C(C=C2C(=C1)CC(C2=O)CC3CCN(CC3)CC4=CC=CC=C4)OC,1
-Memantine,CC12CC3CC(C1)(CC(C3)(C2)N)C,1
-Rivastigmine,CCN(C)C(=O)OC1=CC=CC=C1C(C)N(C)C,1
-Galantamine,CN1CCC23C=CC(CC2OC4=C(C=CC(=C34)O1)OC)O,1
+name,Type,Inference Score,label,smiles
+Melatonin,therapeutic,64.44,1,CC(=O)NCCC1=CNC2=C1C=C(C=C2)OC
+Nicotine,therapeutic,57.53,1,CN1CCCC1C2=CN=CC=C2
+Curcumin,therapeutic,54.57,1,COC1=C(C=CC(=C1)C=CC(=O)CC(=O)C=CC2=CC(=C(C=C2)O)OC)O
+notoginsenoside R1,therapeutic,50.91,1,CC(=CCCC(C)(C1CCC2(C1C(CC3C2(CC(C4C3(CCC(C4(C)C)O)C)OC5C(C(C(C(O5)CO)O)O)OC6C(C(C(CO6)O)O)O)C)O)C)OC7C(C(C(C(O7)CO)O)O)O)C
+Berberine,therapeutic,47.42,1,COC1=C(C2=C[N+]3=C(C=C2C=C1)C4=CC5=C(C=C4CC3)OCO5)OC
+Rosiglitazone,therapeutic,44.53,1,CN(CCOC1=CC=C(C=C1)CC2C(=O)NC(=O)S2)C3=CC=CC=N3
+Plant Preparations,therapeutic,44.51,1,
+Rivastigmine,therapeutic,44.1,1,CCN(C)C(=O)OC1=CC=CC(=C1)C(C)N(C)C
+Apigenin,therapeutic,43.07,1,C1=CC(=CC=C1C2=CC(=O)C3=C(C=C(C=C3O2)O)O)O
+Raloxifene Hydrochloride,therapeutic,39.18,1,C1CCN(CC1)CCOC2=CC=C(C=C2)C(=O)C3=C(SC4=C3C=CC(=C4)O)C5=CC=C(C=C5)O
+Donepezil,therapeutic,37.96,1,COC1=C(C=C2C(=C1)CC(C2=O)CC3CCN(CC3)CC4=CC=CC=C4)OC
+Tadalafil,therapeutic,36.08,1,CN1CC(=O)N2C(C1=O)CC3=C(C2C4=CC5=C(C=C4)OCO5)NC6=CC=CC=C36
+Ellagic Acid,therapeutic,33.61,1,C1=C2C3=C(C(=C1O)O)OC(=O)C4=CC(=C(C(=C43)OC2=O)O)O
+Deferoxamine,therapeutic,33.06,1,CC(=O)N(CCCCCNC(=O)CCC(=O)N(CCCCCNC(=O)CCC(=O)N(CCCCCN)O)O)O
+Biological Products,therapeutic,32.42,1,
+Resveratrol,therapeutic,32.31,1,C1=CC(=CC=C1C=CC2=CC(=CC(=C2)O)O)O
+Acetylcholine,therapeutic,32.09,1,CC(=O)OCC[N+](C)(C)C
+Mifepristone,therapeutic,32.01,1,CC#CC1(CCC2C1(CC(C3=C4CCC(=O)C=C4CCC23)C5=CC=C(C=C5)N(C)C)C)O
+Minocycline,therapeutic,31.51,1,CN(C)C1C2CC3CC4=C(C=CC(=C4C(=C3C(=O)C2(C(=C(C1=O)C(=O)N)O)O)O)O)N(C)C
+Prodigiosin,therapeutic,31.14,1,CCCCCC1=CC(=CC2=C(C=C(N2)C3=CC=CN3)OC)N=C1C
+5-Methoxypsoralen,therapeutic,31.13,1,COC1=C2C=CC(=O)OC2=CC3=C1C=CO3
+Paroxetine,therapeutic,30.97,1,C1CNCC(C1C2=CC=C(C=C2)F)COC3=CC4=C(C=C3)OCO4
+"Nanotubes, Carbon",therapeutic,30.96,1,
+Indomethacin,therapeutic,30.83,1,CC1=C(C2=C(N1C(=O)C3=CC=C(C=C3)Cl)C=CC(=C2)OC)CC(=O)O
+Niacin,therapeutic,30.42,1,C1=CC(=CN=C1)C(=O)O
+Trichlorfon,therapeutic,30.07,1,COP(=O)(C(C(Cl)(Cl)Cl)O)OC
+Cannabidiol,therapeutic,29.95,1,CCCCCC1=CC(=C(C(=C1)O)C2C=C(CCC2C(=C)C)C)O
+Tolonium Chloride,therapeutic,29.85,1,CC1=CC2=C(C=C1N)SC3=CC(=[N+](C)C)C=CC3=N2.[Cl-]
+"6,7-dihydroxyflavone",therapeutic,27.73,1,C1=CC=C(C=C1)C2=CC(=O)C3=CC(=C(C=C3O2)O)O
+Plant Extracts,therapeutic,27.38,1,
+Galantamine,therapeutic,27.33,1,CN1CCC23C=CC(CC2OC4=C(C=CC(=C34)C1)OC)O
+icariin,therapeutic,26.22,1,CC1C(C(C(C(O1)OC2=C(OC3=C(C2=O)C(=CC(=C3CC=C(C)C)OC4C(C(C(C(O4)CO)O)O)O)O)C5=CC=C(C=C5)OC)O)O)O
+huperzine A,therapeutic,26.12,1,CC=C1C2CC3=C(C1(CC(=C2)C)N)C=CC(=O)N3
+Ibuprofen,therapeutic,25.96,1,CC(C)CC1=CC=C(C=C1)C(C)C(=O)O
+Memantine,therapeutic,25.79,1,CC12CC3CC(C1)(CC(C3)(C2)N)C
+Tacrine,therapeutic,24.83,1,C1CCC2=NC3=CC=CC=C3C(=C2C1)N
+bisdemethoxycurcumin,therapeutic,22.93,1,C1=CC(=CC=C1C=CC(=O)CC(=O)C=CC2=CC=C(C=C2)O)O
+Haloperidol,therapeutic,22.71,1,C1CN(CCC1(C2=CC=C(C=C2)Cl)O)CCCC(=O)C3=CC=C(C=C3)F
+Dronabinol,therapeutic,21.99,1,CCCCCC1=CC(=C2C3C=C(CCC3C(OC2=C1)(C)C)C)O
+Vitamin D,therapeutic,21.24,1,CC(C)CCCC(C)C1CCC2C1(CCCC2=CC=C3CC(CCC3=C)O)C
+Reserpine,therapeutic,20.83,1,COC1C(CC2CN3CCC4=C(C3CC2C1C(=O)OC)NC5=C4C=CC(=C5)OC)OC(=O)C6=CC(=C(C(=C6)OC)OC)OC
+sulindac sulfide,therapeutic,20.19,1,CC1=C(C2=C(C1=CC3=CC=C(C=C3)SC)C=CC(=C2)F)CC(=O)O
+Physostigmine,therapeutic,19.89,1,CC12CCN(C1N(C3=C2C=C(C=C3)OC(=O)NC)C)C
+Dipyridamole,therapeutic,18.39,1,C1CCN(CC1)C2=NC(=NC3=C2N=C(N=C3N4CCCCC4)N(CCO)CCO)N(CCO)CCO
+entacapone,therapeutic,14.6,1,CCN(CC)C(=O)C(=CC1=CC(=C(C(=C1)O)O)[N+](=O)[O-])C#N
+Thiourea,therapeutic,14.44,1,C(=S)(N)N
+Androgens,therapeutic,13.93,1,
+tideglusib,therapeutic,13.41,1,C1=CC=C(C=C1)CN2C(=O)N(SC2=O)C3=CC=CC4=CC=CC=C43
+puag-haad,therapeutic,13.29,1,C1=CC(=C(C=C1O)O)C=CC2=CC(=CC(=C2)O)O
+"Heparin, Low-Molecular-Weight",therapeutic,12.19,1,
+Ginkgo biloba extract,therapeutic,11.89,1,
+Cholinesterase Inhibitors,therapeutic,11.04,1,
+Amphotericin B,therapeutic,10.21,1,CC1C=CC=CC=CC=CC=CC=CC=CC(CC2C(C(CC(O2)(CC(CC(C(CCC(CC(CC(=O)OC(C(C1O)C)C)O)O)O)O)O)O)O)C(=O)O)OC3C(C(C(C(O3)C)O)N)O
+Clioquinol,therapeutic,10.1,1,C1=CC2=C(C(=C(C=C2Cl)I)O)N=C1
+"N2-((2S)-2-(3,5-difluorophenyl)-2-hydroxyethanoyl)-N1-((7S)-5-methyl-6-oxo-6,7-dihydro-5H-dibenzo(b,d)azepin-7-yl)-L-alaninamide",therapeutic,9.84,1,CC(C)C(C(=O)NC(C)C(=O)NC1C2=CC=CC=C2CCN(C1=O)C)O
+Midazolam,therapeutic,9.74,1,CC1=NC=C2N1C3=C(C=C(C=C3)Cl)C(=NC2)C4=CC=CC=C4F
+"(22R, 25R)-20alpha-spirost-5-en-3beta-yl hexanoate",therapeutic,9.32,1,CCCCCC(=O)OC1CCC2(C3CCC4(C(C3CC=C2C1)CC5C4C(C6(O5)CCC(CO6)C)C)C)C
+Kai-Xin-San,therapeutic,8.72,1,
+Fluvoxamine,therapeutic,8.02,1,COCCCCC(=NOCCN)C1=CC=C(C=C1)C(F)(F)F
+Ceftriaxone,therapeutic,7.71,1,CN1C(=NC(=O)C(=O)N1)SCC2=C(N3C(C(C3=O)NC(=O)C(=NOC)C4=CSC(=N4)N)SC2)C(=O)O
+Tolcapone,therapeutic,7.46,1,CC1=CC=C(C=C1)C(=O)C2=CC(=C(C(=C2)O)O)[N+](=O)[O-]
+"Anti-Inflammatory Agents, Non-Steroidal",therapeutic,6.63,1,
+1-(3-chlorophenyl)piperazine,therapeutic,6.55,1,C1CN(CCN1)C2=CC(=CC=C2)Cl
+Goserelin,therapeutic,6.51,1,CC(C)CC(C(=O)NC(CCCN=C(N)N)C(=O)N1CCCC1C(=O)NNC(=O)N)NC(=O)C(COC(C)(C)C)NC(=O)C(CC2=CC=C(C=C2)O)NC(=O)C(CO)NC(=O)C(CC3=CNC4=CC=CC=C43)NC(=O)C(CC5=CN=CN5)NC(=O)C6CCC(=O)N6
+Thioridazine,therapeutic,5.19,1,CN1CCCCC1CCN2C3=CC=CC=C3SC4=C2C=C(C=C4)SC
+3-methyl-5-(1-methyl-2-pyrrolidinyl)isoxazole,therapeutic,4.76,1,CC1=NOC(=C1)C2CCCN2C
+Lecithins,therapeutic,4.25,1,
+DP 155,therapeutic,4.22,1,CCCCCCCCCCCCCCCCCC(=O)OCC(COP(=O)([O-])OCC[N+](C)(C)C)OC(=O)CCCCCNC(=O)CC1=C(N(C2=C1C=C(C=C2)OC)C(=O)C3=CC=C(C=C3)Cl)C
+BMS 708163,therapeutic,3.99,1,C1=CC(=CC=C1S(=O)(=O)N(CC2=C(C=C(C=C2)C3=NOC=N3)F)C(CCC(F)(F)F)C(=O)N)Cl
+Trazodone,therapeutic,3.84,1,C1CN(CCN1CCCN2C(=O)N3C=CC=CC3=N2)C4=CC(=CC=C4)Cl
+Maprotiline,therapeutic,2.39,1,CNCCCC12CCC(C3=CC=CC=C31)C4=CC=CC=C24
