@@ -73,42 +73,6 @@ data['drug', 'binds', 'protein'].edge_index = torch.tensor([src, dst], dtype=tor
 data['drug', 'binds', 'protein'].edge_attr = torch.tensor(d_p_weights, dtype=torch.float).view(-1, 1)
 ```
 
-    for i, row in drugs_df.iterrows():
-        d_name = row['Drug Name/Treatment']
-        raw_target_str = str(row['Targeted protein']).strip()
-
-        # Handle multiple targets (e.g. "beta-amyloid, Tau")
-        raw_targets = [t.strip() for t in raw_target_str.replace('and', ',').split(',') if t.strip()]
-
-        for rt in raw_targets:
-            # Determine weight based on specificity
-            if rt.lower() in ['neither', 'nan', 'unknown', 'none', '']:
-                weight = 0.1
-                # For 'Neither', we don't have a specific protein node to bind to.
-                # The 'treats' edge in expand_graph will handle the drug-disease connection.
-                continue
-            elif rt.lower() in ['beta-amyloid', 'tau protein', 'tau']:
-                weight = 0.5
-            else:
-                weight = 1.0 # Specific gene target
-
-            # Apply mapping to proteins present in our PPI graph
-            # Since APP is missing from the TSV, we map amyloid-targeting drugs to BACE1 (the enzyme that creates it)
-            p_target = rt
-            if rt.lower() == 'beta-amyloid': p_target = 'BACE1'
-            if rt.lower() in ['tau', 'tau protein']: p_target = 'MAPT'
-
-            if d_name in d_map and p_target in p_map:
-                src.append(d_map[d_name])
-                dst.append(p_map[p_target])
-                d_p_weights.append(weight)
-            else:
-                if d_name in d_map and rt.lower() not in ['neither', 'nan', 'none']:
-                    print(f"Skipping edge for {d_name}: Target '{p_target}' (from '{rt}') not in protein map.")
-
-    data['drug', 'binds', 'protein'].edge_index = torch.tensor([src, dst], dtype=torch.long)
-    data['drug', 'binds', 'protein'].edge_attr = torch.tensor(d_p_weights, dtype=torch.float).view(-1, 1)
-
     # 5. Protein-Interacts-Protein Edges (PPI)
     p_src, p_dst, p_weights = [], [], []
     for _, row in ppi_df.iterrows():
