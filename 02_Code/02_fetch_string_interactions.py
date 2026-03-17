@@ -34,6 +34,14 @@ def main():
     "IL6", "TNF", "CASP3", "BECN1", "SQSTM1",
     # For multi-disease expansion (Parkinson's)
     "SNCA", "LRRK2", "PRKN", "PINK1", "UCHL1",
+    "A2M", "ADAMTS1", "AMFR", "APOC1", "ARC", "ATP5F1A",
+    "BAX", "BCHE", "BCL2", "CALM1", "CASP3", "CHRNB2",
+    "CRH", "CST3", "CYP2D6", "DHCR24", "EIF2S1", "ENO1",
+    "ESR1", "F2", "HMOX1", "IDE", "IGF1", "IGF1R",
+    "IGF2", "IGF2R", "INS", "INSR", "IQCK", "LEP",
+    "MAOB", "MPO", "NCSTN", "NOS3", "NPY", "PLAU",
+    "PPARG", "PYY", "RELN", "SLC2A4", "SOD2", "TF",
+    "TFAM", "TPI1", "VEGFA", "VSNL1",
 ]
     logging.info(f"Fetching interactions for {len(proteins)} proteins from STRING DB...")
     interactions = fetch_string_interactions(proteins)
