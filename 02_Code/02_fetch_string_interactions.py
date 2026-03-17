@@ -6,7 +6,7 @@ import logging
 # Setup logging
 logging.basicConfig(level=logging.INFO, format='%(levelname)s: %(message)s')
 
-def fetch_string_interactions(proteins, required_score=700):
+def fetch_string_interactions(proteins, required_score=400):
     string_api_url = "https://string-db.org/api/json/network"
     params = {
         "identifiers": "%0d".join(proteins),
@@ -41,7 +41,11 @@ def main():
     if interactions:
         df = pd.DataFrame(interactions)
         # Keep only relevant columns
-        df = df[['preferredName_A', 'preferredName_B', 'score']]
+        cols = ['preferredName_A', 'preferredName_B', 'score',
+                'experimentally_determined_interaction',
+                'database_annotated', 'coexpression',
+                'automated_textmining', 'homology']
+        df = df[[c for c in cols if c in df.columns]]
 
         output_path = '01_Cleaned_Data/ppi_interactions.csv'
         df.to_csv(output_path, index=False)
