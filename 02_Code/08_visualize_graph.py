@@ -19,107 +19,90 @@ def visualize_graph():
     drug_names   = maps['drug_names']
     all_proteins = maps['all_proteins']
     d_map        = maps['d_map']
+    idx_to_drug  = {v: k for k, v in d_map.items()}
 
-    # ── Node color scheme (one color per layer) ───────────────────────────────
-    # Layer 1 — drugs
-    COLOR_DRUG_APPROVED  = '#4A90D9'   # strong blue   — FDA-approved AD drugs
-    COLOR_DRUG_CTD       = '#A8C8F0'   # light blue    — CTD therapeutic drugs
-    COLOR_DRUG_OTHER     = '#D0E8FF'   # very light    — other drugs in library
-    # Layer 2 — proteins
-    COLOR_PROTEIN_CORE   = '#2ECC71'   # strong green  — core AD proteins (MAPT, APP, APOE...)
-    COLOR_PROTEIN_OTHER  = '#A8E6C4'   # light green   — other PPI proteins
-    # Layer 3 — diseases
-    COLOR_DISEASE_AD     = '#E74C3C'   # red           — Alzheimer's Disease
-    COLOR_DISEASE_OTHER  = '#F1948A'   # light red     — other diseases
+    COLOR_DRUG_APPROVED = '#1A6FBF'
+    COLOR_DRUG_CTD      = '#6EB5E8'
+    COLOR_DRUG_OTHER    = '#C2DFF5'
+    COLOR_PROT_CORE     = '#1A8C4E'
+    COLOR_PROT_OTHER    = '#7DCB9F'
+    COLOR_DIS_AD        = '#C0392B'
+    COLOR_DIS_OTHER     = '#E8837C'
 
     CORE_AD_PROTEINS = {
-        'MAPT', 'APP', 'APOE', 'BACE1', 'PSEN1', 'PSEN2',
-        'TREM2', 'CLU', 'BIN1', 'PICALM', 'GSK3B', 'CDK5'
+        'MAPT','APP','APOE','BACE1','PSEN1','PSEN2',
+        'TREM2','CLU','BIN1','PICALM','GSK3B','CDK5',
+        'CASP3','IL1B','TNF','ACHE','GRIN1','CHRNA7'
     }
 
-    # ── Load drug status for color differentiation ────────────────────────────
-    approved_ad_drugs = set()
-    ctd_drugs         = set()
+    approved_ad = set()
+    ctd_drugs   = set()
     try:
         raw = pd.read_csv('00_Raw_Data/drugs_raw_augmented.csv')
         for _, row in raw.iterrows():
             name   = str(row['Drug Name/Treatment']).strip()
             status = str(row.get('Current Status', '')).strip()
             if status == 'Approved':
-                approved_ad_drugs.add(name)
+                approved_ad.add(name)
             elif status == 'CTD-derived':
                 ctd_drugs.add(name)
     except Exception as e:
-        print(f"  Warning: could not load drug status — {e}")
+        print(f"  Warning: {e}")
 
-    # ── Build NetworkX graph ──────────────────────────────────────────────────
+    approved_indices = {d_map[n] for n in approved_ad if n in d_map}
+
     G = nx.Graph()
 
-    # Reverse d_map: index → name
-    idx_to_drug = {v: k for k, v in d_map.items()}
-
-    # Add drug nodes
-    for idx, name in idx_to_drug.items():
-        if name in approved_ad_drugs:
+    all_drug_names_ordered = [idx_to_drug[i] for i in sorted(idx_to_drug.keys())]
+    for name in all_drug_names_ordered:
+        if name in approved_ad:
             color = COLOR_DRUG_APPROVED
         elif name in ctd_drugs:
             color = COLOR_DRUG_CTD
         else:
             color = COLOR_DRUG_OTHER
-        G.add_node(f"D:{name}", layer='drug', color=color,
-                   label=name, node_idx=idx)
+        G.add_node(f"D:{name}", layer='drug', color=color, label=name)
 
-    # Add protein nodes
-    for i, name in enumerate(all_proteins):
-        color = COLOR_PROTEIN_CORE if name in CORE_AD_PROTEINS else COLOR_PROTEIN_OTHER
+    for name in all_proteins:
+        color = COLOR_PROT_CORE if name in CORE_AD_PROTEINS else COLOR_PROT_OTHER
         G.add_node(f"P:{name}", layer='protein', color=color, label=name)
 
-    # Add disease nodes
-    diseases = ['Alzheimer\'s Disease', 'Parkinson\'s Disease', 'ADHD']
-    for i, name in enumerate(diseases):
-        color = COLOR_DISEASE_AD if 'Alzheimer' in name else COLOR_DISEASE_OTHER
+    diseases = ["Alzheimer's Disease", "Parkinson's Disease", "ADHD"]
+    for name in diseases:
+        color = COLOR_DIS_AD if 'Alzheimer' in name else COLOR_DIS_OTHER
         G.add_node(f"DIS:{name}", layer='disease', color=color, label=name)
 
-    # ── Helper: get edge attribute weights ───────────────────────────────────
     def get_weights(etype):
         ea = getattr(data[etype], 'edge_attr', None)
-        if ea is None:
-            return None
-        w = ea.view(-1).numpy()
-        return w
+        return ea.view(-1).numpy() if ea is not None else None
 
-    # ── Drug → Protein edges (weighted by CTD inference score) ───────────────
+    # Drug-protein (approved only)
     ei = data['drug', 'binds', 'protein'].edge_index
     ew = get_weights(('drug', 'binds', 'protein'))
-
-    # Only show edges for approved AD drugs to keep visualization clean
-    approved_indices = {d_map[n] for n in approved_ad_drugs if n in d_map}
-
     for i in range(ei.shape[1]):
         d_idx = ei[0, i].item()
-        p_idx = ei[1, i].item()
         if d_idx not in approved_indices:
             continue
+        p_idx  = ei[1, i].item()
         d_name = idx_to_drug.get(d_idx, str(d_idx))
         p_name = all_proteins[p_idx]
         w = float(ew[i]) if ew is not None else 0.5
         G.add_edge(f"D:{d_name}", f"P:{p_name}",
                    weight=w, etype='binds', color='#5B9BD5')
 
-    # ── Protein → Protein edges (weighted by STRING combined_score) ───────────
-    ei  = data['protein', 'interacts_with', 'protein'].edge_index
-    ew  = get_weights(('protein', 'interacts_with', 'protein'))
-    # Sample every 8th edge to avoid hairball; keep high-confidence ones
-    for i in range(0, ei.shape[1], 8):
+    # PPI high-confidence sampled
+    ei = data['protein', 'interacts_with', 'protein'].edge_index
+    ew = get_weights(('protein', 'interacts_with', 'protein'))
+    for i in range(0, ei.shape[1], 6):
+        w = float(ew[i]) if ew is not None else 0.5
+        if w < 0.65:
+            continue
         p1 = all_proteins[ei[0, i].item()]
         p2 = all_proteins[ei[1, i].item()]
-        w  = float(ew[i]) if ew is not None else 0.5
-        if w < 0.6:          # only show high-confidence PPI
-            continue
         G.add_edge(f"P:{p1}", f"P:{p2}",
                    weight=w, etype='ppi', color='#95D5B2')
 
-    # ── Protein → Disease edges (weighted by DisGeNET DPI score) ─────────────
+    # Protein-disease
     ei = data['protein', 'associated_with', 'disease'].edge_index
     ew = get_weights(('protein', 'associated_with', 'disease'))
     for i in range(ei.shape[1]):
@@ -130,7 +113,7 @@ def visualize_graph():
         G.add_edge(f"P:{p_name}", f"DIS:{dis_name}",
                    weight=w, etype='associated', color='#F4A261')
 
-    # ── Drug → Disease edges (training labels, weight=1.0) ───────────────────
+    # Drug-disease treats
     ei = data['drug', 'treats', 'disease'].edge_index
     for i in range(ei.shape[1]):
         d_idx   = ei[0, i].item()
@@ -140,38 +123,36 @@ def visualize_graph():
         G.add_edge(f"D:{d_name}", f"DIS:{dis_name}",
                    weight=1.0, etype='treats', color='#E63946')
 
-    print(f"  Graph: {G.number_of_nodes()} nodes, {G.number_of_edges()} edges")
-
-
-    # ── Layout: separate layers vertically ────────────────────────────────────
-    # Collect node lists by layer for layout
-    drug_nodes = [n for n, d in G.nodes(data=True) if d.get('layer') == 'drug']
-    protein_nodes = [n for n, d in G.nodes(data=True) if d.get('layer') == 'protein']
-    disease_nodes = [n for n, d in G.nodes(data=True) if d.get('layer') == 'disease']
-
-    # Use spring layout but seed positions by layer for better separation
-    # Compute initial positions — layer-based seeding
+    # ── FIXED HIERARCHICAL LAYOUT ─────────────────────────────────────────────
     pos = {}
-    rng = np.random.RandomState(42)
 
-    # Position drugs closer to the disease cluster, not spread in a ring
-    for i, n in enumerate(drug_nodes):
-        x = 0.3 + 0.7 * (i / max(len(drug_nodes) - 1, 1))
-        pos[n] = (x, 1.5 + rng.uniform(-0.3, 0.3))
+    drug_nodes    = [n for n in G.nodes if G.nodes[n]['layer'] == 'drug']
+    protein_nodes = [n for n in G.nodes if G.nodes[n]['layer'] == 'protein']
+    disease_nodes = [n for n in G.nodes if G.nodes[n]['layer'] == 'disease']
 
-    for i, n in enumerate(protein_nodes):
-        x = 0.2 + 0.6 * (i / max(len(protein_nodes) - 1, 1))
-        pos[n] = (x, 0.8 + rng.uniform(-0.2, 0.2))
+    def drug_sort_key(n):
+        c = G.nodes[n]['color']
+        if c == COLOR_DRUG_APPROVED: return 0
+        if c == COLOR_DRUG_CTD:      return 1
+        return 2
+    drug_nodes    = sorted(drug_nodes, key=drug_sort_key)
+    protein_nodes = sorted(protein_nodes,
+                           key=lambda n: 0 if G.nodes[n]['color'] == COLOR_PROT_CORE else 1)
 
-    for i, n in enumerate(disease_nodes):
-        pos[n] = (0.3 + 0.4 * i, 0.0)
+    def spread(nodes, y, margin=0.02):
+        n = len(nodes)
+        if n == 0:
+            return
+        xs = np.linspace(margin, 1 - margin, n)
+        for node, x in zip(nodes, xs):
+            pos[node] = (x, y)
 
-
-    # Use stronger spring force and more iterations to pull connected nodes together
-    pos = nx.spring_layout(G, pos=pos, k=0.15, iterations=120, seed=42)
+    spread(drug_nodes,    y=2.0)
+    spread(protein_nodes, y=1.0)
+    spread(disease_nodes, y=0.0)
 
     # ── Draw ──────────────────────────────────────────────────────────────────
-    fig, ax = plt.subplots(figsize=(22, 14))
+    fig, ax = plt.subplots(figsize=(28, 12))
     ax.set_facecolor('#F8F9FA')
     fig.patch.set_facecolor('#F8F9FA')
 
@@ -179,74 +160,83 @@ def visualize_graph():
     node_sizes  = []
     for n in G.nodes:
         layer = G.nodes[n]['layer']
+        color = G.nodes[n]['color']
         if layer == 'disease':
-            node_sizes.append(3000)
-        elif layer == 'drug' and G.nodes[n]['color'] == COLOR_DRUG_APPROVED:
-            node_sizes.append(1800)
-        elif layer == 'protein' and G.nodes[n]['color'] == COLOR_PROTEIN_CORE:
-            node_sizes.append(1400)
+            node_sizes.append(3500 if color == COLOR_DIS_AD else 2000)
+        elif layer == 'drug' and color == COLOR_DRUG_APPROVED:
+            node_sizes.append(1200)
+        elif layer == 'protein' and color == COLOR_PROT_CORE:
+            node_sizes.append(900)
+        elif layer == 'drug' and color == COLOR_DRUG_CTD:
+            node_sizes.append(500)
         else:
-            node_sizes.append(800)
+            node_sizes.append(250)
 
-    # Draw edges grouped by type with different thickness and color
-    for etype, base_width, alpha in [
-        ('treats',     4.0, 0.90),
-        ('associated', 2.5, 0.70),
-        ('binds',      2.0, 0.65),
-        ('ppi',        1.0, 0.40),
+    for etype, base_w, alpha in [
+        ('treats',     3.5, 0.85),
+        ('associated', 2.0, 0.65),
+        ('binds',      1.8, 0.60),
+        ('ppi',        0.8, 0.35),
     ]:
         edges  = [(u, v) for u, v, d in G.edges(data=True) if d.get('etype') == etype]
         colors = [G[u][v]['color'] for u, v in edges]
-        widths = [base_width * G[u][v].get('weight', 0.5) for u, v in edges]
+        widths = [base_w * G[u][v].get('weight', 0.5) for u, v in edges]
         if edges:
             nx.draw_networkx_edges(G, pos, edgelist=edges,
                                    edge_color=colors, width=widths,
                                    alpha=alpha, ax=ax)
 
-    # Draw nodes
     nx.draw_networkx_nodes(G, pos, node_color=node_colors,
-                           node_size=node_sizes, alpha=0.95, ax=ax)
+                           node_size=node_sizes, alpha=0.92, ax=ax)
 
-    # Labels — only for important nodes to avoid clutter
     important = (
         {n for n in G.nodes if G.nodes[n]['layer'] == 'disease'} |
         {n for n in G.nodes if G.nodes[n]['color'] == COLOR_DRUG_APPROVED} |
-        {n for n in G.nodes if G.nodes[n]['color'] == COLOR_PROTEIN_CORE}
+        {n for n in G.nodes if G.nodes[n]['color'] == COLOR_PROT_CORE}
     )
     labels = {n: G.nodes[n]['label'] for n in important}
     nx.draw_networkx_labels(G, pos, labels=labels,
-                            font_size=7, font_weight='bold', ax=ax)
+                            font_size=6.5, font_weight='bold', ax=ax)
 
-    # ── Legend ────────────────────────────────────────────────────────────────
+    for y, label in [(2.0, 'Layer 1 — Drugs'),
+                     (1.0, 'Layer 2 — Proteins'),
+                     (0.0, 'Layer 3 — Diseases')]:
+        ax.text(-0.02, y, label, transform=ax.transData,
+                fontsize=9, color='#555', va='center', ha='right', style='italic')
+
+    for y in [0.5, 1.5]:
+        ax.axhline(y, color='#CCCCCC', linewidth=0.8, linestyle='--', alpha=0.5)
+
     legend_elements = [
-        mpatches.Patch(color=COLOR_DRUG_APPROVED,  label='FDA-approved AD drug (Layer 1)'),
-        mpatches.Patch(color=COLOR_DRUG_CTD,       label='CTD therapeutic drug (Layer 1)'),
-        mpatches.Patch(color=COLOR_DRUG_OTHER,     label='Other drug (Layer 1)'),
-        mpatches.Patch(color=COLOR_PROTEIN_CORE,   label='Core AD protein (Layer 2)'),
-        mpatches.Patch(color=COLOR_PROTEIN_OTHER,  label='Other PPI protein (Layer 2)'),
-        mpatches.Patch(color=COLOR_DISEASE_AD,     label="Alzheimer's Disease (Layer 3)"),
-        mpatches.Patch(color=COLOR_DISEASE_OTHER,  label='Other disease (Layer 3)'),
-        plt.Line2D([0],[0], color='#E63946', linewidth=3, label='Drug treats disease'),
-        plt.Line2D([0],[0], color='#F4A261', linewidth=2, label='Protein–disease association'),
-        plt.Line2D([0],[0], color='#5B9BD5', linewidth=2, label='Drug–protein binding'),
-        plt.Line2D([0],[0], color='#95D5B2', linewidth=1, label='Protein–protein interaction'),
+        mpatches.Patch(color=COLOR_DRUG_APPROVED, label='FDA-approved AD drug (Layer 1)'),
+        mpatches.Patch(color=COLOR_DRUG_CTD,      label='CTD therapeutic drug (Layer 1)'),
+        mpatches.Patch(color=COLOR_DRUG_OTHER,    label='Other drug (Layer 1)'),
+        mpatches.Patch(color=COLOR_PROT_CORE,     label='Core AD protein (Layer 2)'),
+        mpatches.Patch(color=COLOR_PROT_OTHER,    label='Other PPI protein (Layer 2)'),
+        mpatches.Patch(color=COLOR_DIS_AD,        label="Alzheimer's Disease (Layer 3)"),
+        mpatches.Patch(color=COLOR_DIS_OTHER,     label='Other disease (Layer 3)'),
+        plt.Line2D([0],[0], color='#E63946', linewidth=3,   label='Drug treats disease'),
+        plt.Line2D([0],[0], color='#F4A261', linewidth=2,   label='Protein–disease association'),
+        plt.Line2D([0],[0], color='#5B9BD5', linewidth=1.5, label='Drug–protein binding'),
+        plt.Line2D([0],[0], color='#95D5B2', linewidth=1,   label='Protein–protein interaction'),
     ]
-    ax.legend(handles=legend_elements, loc='upper left',
+    ax.legend(handles=legend_elements, loc='upper right',
               fontsize=8, framealpha=0.9, ncol=2)
 
     ax.set_title(
         "Heterogeneous Drug–Protein–Disease Interaction Network\n"
-        "Edge thickness ∝ interaction weight  |  "
-        "Node color = biological layer",
+        "Edge thickness ∝ interaction weight  |  Node color = biological layer",
         fontsize=13, fontweight='bold', pad=15
     )
+    ax.set_xlim(-0.12, 1.05)
+    ax.set_ylim(-0.5, 2.6)
     ax.axis('off')
     plt.tight_layout()
 
-    out_path = 'network_visualization.png'
-    plt.savefig(out_path, dpi=150, bbox_inches='tight',
+    out = 'network_visualization.png'
+    plt.savefig(out, dpi=180, bbox_inches='tight',
                 facecolor=fig.get_facecolor())
-    print(f"  Saved → {out_path}")
+    print(f"  Saved → {out}")
     plt.close()
 
 if __name__ == "__main__":
