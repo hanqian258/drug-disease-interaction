@@ -49,14 +49,29 @@ def build_hetero_graph():
     p_map = {p: i for i, p in enumerate(all_proteins)}
     data['protein'].x = torch.eye(len(all_proteins))
 
-    # 4. Drug-Binds-Protein Edges with Confidence Weights
-    # Logic: Specific Gene Target = 1.0, Pathway Target (e.g. beta-amyloid) = 0.5, Unknown/Neither = 0.1
-    src, dst, d_p_weights = [], [], []
-    # Manual mapping for common non-gene targets
-    target_mapping = {
-        'beta-amyloid': 'APP',
-        'tau protein': 'MAPT'
-    }
+# 4. Drug-Binds-Protein Edges — weights from CTD inference scores
+# Load drug_links.csv which now includes inference_score from CTD
+links_df = pd.read_csv('00_Raw_Data/drug_links.csv')
+# Normalize inference scores to [0, 1] — CTD scores typically range 0–100
+max_score = links_df['inference_score'].max()
+links_df['weight'] = links_df['inference_score'] / max_score
+
+src, dst, d_p_weights = [], [], []
+for _, row in links_df.iterrows():
+    d_name = row['drug_name']
+    p_target = row['protein_target']
+    weight = float(row['weight'])
+
+    if d_name in d_map and p_target in p_map:
+        src.append(d_map[d_name])
+        dst.append(p_map[p_target])
+        d_p_weights.append(weight)
+    else:
+        print(f"Skipping: '{d_name}' → '{p_target}' not found in graph.")
+
+data['drug', 'binds', 'protein'].edge_index = torch.tensor([src, dst], dtype=torch.long)
+data['drug', 'binds', 'protein'].edge_attr = torch.tensor(d_p_weights, dtype=torch.float).view(-1, 1)
+```
 
     for i, row in drugs_df.iterrows():
         d_name = row['Drug Name/Treatment']
