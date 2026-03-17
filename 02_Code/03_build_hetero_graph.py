@@ -46,7 +46,6 @@ def build_hetero_graph():
 
     # 3. Process Protein Nodes
     all_proteins = sorted(list(set(ppi_df['preferredName_A'].unique()) | set(ppi_df['preferredName_B'].unique())))
-    p_map = {p: i for i, p in enumerate(all_proteins)}
     data['protein'].x = torch.eye(len(all_proteins))
 
 # 4. Drug-Binds-Protein Edges — weights from CTD inference scores
