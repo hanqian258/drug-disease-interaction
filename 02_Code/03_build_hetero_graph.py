@@ -13,7 +13,7 @@ def build_hetero_graph():
     # New Drug Data
     drugs_df = pd.read_csv('00_Raw_Data/drugs_raw.csv')
     # New PPI Data
-    ppi_df = pd.read_csv('00_Raw_Data/ppi_raw.tsv', sep='\t')
+    ppi_df = pd.read_csv('01_Cleaned_Data/ppi_interactions.csv')
 
     # 2. Process Drug Nodes
     # We'll use the provided vectors if possible, or featurize from SMILES if they are better
@@ -45,7 +45,7 @@ def build_hetero_graph():
     d_map = {name: i for i, name in enumerate(drug_names) if i in valid_drug_indices}
 
     # 3. Process Protein Nodes
-    all_proteins = sorted(list(set(ppi_df['#node1'].unique()) | set(ppi_df['node2'].unique())))
+    all_proteins = sorted(list(set(ppi_df['preferredName_A'].unique()) | set(ppi_df['preferredName_B'].unique())))
     p_map = {p: i for i, p in enumerate(all_proteins)}
     data['protein'].x = torch.eye(len(all_proteins))
 
@@ -112,12 +112,12 @@ data['drug', 'binds', 'protein'].edge_attr = torch.tensor(d_p_weights, dtype=tor
     # 5. Protein-Interacts-Protein Edges (PPI)
     p_src, p_dst, p_weights = [], [], []
     for _, row in ppi_df.iterrows():
-        p1, p2, score = row['#node1'], row['node2'], row['combined_score']
+        p1, p2, score = row['preferredName_A'], row['preferredName_B'], row['score']
         if p1 in p_map and p2 in p_map:
             p_src.extend([p_map[p1], p_map[p2]])
             p_dst.extend([p_map[p2], p_map[p1]])
             # Combined score is often out of 1000 in STRING, normalize to 0-1
-            norm_score = score / 1000.0
+            norm_score = float(score)
             p_weights.extend([norm_score, norm_score])
 
     data['protein', 'interacts_with', 'protein'].edge_index = torch.tensor([p_src, p_dst], dtype=torch.long)
