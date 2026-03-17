@@ -2,7 +2,7 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 from torch_geometric.data import HeteroData
-from torch_geometric.nn import GraphConv, HeteroConv
+from torch_geometric.nn import GraphConv, HeteroConv, SAGEConv
 import os
 import pandas as pd
 from featurizer import DrugFeaturizer
@@ -135,12 +135,11 @@ def run_inference(drug_input, target_protein=None):
     all_proteins = maps['all_proteins']
 
     in_channels_dict = {node_type: data[node_type].x.size(-1) for node_type in data.node_types}
-    hidden_channels = 128
+    hidden_channels = 64
 
     model = HeteroGNN(hidden_channels, hidden_channels, data.node_types, data.edge_types, in_channels_dict)
-    model.load_state_dict(torch.load('01_Cleaned_Data/gnn_model.pt', weights_only=True))
+    model.load_state_dict(torch.load('01_Cleaned_Data/gnn_model_best.pt', weights_only=True))
     model.eval()
-
     predictor = LinkPredictor(hidden_channels, hidden_channels)
     predictor.load_state_dict(torch.load('01_Cleaned_Data/predictor.pt', weights_only=True))
     predictor.eval()
@@ -222,9 +221,16 @@ def run_inference(drug_input, target_protein=None):
 
         # 5. Predict Alzheimer's Interaction
         # Alzheimer's is disease node 0
-        disease_idx = 0
+        maps = torch.load('01_Cleaned_Data/mappings.pt', weights_only=False)
+        dis_map = maps.get('dis_map', None)
+        if dis_map and "Alzheimer's Disease" in dis_map:
+            disease_idx = dis_map["Alzheimer's Disease"]
+        else:
+            disease_idx = 0  # fallback
         edge_label_index = torch.tensor([[drug_idx], [disease_idx]], dtype=torch.long)
-        prob = predictor(x_dict['drug'], x_dict['disease'], edge_label_index).item()
+        prob = torch.sigmoid(
+            predictor(x_dict['drug'], x_dict['disease'], edge_label_index)
+        ).item()
 
         # 6. Biological Metrics
         props = calculate_drug_properties(active_smiles)

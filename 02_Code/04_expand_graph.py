@@ -170,7 +170,13 @@ def expand_graph():
     print(f"  Index check passed: max drug index {ei[0].max().item()} < {n_drugs}")
 
     torch.save(data, '01_Cleaned_Data/expanded_graph.pt')
-    print("\nSaved  01_Cleaned_Data/expanded_graph.pt")
+    print("\nSaved  01_Cleaned_Data/expanded_graph.pt")
+
+    # Update mappings.pt with dis_map
+    maps = torch.load('01_Cleaned_Data/mappings.pt', weights_only=False)
+    maps['dis_map'] = dis_map
+    torch.save(maps, '01_Cleaned_Data/mappings.pt')
+    print(f"  Updated mappings.pt with dis_map: {dis_map}")
 
 if __name__ == "__main__":
     expand_graph()
