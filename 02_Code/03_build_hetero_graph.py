@@ -69,9 +69,9 @@ for _, row in links_df.iterrows():
     else:
         print(f"Skipping: '{d_name}' → '{p_target}' not found in graph.")
 
-data['drug', 'binds', 'protein'].edge_index = torch.tensor([src, dst], dtype=torch.long)
-data['drug', 'binds', 'protein'].edge_attr = torch.tensor(d_p_weights, dtype=torch.float).view(-1, 1)
-```
+
+    data['drug', 'binds', 'protein'].edge_index = torch.tensor([src, dst], dtype=torch.long)
+    data['drug', 'binds', 'protein'].edge_attr = torch.tensor(d_p_weights, dtype=torch.float).view(-1, 1)
 
     # 5. Protein-Interacts-Protein Edges (PPI)
     p_src, p_dst, p_weights = [], [], []

@@ -89,3 +89,66 @@ GRM7,ADHD,0.91
 CACNA1C,ADHD,0.91
 SLC2A9,ADHD,0.74
 THRB,ADHD,0.91
+GRIN1,Alzheimer's Disease,0.83
+GRIN2B,Alzheimer's Disease,0.80
+CHRNA7,Alzheimer's Disease,0.78
+CASP3,Alzheimer's Disease,0.82
+BCL2,Alzheimer's Disease,0.75
+BAX,Alzheimer's Disease,0.76
+HMOX1,Alzheimer's Disease,0.72
+SOD2,Alzheimer's Disease,0.70
+NOS3,Alzheimer's Disease,0.68
+IDE,Alzheimer's Disease,0.74
+NCSTN,Alzheimer's Disease,0.85
+BECN1,Alzheimer's Disease,0.73
+CDK5,Alzheimer's Disease,0.86
+IGF1R,Alzheimer's Disease,0.65
+INSR,Alzheimer's Disease,0.67
+INS,Alzheimer's Disease,0.64
+MMP9,Alzheimer's Disease,0.71
+PLAU,Alzheimer's Disease,0.66
+ESR1,Alzheimer's Disease,0.69
+PPARG,Alzheimer's Disease,0.72
+SQSTM1,Alzheimer's Disease,0.68
+CRH,Alzheimer's Disease,0.60
+CHRNB2,Alzheimer's Disease,0.65
+EIF2S1,Alzheimer's Disease,0.70
+CALM1,Alzheimer's Disease,0.67
+DHCR24,Alzheimer's Disease,0.65
+ENO1,Alzheimer's Disease,0.62
+CR1,Alzheimer's Disease,0.80
+A2M,Alzheimer's Disease,0.72
+CST3,Alzheimer's Disease,0.68
+NPY,Alzheimer's Disease,0.58
+LEP,Alzheimer's Disease,0.60
+SOD2,Parkinson's Disease,0.65
+CASP3,Parkinson's Disease,0.70
+BCL2,Parkinson's Disease,0.68
+BAX,Parkinson's Disease,0.66
+BECN1,Parkinson's Disease,0.72
+CDK5,Parkinson's Disease,0.65
+ADAMTS1,Alzheimer's Disease,0.55
+AMFR,Alzheimer's Disease,0.50
+ARC,Alzheimer's Disease,0.62
+ATP5F1A,Alzheimer's Disease,0.58
+F2,Alzheimer's Disease,0.52
+IGF2,Alzheimer's Disease,0.55
+IGF2R,Alzheimer's Disease,0.53
+IQCK,Alzheimer's Disease,0.60
+MPO,Alzheimer's Disease,0.63
+RELN,Alzheimer's Disease,0.65
+SLC2A4,Alzheimer's Disease,0.55
+TF,Alzheimer's Disease,0.58
+TPI1,Alzheimer's Disease,0.55
+VSNL1,Alzheimer's Disease,0.60
+COL18A1,Alzheimer's Disease,0.50
+PYY,Alzheimer's Disease,0.48
+MMP9,Vascular Dementia,0.78
+NOS3,Vascular Dementia,0.72
+CR1,Parkinson's Disease,0.55
+CHRNA7,Parkinson's Disease,0.60
+GRIN1,Parkinson's Disease,0.58
+CHRNA7,ADHD,0.70
+CHRNB2,ADHD,0.62
+CALM1,ADHD,0.55
+SLC2A4,ADHD,0.50
