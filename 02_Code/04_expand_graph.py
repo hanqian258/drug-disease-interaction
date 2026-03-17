@@ -26,8 +26,7 @@ def expand_graph():
     diseases = [
         "Alzheimer's Disease",
         "Parkinson's Disease",
-        "Frontotemporal Dementia",
-        "Vascular Dementia",
+        "ADHD",
     ]
     data['disease'].x = torch.eye(len(diseases))
     dis_map = {name: i for i, name in enumerate(diseases)}
@@ -80,15 +79,6 @@ def expand_graph():
         ("SLC6A4", "Parkinson's Disease", 0.60),
         ("TNF",    "Parkinson's Disease", 0.65),
         ("IL6",    "Parkinson's Disease", 0.62),
-        # Frontotemporal Dementia
-        ("MAPT",   "Frontotemporal Dementia", 0.97),
-        ("GSK3B",  "Frontotemporal Dementia", 0.70),
-        ("PSEN1",  "Frontotemporal Dementia", 0.65),
-        # Vascular Dementia
-        ("IL6",    "Vascular Dementia", 0.75),
-        ("TNF",    "Vascular Dementia", 0.70),
-        ("PTGS2",  "Vascular Dementia", 0.65),
-        ("APOE",   "Vascular Dementia", 0.72),
     ]
 
     # Load real DisGeNET file if it exists, otherwise use fallback
