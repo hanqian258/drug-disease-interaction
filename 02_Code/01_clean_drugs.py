@@ -17,31 +17,28 @@ def get_smiles(drug_name):
 
 def clean_drug_list(input_path, output_path):
     NAME_CORRECTIONS = {
-    "N2-((2S)-2-(3,5-difluorophenyl)-2-hydroxyethanoyl)-N1-((7S)-5-methyl-6-oxo-6,7-dihydro-5H-dibenzo(b,d)azepin-7-yl)-L-alaninamide": "Semagacestat",
-    "3-methyl-5-(1-methyl-2-pyrrolidinyl)isoxazole": "ABT-418",
-    "BMS 708163": "Avagacestat",
-    "Vitamin D": "Cholecalciferol",
-    "Raloxifene Hydrochloride": "Raloxifene",
-}
+        "N2-((2S)-2-(3,5-difluorophenyl)-2-hydroxyethanoyl)-N1-((7S)-5-methyl-6-oxo-6,7-dihydro-5H-dibenzo(b,d)azepin-7-yl)-L-alaninamide": "Semagacestat",
+        "3-methyl-5-(1-methyl-2-pyrrolidinyl)isoxazole": "ABT-418",
+        "BMS 708163": "Avagacestat",
+        "Vitamin D": "Cholecalciferol",
+        "Raloxifene Hydrochloride": "Raloxifene",
+    }
 
-# Apply before PubChem lookup
-drug_name = NAME_CORRECTIONS.get(drug_name, drug_name)
     logging.info(f"Processing {input_path}...")
     df = pd.read_csv(input_path)
 
-    # Ensure 'smiles' column exists
     if 'smiles' not in df.columns:
         df['smiles'] = None
 
     for idx, row in df.iterrows():
+        drug_name = NAME_CORRECTIONS.get(str(row['name']).strip(), str(row['name']).strip())
         if pd.isna(row['smiles']) or row['smiles'] == '':
-            logging.info(f"Fetching SMILES for {row['name']}...")
-            smiles = get_smiles(row['name'])
+            logging.info(f"Fetching SMILES for {drug_name}...")
+            smiles = get_smiles(drug_name)
             if smiles:
                 df.at[idx, 'smiles'] = smiles
-                logging.info(f"Found SMILES for {row['name']}")
             else:
-                logging.warning(f"Could not find SMILES for {row['name']}")
+                logging.warning(f"Could not find SMILES for {drug_name}")
 
     df.to_csv(output_path, index=False)
     logging.info(f"Saved cleaned data to {output_path}")
@@ -50,7 +47,7 @@ if __name__ == "__main__":
     os.makedirs('01_Cleaned_Data', exist_ok=True)
 
     # Process positive drugs
-    clean_drug_list('00_Raw_Data/positive_drugs.csv', '01_Cleaned_Data/positive_drugs.csv')
+    clean_drug_list('00_Raw_Data/positive_drugs_ctd.csv', '01_Cleaned_Data/positive_drugs.csv')
 
     # Process negative controls
     clean_drug_list('00_Raw_Data/negative_controls.csv', '01_Cleaned_Data/negative_controls.csv')
