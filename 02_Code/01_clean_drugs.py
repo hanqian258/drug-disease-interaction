@@ -31,26 +31,32 @@ def clean_drug_list(input_path, output_path):
         df['smiles'] = None
 
     for idx, row in df.iterrows():
-        drug_name = NAME_CORRECTIONS.get(str(row['name']).strip(), str(row['name']).strip())
-        if pd.isna(row['smiles']) or row['smiles'] == '':
+        name_raw = str(row.get('name', row.get('Drug Name/Treatment', ''))).strip()
+        drug_name = NAME_CORRECTIONS.get(name_raw, name_raw)
+
+        smiles_col = 'smiles' if 'smiles' in df.columns else 'Drug Structure'
+
+        if pd.isna(row[smiles_col]) or str(row[smiles_col]).strip() in ('', 'nan'):
             logging.info(f"Fetching SMILES for {drug_name}...")
             smiles = get_smiles(drug_name)
             if smiles:
-                df.at[idx, 'smiles'] = smiles
+                df.at[idx, smiles_col] = smiles
             else:
                 logging.warning(f"Could not find SMILES for {drug_name}")
 
     df.to_csv(output_path, index=False)
     logging.info(f"Saved cleaned data to {output_path}")
-
 if __name__ == "__main__":
     os.makedirs('01_Cleaned_Data', exist_ok=True)
 
-    # Process positive drugs
+# Process positive drugs
     clean_drug_list('00_Raw_Data/positive_drugs_ctd.csv', '01_Cleaned_Data/positive_drugs.csv')
 
     # Process negative controls
     clean_drug_list('00_Raw_Data/negative_controls.csv', '01_Cleaned_Data/negative_controls.csv')
+
+    # Fill SMILES for CTD-augmented drug file
+    clean_drug_list('00_Raw_Data/drugs_raw_augmented.csv', '00_Raw_Data/drugs_raw_augmented.csv')
 
     # Copy drug_links as it doesn't need SMILES (it uses drug names)
     links = pd.read_csv('00_Raw_Data/drug_links.csv')
