@@ -76,7 +76,7 @@ def visualize_graph():
     plt.figure(figsize=(15, 10))
     pos = nx.spring_layout(G, k=0.15, iterations=20)
 
-    node_colors = [G.nodes[n]['color'] for n in G.nodes]
+    node_colors = [G.nodes[n]['color'] if 'color' in G.nodes[n] else 'gray' for n in G.nodes]
 
     nx.draw(G, pos, with_labels=True, node_color=node_colors, node_size=2000, font_size=8, edge_color='gray', alpha=0.7)
 
