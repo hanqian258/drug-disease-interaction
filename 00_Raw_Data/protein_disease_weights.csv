@@ -1,34 +1,34 @@
 gene_symbol,disease_name,score
-MAPT,Alzhimers,0.96
-APP,Alzhimers,0.96
-APOE,Alzhimers,0.96
-PSEN1,Alzhimers,0.96
-BACE1,Alzhimers,0.96
-PSEN2,Alzhimers,0.87
-TREM2,Alzhimers,0.96
-SNCA,Alzhimers,0.91
-ACHE,Alzhimers,0.91
-BDNF,Alzhimers,0.96
-CLU,Alzhimers,0.91
-GSK3B,Alzhimers,0.91
-BCHE,Alzhimers,0.96
-TNF,Alzhimers,1
-SORL1,Alzhimers,0.87
-IL1B,Alzhimers,1
-ACE,Alzhimers,0.96
-BIN1,Alzhimers,0.91
-PICALM,Alzhimers,0.83
-ABCA7,Alzhimers,0.83
-AGER,Alzhimers,0.91
-TOMM40,Alzhimers,0.87
-IGF1,Alzhimers,0.96
-GRN,Alzhimers,0.96
-PPARG,Alzhimers,0.96
-ADAM10,Alzhimers,0.91
-CD33,Alzhimers,0.87
-TTR,Alzhimers,0.91
-APOC1,Alzhimers,0.78
-NECTIN2,Alzhimers,0.83
+MAPT,Alzheimer's Disease,0.96
+APP,Alzheimer's Disease,0.96
+APOE,Alzheimer's Disease,0.96
+PSEN1,Alzheimer's Disease,0.96
+BACE1,Alzheimer's Disease,0.96
+PSEN2,Alzheimer's Disease,0.87
+TREM2,Alzheimer's Disease,0.96
+SNCA,Alzheimer's Disease,0.91
+ACHE,Alzheimer's Disease,0.91
+BDNF,Alzheimer's Disease,0.96
+CLU,Alzheimer's Disease,0.91
+GSK3B,Alzheimer's Disease,0.91
+BCHE,Alzheimer's Disease,0.96
+TNF,Alzheimer's Disease,1
+SORL1,Alzheimer's Disease,0.87
+IL1B,Alzheimer's Disease,1
+ACE,Alzheimer's Disease,0.96
+BIN1,Alzheimer's Disease,0.91
+PICALM,Alzheimer's Disease,0.83
+ABCA7,Alzheimer's Disease,0.83
+AGER,Alzheimer's Disease,0.91
+TOMM40,Alzheimer's Disease,0.87
+IGF1,Alzheimer's Disease,0.96
+GRN,Alzheimer's Disease,0.96
+PPARG,Alzheimer's Disease,0.96
+ADAM10,Alzheimer's Disease,0.91
+CD33,Alzheimer's Disease,0.87
+TTR,Alzheimer's Disease,0.91
+APOC1,Alzheimer's Disease,0.78
+NECTIN2,Alzheimer's Disease,0.83
 SNCA,Parkinson Disease,0.91
 LRRK2,Parkinson Disease,0.87
 PRKN,Parkinson Disease,0.91
