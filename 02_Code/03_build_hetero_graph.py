@@ -47,8 +47,13 @@ def build_hetero_graph():
     data['drug'].x = torch.cat(drug_embeds, dim=0)
 
     # Map drug names to indices
-    d_map = {name: i for i, name in enumerate(drug_names) if i in valid_drug_indices}
-    print(f"  Drug nodes: {len(d_map)}")
+    # Build d_map using sequential position in drug_embeds, not original dataframe index
+        d_map = {}
+        embed_position = 0
+        for i, row in drugs_df.iterrows():
+            if i in valid_drug_indices:
+                d_map[row['Drug Name/Treatment']] = embed_position
+                embed_position += 1
 
     # 3. Process Protein Nodes
     all_proteins = sorted(
