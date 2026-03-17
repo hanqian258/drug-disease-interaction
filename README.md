@@ -40,9 +40,9 @@ pip install torch torch-geometric pandas rdkit scikit-learn matplotlib networkx
 - `02_Code/`:
   - `03_build_hetero_graph.py`: Constructs the heterogeneous graph.
   - `04_expand_graph.py`: Adds disease nodes and associations.
-  - `05_train_gcn.py`: Trains the HeteroGNN for link prediction.
-  - `06_inference.py`: **Main Tool** for predicting drug interactions.
-  - `07_visualize_graph.py`: Generates the network visualization.
+  - `06_train_gcn.py`: Trains the HeteroGNN for link prediction.
+  - `07_inference.py`: **Main Tool** for predicting drug interactions.
+  - `08_visualize_graph.py`: Generates the network visualization.
 - `99_ISEF_Docs/`: Technical reports and result logs.
 
 ## 🔍 Accessing the Network & Predictions
