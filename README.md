@@ -5,7 +5,7 @@
 ## Network Visualization
 The model operates on a complex biological network connecting drugs, proteins, and diseases. Below is a visual representation of the core network (Created via Cytoscape):
 
-<iframe src="file:///Users/kellychang/Downloads/web_session/index.html#/" width="600" height="400"></iframe>
+<img src="network_visualization.graphml.jpeg" alt="Network Visualization" width="300" height="200">
 
 ## Interactive Demo
 Try the model live without installations -- 
