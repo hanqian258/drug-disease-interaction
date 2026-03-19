@@ -83,8 +83,7 @@ drug-disease-interaction/
 │   ├── kfold_results.txt                # 5-fold AUC per fold + mean ± std
 │   ├── results_validation.txt           # Full 4-section results report
 │   └── discovery_candidates.csv        # Ranked repurposing candidates with scores
-│
-├── network_visualization.png            # Poster-ready network visualization
+│          
 ├── network_visualization.graphml        # Cytoscape import file
 ├── Drug_Discovery_GNN_Demo.ipynb        # Google Colab live demo notebook
 └── README.md
