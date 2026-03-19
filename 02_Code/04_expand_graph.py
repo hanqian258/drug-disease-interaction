@@ -27,6 +27,9 @@ def expand_graph():
         "Alzheimer's Disease",
         "Parkinson's Disease",
         "ADHD",
+        "Bipolar Disorder",
+        "ALS",
+        "Dementia",
     ]
     data['disease'].x = torch.eye(len(diseases))
     dis_map = {name: i for i, name in enumerate(diseases)}
