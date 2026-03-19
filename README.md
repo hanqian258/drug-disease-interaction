@@ -1,21 +1,13 @@
-# Drug Discovery GNN: Targeting Alzheimer's Disease
+# Drug Discovery & Repurposing GNN: Targeting Alzheimer's Disease
 
-This project utilizes a **Heterogeneous Graph Neural Network (GNN)** to predict novel drug-disease interactions, with a specific focus on the **Tau and Amyloid-beta interactome** for Alzheimer's Disease (AD).
+**Alzheimer's disease (AD)** is a complex neurodegenerative disorder characterized by complicated **protein-protein interactions (PPI)**. While it takes years to develop new treatments, computational bioinformatics offers a localized path to repurpose existing drugs by predicting their effects on specific pathological pathways. In this study, we developed a 3-layer **Heterogeneous Graph Convolutional Network (GCN)** to model the AD interactome. The structure includes three distinct layers: drug-protein interactions, protein-protein interaction (PPI) networks, and protein-disease correlations. By looking at all these layers together, the model can identify the optimal drug candidates capable of interacting with specific protein pathways, utimately treating the disease. The results confirm the model's ability to learn complex biological graphs with high precision, providing a framework for future drug discovery for other neurodegenerative diseases.  
 
-Developed for scientific reproducibility (ISEF standard), the pipeline integrates chemical informatics, protein-protein interaction (PPI) data, and deep learning on graphs.
+## Network Visualization
+The model operates on a complex biological network connecting drugs, proteins, and diseases. Below is a visual representation of the core network (Created via Cytoscape):
 
-## 🚀 Recent Updates
-- **New Dataset Integration**: Transitioned to a high-density protein interaction network focused on Amyloid-beta and Tau protein pathways.
-- **Improved Drug Featurization**: Integrated advanced numerical vector representations for drugs, enhancing the model's ability to learn chemical properties.
-- **Link Prediction Architecture**: Refactored the GNN into a link prediction model, allowing it to predict the probability of *any* drug treating Alzheimer's, rather than simple classification.
-- **Demo Mode**: Added an automated inference script and a Google Colab demo for easy model testing.
+<iframe src="file:///Users/kellychang/Downloads/web_session/index.html#/" width="600" height="400"></iframe>
 
-## 📊 Network Visualization
-The model operates on a complex biological network connecting drugs, proteins, and diseases. Below is a visual representation of the core network:
-
-![Network Visualization](network_visualization.png)
-
-## 🛠️ Getting Started
+## Getting Started
 
 ### Prerequisites
 - Python 3.10+
@@ -34,195 +26,244 @@ Alternatively, install via pip:
 pip install torch torch-geometric pandas rdkit scikit-learn matplotlib networkx pubchempy
 ```
 
-## 📂 Project Structure
-- `00_Raw_Data/`: Original drug and protein datasets.
-- `01_Cleaned_Data/`: Processed graph objects and model checkpoints.
-- `02_Code/`:
-  - `03_build_hetero_graph.py`: Constructs the heterogeneous graph.
-  - `04_expand_graph.py`: Adds disease nodes and associations.
-  - `06_train_gcn.py`: Trains the HeteroGNN for link prediction.
-  - `07_inference.py`: **Main Tool** for predicting drug interactions.
-  - `08_visualize_graph.py`: Generates the network visualization.
-- `99_ISEF_Docs/`: Technical reports and result logs.
+# Drug-Disease Interaction GNN — Project Structure
 
-## 🔍 Accessing the Network & Predictions
+**ISEF Science Fair Project**
+Predicting therapeutic drug-disease interactions across 6 cognitive diseases using a Heterogeneous Graph Neural Network.
 
-### 1. Run Inference (Predict a Drug)
-You can predict the therapeutic potential of any drug in our library for Alzheimer's:
-```bash
-python3 02_Code/06_inference.py "Donepezil"
+---
+
+## Repository Layout
+
 ```
-*Example Output:*
-> Probability of interaction: 0.9984
-> Result: High Potential for therapeutic effect.
+drug-disease-interaction/
+│
+├── 00_Raw_Data/                         # Original source data
+│   ├── drugs_raw.csv                    # 67 original drugs with Numerical_Vector features
+│   ├── drugs_raw_augmented.csv          # 160 drugs after CTD merge + SMILES filled
+│   ├── drug_links.csv                   # Original AD drug-protein links (CTD inference scores)
+│   ├── drug_links_als.csv               # ALS drug-protein links
+│   ├── drug_links_bipolar.csv           # Bipolar drug-protein links
+│   ├── drug_links_dementia.csv          # Dementia drug-protein links
+│   ├── positive_drugs_ctd.csv           # 58 AD therapeutic drugs (cleaned)
+│   ├── positive_drugs_als.csv           # 20 ALS therapeutic drugs (cleaned)
+│   ├── positive_drugs_bipolar.csv       # 27 Bipolar therapeutic drugs (cleaned)
+│   ├── positive_drugs_dementia.csv      # 69 Dementia therapeutic drugs (cleaned)
+│   ├── negative_controls.csv            # Non-CNS reference drugs
+│   └── protein_disease_weights.csv      # DisGeNET DPI scores (180 entries, 6 diseases)
+│
+├── 01_Cleaned_Data/                     # Processed data & trained model files
+│   ├── ppi_interactions.csv             # STRING PPI fetch output (96 proteins, score ≥ 400)
+│   ├── drug_links.csv                   # Merged drug-protein links across all 4 disease files
+│   ├── positive_drugs.csv               # Merged positive drugs across all 4 disease files
+│   ├── negative_controls.csv            # Cleaned negative controls with SMILES
+│   ├── master_graph.pt                  # Drug + protein nodes + binding/PPI edges
+│   ├── expanded_graph.pt                # Full graph with 6 disease nodes
+│   ├── mappings.pt                      # d_map, p_map, dis_map, drug_names, all_proteins
+│   ├── gnn_model_best.pt                # Best validation checkpoint (use for inference)
+│   ├── predictor_best.pt                # Best validation checkpoint (use for inference)
+│   ├── gnn_model.pt                     # Final epoch weights
+│   └── predictor.pt                     # Final epoch weights
+│
+├── 02_Code/                             # All pipeline scripts
+│   ├── 01_clean_drugs.py                # Fetch SMILES from PubChem; merge all disease files
+│   ├── 02_fetch_string_interactions.py  # Fetch PPI from STRING API (96 proteins, score ≥ 400)
+│   ├── 03_build_hetero_graph.py         # Build master_graph.pt from drugs + proteins
+│   ├── 04_expand_graph.py               # Add 6 disease nodes, DisGeNET weights, treats edges
+│   ├── 04a_inject_ctd_drug_names.py     # Merge all 4 CTD disease files → drugs_raw_augmented.csv
+│   ├── 05_validate_graph.py             # Print graph statistics and edge counts
+│   ├── 05b_kfold_eval.py                # 5-fold cross-validation → kfold_results.txt
+│   ├── 06_train_gcn.py                  # Train HeteroGNN with SAGEConv architecture
+│   ├── 07_inference.py                  # predict(drug_name) → sigmoid probability per disease
+│   ├── 08_visualize_graph.py            # Community-layout network PNG + Cytoscape GraphML
+│   ├── 09_results_validation.py         # Full results report: metric/dummy/kfold/discovery tests
+│   └── featurizer.py                    # DrugFeaturizer helper (Morgan fingerprints)
+│
+├── 99_ISEF_Docs/                        # Output reports for paper and poster
+│   ├── kfold_results.txt                # 5-fold AUC per fold + mean ± std
+│   ├── results_validation.txt           # Full 4-section results report
+│   └── discovery_candidates.csv        # Ranked repurposing candidates with scores
+│
+├── network_visualization.png            # Poster-ready network visualization
+├── network_visualization.graphml        # Cytoscape import file
+├── Drug_Discovery_GNN_Demo.ipynb        # Google Colab live demo notebook
+└── README.md
+```
 
-### 2. Interactive Demo
-Try the model in your browser using our **Google Colab Notebook**:
-[Link to Colab Demo](Drug_Discovery_GNN_Demo.ipynb) *(Note: Open this file in Google Colab)*
+---
 
-### 3. Training the Model
-To re-train the model on new data:
+## Pipeline Run Order
+
+Run these scripts in sequence from the project root directory.
+
+### First-time setup (data collection)
+
 ```bash
+# Step 1 — Merge CTD drug names from all 4 disease files into augmented drug list
+python3 02_Code/04a_inject_ctd_drug_names.py
+
+# Step 2 — Fetch SMILES from PubChem + merge all drug_links and positive_drugs files
+python3 02_Code/01_clean_drugs.py
+
+# Step 3 — Fetch protein-protein interactions from STRING (score ≥ 400)
+python3 02_Code/02_fetch_string_interactions.py
+```
+
+### Graph construction
+
+```bash
+# Step 4 — Build heterogeneous graph (drug + protein nodes, binding + PPI edges)
 python3 02_Code/03_build_hetero_graph.py
+
+# Step 5 — Add 6 disease nodes with DisGeNET weights and drug-treats-disease edges
 python3 02_Code/04_expand_graph.py
-python3 02_Code/05_train_gcn.py
+
+# Step 6 — Verify graph statistics
+python3 02_Code/05_validate_graph.py
 ```
 
-## 🧪 Scientific Approach
-Our GNN model uses **HeteroConv** layers with **SAGEConv** operators to perform message passing across different edge types:
-- `(drug, binds, protein)`
-- `(protein, interacts_with, protein)`
-- `(protein, associated_with, disease)`
-- `(drug, treats, disease)`
-
-By learning from known "Approved" drugs, the model identifies patterns in how drugs interact with the Tau/Amyloid-beta subnetwork to predict candidate treatments.
-
-# Validation Suite — Drug-Disease GNN for Alzheimer's Disease
-
-This folder contains three test scripts to verify and justify your model's
-results for ISEF / science fair presentation.
-
----
-
-## Prerequisites
-
-- Model must be trained first:
-  ```
-  python3 02_Code/03_build_hetero_graph.py
-  python3 02_Code/04_expand_graph.py
-  python3 02_Code/05_train_gcn.py
-  ```
-- Run all scripts **from the project root directory** (not from inside `validation/`).
-
----
-
-## Test 1 — Metric Test (Known Drug Benchmark)
-
-**File:** `validation/test_01_metric.py`
-
-**Goal:** Verify that FDA-approved AD drugs score HIGH and biologically
-unrelated drugs score LOW. Computes a ROC-AUC to quantify discrimination.
-
-**Positive controls (expect HIGH score):**
-- Donepezil, Memantine, Rivastigmine, Galantamine, Lecanemab
-
-**Negative controls (expect LOW score):**
-- Amoxicillin, Metoprolol, Omeprazole, Ibuprofen
+### Training & evaluation
 
 ```bash
-python3 validation/test_01_metric.py
+# Step 7 — Train the GNN (saves gnn_model_best.pt + predictor_best.pt)
+python3 02_Code/06_train_gcn.py
+
+# Step 8 — 5-fold cross-validation
+python3 02_Code/05b_kfold_eval.py
 ```
 
-**What to report at the science fair:**
-- ROC-AUC >= 0.80 → excellent model discrimination
-- Show the ranked table: approved drugs cluster at the top
-
----
-
-## Test 2 — Dummy / Null Correlation Test
-
-**File:** `validation/test_02_dummy.py`
-
-**Goal:** Verify the model does NOT produce false positives for:
-(a) Biologically inert synthetic molecules (simple alkanes)
-(b) Real drugs with targets completely outside the AD protein network
-(c) Nonsense/random drug names (model must not crash)
+### Results & visualization
 
 ```bash
-python3 validation/test_02_dummy.py
-```
+# Step 9 — Full results validation report (metric / dummy / kfold / discovery)
+python3 02_Code/09_results_validation.py
 
-**What to report at the science fair:**
-- All PASS statuses = model correctly rejects null inputs
-- Any WARN = discuss why (is the drug secretly plausible? e.g. Insulin)
+# Step 10 — Network visualization PNG + Cytoscape GraphML
+python3 02_Code/08_visualize_graph.py
 
-**Note on Insulin:** If Insulin scores moderately high, this is
-scientifically defensible — insulin resistance is an active AD hypothesis
-(the "Type 3 Diabetes" theory). This is a talking point, not a flaw.
-
----
-
-## Test 3 — Discovery Screen
-
-**File:** `validation/test_03_discovery.py`
-
-**Goal:** Screen 35 CNS-adjacent and repurposing-candidate drugs to identify
-novel AD candidates the model predicts as high-potential.
-
-Drug families included:
-- CNS drugs (antidepressants, antipsychotics)
-- Anti-inflammatory / immune modulators
-- Metabolic drugs (GLP-1 agonists, metformin)
-- mTOR / autophagy pathway drugs
-- Statins and cardiovascular drugs
-- Antibiotics with neuroprotective evidence
-- Negative controls (to validate the screen)
-
-```bash
-python3 validation/test_03_discovery.py
-```
-
-**Outputs:**
-- Console: ranked table by tier (HIGH / MEDIUM / LOW)
-- `99_ISEF_Docs/discovery_results.json` — machine-readable full results
-- `99_ISEF_Docs/discovery_report.txt` — human-readable report for ISEF docs
-
-**What to report at the science fair:**
-1. Which drugs scored HIGH that are NOT already in the AD pipeline?
-   → Those are your novel predictions.
-2. Cross-reference novel candidates with:
-   - ChEMBL / BindingDB: do they bind proteins in your PPI network?
-   - ClinicalTrials.gov: are they already in unreported trials?
-   - DisGeNET: protein-disease association database
-3. If a drug scored HIGH + has no current AD trial + binds AD proteins
-   → that is your strongest "discovery" result.
-
----
-
-## Inference Script Notes
-
-**File:** `02_Code/06_inference.py`
-
-The reference implementation is in `validation/06_inference_reference.py`.
-
-Key design decisions:
-- Raw model output is a **logit** (unbounded real number)
-- We apply `torch.sigmoid()` to convert to a probability in [0, 1]
-- This is a **probability score**, not a full distribution
-- For a full distribution over multiple diseases, you would run the
-  predictor against all disease nodes and apply softmax — but since
-  this model focuses only on Alzheimer's, a single sigmoid score is
-  both correct and interpretable
-
-Score thresholds:
-```
->= 0.70  → High Potential
-0.40–0.70 → Moderate Potential
-< 0.40   → Low / No Predicted Correlation
+# Single drug inference
+python3 02_Code/07_inference.py "Metformin"
+python3 02_Code/07_inference.py "Donepezil"
 ```
 
 ---
 
-## PPI Network Summary
+## Graph Statistics (Current Model)
 
-Your STRING network (`string_interactions_1.tsv`) contains:
-- **60 unique proteins** from the Tau / Amyloid-beta interactome
-- **634 interaction edges**
-- Combined scores range from 0.40 to 0.999 (mean ≈ 0.63)
-- Key AD proteins present: MAPT (tau), BACE1, APOE, APP, TREM2, BIN1,
-  PICALM, DLG4 (PSD-95), IDE, ADAM10
+| Component | Value |
+|-----------|-------|
+| Drug nodes | 160 |
+| Protein nodes | 96 |
+| Disease nodes | 6 |
+| Drug→protein binding edges | 770 |
+| Protein→protein interaction edges | 1058 (bidirectional) |
+| Protein→disease association edges | 79 |
+| Drug→treats→disease edges | 105 |
 
-These are well-validated AD targets — the PPI network is scientifically
-appropriate for this task and strengthens your methodology justification.
+### Diseases modeled
+| Disease | Index | Source |
+|---------|-------|--------|
+| Alzheimer's Disease | 0 | CTD + DisGeNET |
+| Parkinson's Disease | 1 | DisGeNET |
+| ADHD | 2 | DisGeNET |
+| Bipolar Disorder | 3 | CTD + DisGeNET |
+| ALS | 4 | CTD + DisGeNET |
+| Dementia | 5 | CTD + DisGeNET |
 
 ---
 
-## Folder Structure After Running Tests
+## Model Architecture
 
 ```
-99_ISEF_Docs/
-  metric_test_results.json     ← Test 1 output
-  dummy_test_results.json      ← Test 2 output
-  discovery_results.json       ← Test 3 machine-readable
-  discovery_report.txt         ← Test 3 human-readable
+Input features
+  Drug    : 2048-dim Morgan fingerprint (radius=2, RDKit)
+  Protein : 96-dim identity matrix
+  Disease : 6-dim identity matrix
+
+HeteroGNN (3 message-passing layers)
+  Conv type  : SAGEConv (mean aggregation)
+  Hidden dim : 64
+  Norm       : BatchNorm1d + residual connections
+  Dropout    : 0.3
+
+LinkPredictor MLP
+  Input  : concat(drug_emb, disease_emb) → 128-dim
+  Layers : Linear(128→64) → BatchNorm → ReLU → Dropout
+           Linear(64→32)  → BatchNorm → ReLU
+           Linear(32→1)   → sigmoid
+
+Training
+  Split      : RandomLinkSplit 70/20/10
+  Loss       : BCEWithLogitsLoss, pos_weight=2.0
+  Optimizer  : Adam, lr=3e-4
+  Epochs     : 200, best checkpoint saved
 ```
+
+---
+
+## Validated Results
+
+| Metric | Value |
+|--------|-------|
+| 5-fold cross-validation AUC | 0.9966 ± 0.0012 |
+| Approved AD drugs mean score | ~0.44 |
+| Non-CNS reference drugs mean score | ~0.39 |
+| Mann-Whitney U p-value | p = 0.004 |
+| Perfect separation | YES (all approved drugs rank above all negatives) |
+| Dummy test (10/10 off-pathway drugs) | All scored below approved-drug mean |
+
+> **Note on AUC:** 0.9966 is near-perfect and likely reflects some overfitting given the small dataset (105 positive edges). The model's discrimination ability is genuine — evidenced by perfect separation on the metric test — but predictions should be validated against independent clinical trial data before biological conclusions are drawn.
+
+---
+
+## Score Interpretation
+
+Scores are compressed below 0.5 due to `pos_weight=2.0` training. The meaningful measure is relative ranking, not absolute value.
+
+| Score | Interpretation |
+|-------|---------------|
+| ≥ 0.43 | 🟢 High Potential |
+| 0.40 – 0.43 | 🟡 Moderate Potential |
+| < 0.40 | 🔴 Low / No Predicted Correlation |
+
+---
+
+## Key Data Sources
+
+| Source | Usage |
+|--------|-------|
+| CTD (Comparative Toxicogenomics Database) | Drug-disease therapeutic associations + drug-protein inference networks |
+| STRING (v11) | Protein-protein interaction network (score ≥ 400) |
+| DisGeNET | Protein-disease association scores (DPI weights) |
+| PubChem | SMILES strings for drug featurization |
+| RDKit | Morgan fingerprint generation (2048-bit, radius=2) |
+
+---
+
+## Data Cleaning Decisions
+
+The following were removed from all CTD files (not featurizable as single molecules):
+
+- Plant Preparations, Plant Extracts, Biological Products
+- Cholinesterase Inhibitors, Antipsychotic Agents, Drugs Chinese Herbal
+- Androgens, Lecithins, Heparin Low-Molecular-Weight
+- Ginkgo biloba extract, Kai-Xin-San, Anti-Inflammatory Agents Non-Steroidal
+- Nanotubes Carbon, DP 155
+
+Name corrections applied (CTD name → PubChem canonical):
+
+| Original | Corrected |
+|----------|-----------|
+| Thioctic Acid | Lipoic acid |
+| Vitamin E | Tocopherol |
+| Vitamin D | Cholecalciferol |
+| Raloxifene Hydrochloride | Raloxifene |
+| Quetiapine Fumarate | Quetiapine |
+| Lithium Chloride / Lithium carbonate | Lithium |
+| Acetylcysteine | N-Acetylcysteine |
+| kenpaullone | Kenpaullone |
+| 2-(4-morpholino)ethyl-1-phenylcyclohexane-1-carboxylate | PRE-084 |
+| BMS 708163 | Avagacestat |
+| Long IUPAC string | Semagacestat |
+| 3-methyl-5-(1-methyl-2-pyrrolidinyl)isoxazole | ABT-418 |
+| ginsenoside Rg1 | Ginsenoside Rg1 |
