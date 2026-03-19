@@ -7,6 +7,16 @@ The model operates on a complex biological network connecting drugs, proteins, a
 
 <iframe src="file:///Users/kellychang/Downloads/web_session/index.html#/" width="600" height="400"></iframe>
 
+## Interactive Demo
+Try the model live without installations: 
+
+Run on Google Colab or Jupyter Notebook: 
+```bash
+git clone https://github.com/hanqian258/drug-disease-interaction.git
+cd drug-disease-interaction
+jupyter notebook Drug_Discovery_GNN_Demo.ipynb
+```
+
 ## Getting Started
 
 ### Prerequisites
