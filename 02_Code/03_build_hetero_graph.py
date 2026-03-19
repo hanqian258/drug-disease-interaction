@@ -6,12 +6,45 @@ from torch_geometric.data import HeteroData
 from featurizer import DrugFeaturizer
 import ast
 
+try:
+    from rdkit.Chem import rdFingerprintGenerator
+except Exception:
+    rdFingerprintGenerator = None
+
+
+def _build_morgan_fingerprint(mol, n_bits=2048, radius=2):
+    """Use modern MorganGenerator when available; fall back for older RDKit."""
+    if rdFingerprintGenerator is not None:
+        generator = rdFingerprintGenerator.GetMorganGenerator(
+            radius=radius,
+            fpSize=n_bits,
+        )
+        return generator.GetFingerprint(mol)
+
+    from rdkit.Chem import AllChem
+    return AllChem.GetMorganFingerprintAsBitVect(mol, radius, nBits=n_bits)
+
 def build_hetero_graph():
     print("--- Building Heterogeneous Graph (Updated Data) ---")
 
     # 1. Load Data
     drugs_df = pd.read_csv('00_Raw_Data/drugs_raw_augmented.csv')
     ppi_df   = pd.read_csv('01_Cleaned_Data/ppi_interactions.csv')
+    # Normalize drug names to match drug_links.csv
+    NAME_CORRECTIONS = {
+        '3-methyl-5-(1-methyl-2-pyrrolidinyl)isoxazole': 'ABT-418',
+        'Acetylsalicylic acid (aspirin)':                 'Acetylsalicylic acid',
+        'BMS 708163':                                     'Avagacestat',
+        'Vitamin D':                                      'Cholecalciferol',
+        'Lithium Chloride':                               'Lithium',
+        'Lithium carbonate':                              'Lithium',
+        'Raloxifene Hydrochloride':                       'Raloxifene',
+    }
+    drugs_df['Drug Name/Treatment'] = drugs_df['Drug Name/Treatment'].apply(
+        lambda n: NAME_CORRECTIONS.get(str(n).strip(), str(n).strip())
+    )
+    # Drop duplicates that arise from multiple names mapping to same corrected name
+    drugs_df = drugs_df.drop_duplicates(subset=['Drug Name/Treatment']).reset_index(drop=True)
 
     # 2. Process Drug Nodes
     drug_names = drugs_df['Drug Name/Treatment'].tolist()
@@ -30,10 +63,9 @@ def build_hetero_graph():
             smiles = str(row.get('Drug Structure', '')).strip()
             if smiles and smiles != 'nan':
                 from rdkit import Chem
-                from rdkit.Chem import AllChem
                 mol = Chem.MolFromSmiles(smiles)
                 if mol:
-                    fp = AllChem.GetMorganFingerprintAsBitVect(mol, 2, nBits=2048)
+                    fp = _build_morgan_fingerprint(mol, n_bits=2048, radius=2)
                     drug_embeds.append(
                         torch.tensor(list(fp), dtype=torch.float).view(1, -1)
                     )
@@ -65,7 +97,7 @@ def build_hetero_graph():
     print(f"  Protein nodes: {len(all_proteins)}")
 
     # 4. Drug-Binds-Protein Edges — weights from CTD inference scores
-    links_df = pd.read_csv('00_Raw_Data/drug_links.csv')
+    links_df = pd.read_csv('01_Cleaned_Data/drug_links.csv')
     max_score = links_df['inference_score'].max()
     links_df['weight'] = links_df['inference_score'] / max_score
 

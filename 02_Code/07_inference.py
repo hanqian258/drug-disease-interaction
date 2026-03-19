@@ -30,6 +30,11 @@ import torch.nn as nn
 from rdkit import Chem
 from rdkit.Chem import AllChem, Descriptors
 
+try:
+    from rdkit.Chem import rdFingerprintGenerator
+except Exception:
+    rdFingerprintGenerator = None
+
 # ── Model architecture — must match 06_train_gcn.py exactly ──────────────────
 
 class HeteroGNN(nn.Module):
@@ -108,7 +113,11 @@ def get_morgan_fp(smiles: str):
     mol = Chem.MolFromSmiles(smiles)
     if mol is None:
         return None
-    fp = AllChem.GetMorganFingerprintAsBitVect(mol, 2, nBits=2048)
+    if rdFingerprintGenerator is not None:
+        generator = rdFingerprintGenerator.GetMorganGenerator(radius=2, fpSize=2048)
+        fp = generator.GetFingerprint(mol)
+    else:
+        fp = AllChem.GetMorganFingerprintAsBitVect(mol, 2, nBits=2048)
     return torch.tensor(list(fp), dtype=torch.float).view(1, -1)
 
 

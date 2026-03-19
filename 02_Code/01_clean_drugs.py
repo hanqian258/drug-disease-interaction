@@ -1,7 +1,13 @@
 import pandas as pd
-import pubchempy as pcp
 import os
 import logging
+
+try:
+    import pubchempy as pcp
+except ModuleNotFoundError:
+    pcp = None
+
+_MISSING_PUBCHEMPY_WARNED = False
 
 logging.basicConfig(level=logging.INFO, format='%(levelname)s: %(message)s')
 
@@ -34,6 +40,15 @@ NAME_CORRECTIONS = {
 
 def get_smiles(drug_name: str) -> str | None:
     """Fetch canonical SMILES from PubChem by drug name."""
+    global _MISSING_PUBCHEMPY_WARNED
+    if pcp is None:
+        if not _MISSING_PUBCHEMPY_WARNED:
+            logging.warning(
+                "pubchempy is not installed; skipping PubChem lookup for missing SMILES. "
+                "Install with: pip install pubchempy"
+            )
+            _MISSING_PUBCHEMPY_WARNED = True
+        return None
     try:
         results = pcp.get_compounds(drug_name, 'name')
         if results:
@@ -72,7 +87,8 @@ def clean_drug_list(input_path: str, output_path: str) -> None:
     # Ensure smiles column exists
     if smiles_col not in df.columns:
         df[smiles_col] = None
-        df[smiles_col] = df[smiles_col].astype(object)
+    # pandas may infer float dtype for mostly-missing columns; force object for SMILES strings
+    df[smiles_col] = df[smiles_col].astype(object)
 
     for idx, row in df.iterrows():
         # Apply name correction
@@ -176,16 +192,46 @@ def merge_positive_drugs() -> None:
     logging.info(f"Merged positive drugs: {len(combined)} entries → {out_path}")
 
 
+def _has_supported_drug_columns(csv_path: str) -> bool:
+    """Check whether CSV has one of the supported name/smiles column layouts."""
+    try:
+        cols = set(pd.read_csv(csv_path, nrows=0).columns)
+    except Exception:
+        return False
+    return ('name' in cols) or ('Drug Name/Treatment' in cols)
+
+
 # ── Main ──────────────────────────────────────────────────────────────────────
 
 if __name__ == "__main__":
     os.makedirs('01_Cleaned_Data', exist_ok=True)
 
+    ctd_primary = '00_Raw_Data/positive_drugs_ctd.csv'
+    ctd_fallback = '00_Raw_Data/postive_drugs_ctd.csv'
+    ctd_input = ctd_primary if os.path.exists(ctd_primary) else ctd_fallback
+    if ctd_input == ctd_fallback and os.path.exists(ctd_fallback):
+        logging.warning(
+            "Using fallback file with historical typo: "
+            "00_Raw_Data/postive_drugs_ctd.csv"
+        )
+
     # ── Step 1: Clean original Alzheimer's positive drugs ────────────────────
-    clean_drug_list(
-        '00_Raw_Data/positive_drugs_ctd.csv',
-        '01_Cleaned_Data/positive_drugs.csv'
-    )
+    if os.path.exists(ctd_input):
+        if _has_supported_drug_columns(ctd_input):
+            clean_drug_list(
+                ctd_input,
+                '01_Cleaned_Data/positive_drugs.csv'
+            )
+        else:
+            logging.warning(
+                f"Skipping {ctd_input}: unsupported columns for drug cleaning."
+            )
+    else:
+        logging.warning(
+            "CTD positive drugs file not found; expected one of: "
+            "00_Raw_Data/positive_drugs_ctd.csv or "
+            "00_Raw_Data/postive_drugs_ctd.csv"
+        )
 
     # ── Step 2: Clean three new disease files ────────────────────────────────
     for disease in ['als', 'bipolar', 'dementia']:

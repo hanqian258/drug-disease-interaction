@@ -18,6 +18,6 @@ conda install -c conda-forge rdkit -y
 
 # Install PyTorch (AI) - Native Mac Version
 pip install torch torchvision torchaudio
-pip install torch-geometric pandas networkx scikit-learn matplotlib
+pip install torch-geometric pandas networkx scikit-learn matplotlib pubchempy
 
 echo "Setup Complete! Run: conda activate $ENV_NAME"

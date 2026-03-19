@@ -743,12 +743,6 @@ Thiourea,APP,14.44
 Thiourea,BAX,14.44
 Thiourea,BCHE,14.44
 Thiourea,CASP3,14.44
-Androgens,BDNF,13.93
-Androgens,CASP3,13.93
-Androgens,DHCR24,13.93
-Androgens,IL1B,13.93
-Androgens,INS,13.93
-Androgens,TNF,13.93
 tideglusib,GSK3B,13.41
 tideglusib,HMOX1,13.41
 tideglusib,PPARG,13.41
@@ -790,9 +784,6 @@ Tolcapone,DHCR24,7.46
 Tolcapone,SOD2,7.46
 Tolcapone,TOMM40,7.46
 Tolcapone,VSNL1,7.46
-"Anti-Inflammatory Agents, Non-Steroidal",IL1B,6.63
-"Anti-Inflammatory Agents, Non-Steroidal",PPARG,6.63
-"Anti-Inflammatory Agents, Non-Steroidal",TNF,6.63
 1-(3-chlorophenyl)piperazine,CYP2D6,6.55
 1-(3-chlorophenyl)piperazine,LEP,6.55
 Goserelin,BCL2,6.51

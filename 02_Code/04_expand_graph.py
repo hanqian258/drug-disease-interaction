@@ -4,6 +4,26 @@ from torch_geometric.data import HeteroData
 import torch_geometric.transforms as T
 import os
 
+
+DISEASE_ALIASES = {
+    "alzhimers": "Alzheimer's Disease",
+    "alzheimer disease": "Alzheimer's Disease",
+    "alzheimers disease": "Alzheimer's Disease",
+    "alzheimer's disease": "Alzheimer's Disease",
+    "parkinson disease": "Parkinson's Disease",
+    "parkinsons disease": "Parkinson's Disease",
+    "parkinson's disease": "Parkinson's Disease",
+    "adhd": "ADHD",
+    "bipolar disorder": "Bipolar Disorder",
+    "als": "ALS",
+    "dementia": "Dementia",
+}
+
+
+def normalize_disease_name(name: str) -> str:
+    key = str(name).strip().lower()
+    return DISEASE_ALIASES.get(key, str(name).strip())
+
 def expand_graph():
     print("--- Expanding Heterogeneous Graph ---")
 
@@ -88,6 +108,7 @@ def expand_graph():
     disgenet_path = '00_Raw_Data/protein_disease_weights.csv'
     if os.path.exists(disgenet_path):
         pd_df = pd.read_csv(disgenet_path)
+        pd_df['disease_name'] = pd_df['disease_name'].map(normalize_disease_name)
         # Expected columns: gene_symbol, disease_name, score
         assoc_list = list(zip(
             pd_df['gene_symbol'],

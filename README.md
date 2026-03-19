@@ -31,7 +31,7 @@ conda activate drug_discovery_gcn
 
 Alternatively, install via pip:
 ```bash
-pip install torch torch-geometric pandas rdkit scikit-learn matplotlib networkx
+pip install torch torch-geometric pandas rdkit scikit-learn matplotlib networkx pubchempy
 ```
 
 ## 📂 Project Structure

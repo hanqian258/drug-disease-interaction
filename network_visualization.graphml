@@ -1,0 +1,2135 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+  <key id="d8" for="edge" attr.name="color" attr.type="string" />
+  <key id="d7" for="edge" attr.name="etype" attr.type="string" />
+  <key id="d6" for="edge" attr.name="weight" attr.type="double" />
+  <key id="d5" for="node" attr.name="pos_y" attr.type="double" />
+  <key id="d4" for="node" attr.name="pos_x" attr.type="double" />
+  <key id="d3" for="node" attr.name="representative" attr.type="string" />
+  <key id="d2" for="node" attr.name="color" attr.type="string" />
+  <key id="d1" for="node" attr.name="layer" attr.type="string" />
+  <key id="d0" for="node" attr.name="label" attr.type="string" />
+  <graph edgedefault="undirected">
+    <node id="D:Olanzapine">
+      <data key="d0">Olanzapine</data>
+      <data key="d1">drug</data>
+      <data key="d2">#42A5F5</data>
+      <data key="d3">False</data>
+      <data key="d4">769.6966932979667</data>
+      <data key="d5">106.72102675078537</data>
+    </node>
+    <node id="D:Tacrine">
+      <data key="d0">Tacrine</data>
+      <data key="d1">drug</data>
+      <data key="d2">#BBDEFB</data>
+      <data key="d3">True</data>
+      <data key="d4">23.131451991156418</data>
+      <data key="d5">76.32268610740915</data>
+    </node>
+    <node id="D:Kenpaullone">
+      <data key="d0">Kenpaullone</data>
+      <data key="d1">drug</data>
+      <data key="d2">#42A5F5</data>
+      <data key="d3">False</data>
+      <data key="d4">734.113471308872</data>
+      <data key="d5">301.0749429927704</data>
+    </node>
+    <node id="D:Verapamil">
+      <data key="d0">Verapamil</data>
+      <data key="d1">drug</data>
+      <data key="d2">#42A5F5</data>
+      <data key="d3">False</data>
+      <data key="d4">640.3346346335481</data>
+      <data key="d5">479.61098270755826</data>
+    </node>
+    <node id="D:Lithium">
+      <data key="d0">Lithium</data>
+      <data key="d1">drug</data>
+      <data key="d2">#BBDEFB</data>
+      <data key="d3">True</data>
+      <data key="d4">32.50183469572745</data>
+      <data key="d5">61.48248852223453</data>
+    </node>
+    <node id="D:Unithiol">
+      <data key="d0">Unithiol</data>
+      <data key="d1">drug</data>
+      <data key="d2">#42A5F5</data>
+      <data key="d3">False</data>
+      <data key="d4">477.66625844185774</data>
+      <data key="d5">649.8868149656977</data>
+    </node>
+    <node id="D:Nicotine">
+      <data key="d0">Nicotine</data>
+      <data key="d1">drug</data>
+      <data key="d2">#42A5F5</data>
+      <data key="d3">True</data>
+      <data key="d4">-12.91138898868946</data>
+      <data key="d5">71.39594393225963</data>
+    </node>
+    <node id="D:Minocycline">
+      <data key="d0">Minocycline</data>
+      <data key="d1">drug</data>
+      <data key="d2">#42A5F5</data>
+      <data key="d3">True</data>
+      <data key="d4">17.100097866076965</data>
+      <data key="d5">62.284201048537156</data>
+    </node>
+    <node id="D:Rifampicin">
+      <data key="d0">Rifampicin</data>
+      <data key="d1">drug</data>
+      <data key="d2">#BBDEFB</data>
+      <data key="d3">False</data>
+      <data key="d4">192.2205544051087</data>
+      <data key="d5">800.0</data>
+    </node>
+    <node id="D:Curcumin">
+      <data key="d0">Curcumin</data>
+      <data key="d1">drug</data>
+      <data key="d2">#42A5F5</data>
+      <data key="d3">True</data>
+      <data key="d4">-11.050436926644155</data>
+      <data key="d5">65.85224241339104</data>
+    </node>
+    <node id="D:Resveratrol">
+      <data key="d0">Resveratrol</data>
+      <data key="d1">drug</data>
+      <data key="d2">#42A5F5</data>
+      <data key="d3">True</data>
+      <data key="d4">-4.767862333576031</data>
+      <data key="d5">68.78875372045974</data>
+    </node>
+    <node id="D:Trehalose">
+      <data key="d0">Trehalose</data>
+      <data key="d1">drug</data>
+      <data key="d2">#42A5F5</data>
+      <data key="d3">True</data>
+      <data key="d4">36.467205024601704</data>
+      <data key="d5">73.35197673474094</data>
+    </node>
+    <node id="D:Berberine">
+      <data key="d0">Berberine</data>
+      <data key="d1">drug</data>
+      <data key="d2">#42A5F5</data>
+      <data key="d3">True</data>
+      <data key="d4">-9.86734525708069</data>
+      <data key="d5">76.14519633280592</data>
+    </node>
+    <node id="D:Galantamine">
+      <data key="d0">Galantamine</data>
+      <data key="d1">drug</data>
+      <data key="d2">#1565C0</data>
+      <data key="d3">True</data>
+      <data key="d4">4.602022769313323</data>
+      <data key="d5">93.98847567685038</data>
+    </node>
+    <node id="D:Paroxetine">
+      <data key="d0">Paroxetine</data>
+      <data key="d1">drug</data>
+      <data key="d2">#42A5F5</data>
+      <data key="d3">False</data>
+      <data key="d4">-367.05943563984766</data>
+      <data key="d5">735.1285623758238</data>
+    </node>
+    <node id="D:Cannabidiol">
+      <data key="d0">Cannabidiol</data>
+      <data key="d1">drug</data>
+      <data key="d2">#42A5F5</data>
+      <data key="d3">True</data>
+      <data key="d4">8.792318291362271</data>
+      <data key="d5">67.0885467570154</data>
+    </node>
+    <node id="D:Melatonin">
+      <data key="d0">Melatonin</data>
+      <data key="d1">drug</data>
+      <data key="d2">#42A5F5</data>
+      <data key="d3">True</data>
+      <data key="d4">-15.220833601864278</data>
+      <data key="d5">60.25217727835728</data>
+    </node>
+    <node id="D:Trifluoperazine">
+      <data key="d0">Trifluoperazine</data>
+      <data key="d1">drug</data>
+      <data key="d2">#42A5F5</data>
+      <data key="d3">False</data>
+      <data key="d4">-591.7944568091541</data>
+      <data key="d5">544.2273660972276</data>
+    </node>
+    <node id="D:S-Adenosylmethionine">
+      <data key="d0">S-Adenosylmethionine</data>
+      <data key="d1">drug</data>
+      <data key="d2">#42A5F5</data>
+      <data key="d3">False</data>
+      <data key="d4">-707.4593050661821</data>
+      <data key="d5">366.11920948985653</data>
+    </node>
+    <node id="D:Riluzole">
+      <data key="d0">Riluzole</data>
+      <data key="d1">drug</data>
+      <data key="d2">#42A5F5</data>
+      <data key="d3">True</data>
+      <data key="d4">19.580703441965234</data>
+      <data key="d5">102.53192927209804</data>
+    </node>
+    <node id="D:Quetiapine">
+      <data key="d0">Quetiapine</data>
+      <data key="d1">drug</data>
+      <data key="d2">#42A5F5</data>
+      <data key="d3">True</data>
+      <data key="d4">-1.8898812940044232</data>
+      <data key="d5">105.9277156733885</data>
+    </node>
+    <node id="D:tideglusib">
+      <data key="d0">tideglusib</data>
+      <data key="d1">drug</data>
+      <data key="d2">#42A5F5</data>
+      <data key="d3">False</data>
+      <data key="d4">-776.7070054424654</data>
+      <data key="d5">7.898773648301494</data>
+    </node>
+    <node id="D:Donepezil">
+      <data key="d0">Donepezil</data>
+      <data key="d1">drug</data>
+      <data key="d2">#1565C0</data>
+      <data key="d3">True</data>
+      <data key="d4">-20.44271984827408</data>
+      <data key="d5">65.27214582635848</data>
+    </node>
+    <node id="D:Mifepristone">
+      <data key="d0">Mifepristone</data>
+      <data key="d1">drug</data>
+      <data key="d2">#42A5F5</data>
+      <data key="d3">False</data>
+      <data key="d4">-750.9950080304515</data>
+      <data key="d5">-181.0001811854081</data>
+    </node>
+    <node id="D:Edaravone">
+      <data key="d0">Edaravone</data>
+      <data key="d1">drug</data>
+      <data key="d2">#42A5F5</data>
+      <data key="d3">True</data>
+      <data key="d4">-37.999814227307816</data>
+      <data key="d5">71.32112902830418</data>
+    </node>
+    <node id="D:Metformin">
+      <data key="d0">Metformin</data>
+      <data key="d1">drug</data>
+      <data key="d2">#BBDEFB</data>
+      <data key="d3">True</data>
+      <data key="d4">-677.505463355721</data>
+      <data key="d5">-338.6412672364921</data>
+    </node>
+    <node id="D:Methotrexate">
+      <data key="d0">Methotrexate</data>
+      <data key="d1">drug</data>
+      <data key="d2">#BBDEFB</data>
+      <data key="d3">False</data>
+      <data key="d4">-589.9956666317431</data>
+      <data key="d5">-470.00038824176073</data>
+    </node>
+    <node id="D:Reserpine">
+      <data key="d0">Reserpine</data>
+      <data key="d1">drug</data>
+      <data key="d2">#42A5F5</data>
+      <data key="d3">False</data>
+      <data key="d4">-482.2062880861539</data>
+      <data key="d5">-574.1889582473822</data>
+    </node>
+    <node id="D:Bisoprolol">
+      <data key="d0">Bisoprolol</data>
+      <data key="d1">drug</data>
+      <data key="d2">#BBDEFB</data>
+      <data key="d3">False</data>
+      <data key="d4">-359.4707854221047</data>
+      <data key="d5">-652.0715484313164</data>
+    </node>
+    <node id="D:Doxycycline">
+      <data key="d0">Doxycycline</data>
+      <data key="d1">drug</data>
+      <data key="d2">#BBDEFB</data>
+      <data key="d3">True</data>
+      <data key="d4">-225.77271523997808</data>
+      <data key="d5">-701.223030489078</data>
+    </node>
+    <node id="D:Artemether">
+      <data key="d0">Artemether</data>
+      <data key="d1">drug</data>
+      <data key="d2">#BBDEFB</data>
+      <data key="d3">False</data>
+      <data key="d4">-84.03106721798326</data>
+      <data key="d5">-733.901643814246</data>
+    </node>
+    <node id="D:Sirolimus">
+      <data key="d0">Sirolimus</data>
+      <data key="d1">drug</data>
+      <data key="d2">#42A5F5</data>
+      <data key="d3">True</data>
+      <data key="d4">31.161652722144105</data>
+      <data key="d5">97.79443244984546</data>
+    </node>
+    <node id="D:Modafinil">
+      <data key="d0">Modafinil</data>
+      <data key="d1">drug</data>
+      <data key="d2">#42A5F5</data>
+      <data key="d3">False</data>
+      <data key="d4">172.2803917067538</data>
+      <data key="d5">-714.5267057376719</data>
+    </node>
+    <node id="D:Haloperidol">
+      <data key="d0">Haloperidol</data>
+      <data key="d1">drug</data>
+      <data key="d2">#BBDEFB</data>
+      <data key="d3">True</data>
+      <data key="d4">-9.552339881718297</data>
+      <data key="d5">82.19077029254291</data>
+    </node>
+    <node id="D:Codeine">
+      <data key="d0">Codeine</data>
+      <data key="d1">drug</data>
+      <data key="d2">#BBDEFB</data>
+      <data key="d3">False</data>
+      <data key="d4">320.174710926695</data>
+      <data key="d5">-667.5190326685705</data>
+    </node>
+    <node id="D:5-Methoxypsoralen">
+      <data key="d0">5-Methoxypsoralen</data>
+      <data key="d1">drug</data>
+      <data key="d2">#42A5F5</data>
+      <data key="d3">False</data>
+      <data key="d4">453.09844490968896</data>
+      <data key="d5">-592.983474252338</data>
+    </node>
+    <node id="D:Varoglutamstat">
+      <data key="d0">Varoglutamstat</data>
+      <data key="d1">drug</data>
+      <data key="d2">#BBDEFB</data>
+      <data key="d3">False</data>
+      <data key="d4">565.9900149446952</data>
+      <data key="d5">-490.96464703078044</data>
+    </node>
+    <node id="D:Insulin (human)">
+      <data key="d0">Insulin (human)</data>
+      <data key="d1">drug</data>
+      <data key="d2">#BBDEFB</data>
+      <data key="d3">False</data>
+      <data key="d4">710.8158450862599</data>
+      <data key="d5">-264.14075187725314</data>
+    </node>
+    <node id="D:Rivastigmine">
+      <data key="d0">Rivastigmine</data>
+      <data key="d1">drug</data>
+      <data key="d2">#1565C0</data>
+      <data key="d3">True</data>
+      <data key="d4">12.962456010430623</data>
+      <data key="d5">73.06999898050456</data>
+    </node>
+    <node id="D:Memantine">
+      <data key="d0">Memantine</data>
+      <data key="d1">drug</data>
+      <data key="d2">#1565C0</data>
+      <data key="d3">True</data>
+      <data key="d4">11.465023771020338</data>
+      <data key="d5">85.39381254369917</data>
+    </node>
+    <node id="D:Isoflurane">
+      <data key="d0">Isoflurane</data>
+      <data key="d1">drug</data>
+      <data key="d2">#BBDEFB</data>
+      <data key="d3">False</data>
+      <data key="d4">762.8534390283544</data>
+      <data key="d5">-79.77718883447523</data>
+    </node>
+    <node id="P:TREM2">
+      <data key="d0">TREM2</data>
+      <data key="d1">protein</data>
+      <data key="d2">#2E7D32</data>
+      <data key="d3">True</data>
+      <data key="d4">-2.1097852858586723</data>
+      <data key="d5">39.77847020940051</data>
+    </node>
+    <node id="P:SOD1">
+      <data key="d0">SOD1</data>
+      <data key="d1">protein</data>
+      <data key="d2">#2E7D32</data>
+      <data key="d3">True</data>
+      <data key="d4">5.928245399521426</data>
+      <data key="d5">46.70067984576479</data>
+    </node>
+    <node id="P:CLU">
+      <data key="d0">CLU</data>
+      <data key="d1">protein</data>
+      <data key="d2">#C8E6C9</data>
+      <data key="d3">False</data>
+      <data key="d4">18.760398909950595</data>
+      <data key="d5">51.145167372853216</data>
+    </node>
+    <node id="P:GSK3B">
+      <data key="d0">GSK3B</data>
+      <data key="d1">protein</data>
+      <data key="d2">#2E7D32</data>
+      <data key="d3">True</data>
+      <data key="d4">-7.644489109522076</data>
+      <data key="d5">64.15405238555311</data>
+    </node>
+    <node id="P:HMOX1">
+      <data key="d0">HMOX1</data>
+      <data key="d1">protein</data>
+      <data key="d2">#C8E6C9</data>
+      <data key="d3">False</data>
+      <data key="d4">1.8840734860747932</data>
+      <data key="d5">61.95730570981943</data>
+    </node>
+    <node id="P:SLC6A4">
+      <data key="d0">SLC6A4</data>
+      <data key="d1">protein</data>
+      <data key="d2">#2E7D32</data>
+      <data key="d3">True</data>
+      <data key="d4">8.197828822951033</data>
+      <data key="d5">31.824208075819065</data>
+    </node>
+    <node id="P:CR1">
+      <data key="d0">CR1</data>
+      <data key="d1">protein</data>
+      <data key="d2">#C8E6C9</data>
+      <data key="d3">False</data>
+      <data key="d4">39.33094329679102</data>
+      <data key="d5">46.376101607547156</data>
+    </node>
+    <node id="P:ACHE">
+      <data key="d0">ACHE</data>
+      <data key="d1">protein</data>
+      <data key="d2">#2E7D32</data>
+      <data key="d3">True</data>
+      <data key="d4">-1.6934993533240243</data>
+      <data key="d5">73.46025222404728</data>
+    </node>
+    <node id="P:PICALM">
+      <data key="d0">PICALM</data>
+      <data key="d1">protein</data>
+      <data key="d2">#C8E6C9</data>
+      <data key="d3">False</data>
+      <data key="d4">-23.95105005224543</data>
+      <data key="d5">54.61889473187148</data>
+    </node>
+    <node id="P:SLC2A4">
+      <data key="d0">SLC2A4</data>
+      <data key="d1">protein</data>
+      <data key="d2">#C8E6C9</data>
+      <data key="d3">False</data>
+      <data key="d4">-25.701551479413425</data>
+      <data key="d5">74.3546875400907</data>
+    </node>
+    <node id="P:FUS">
+      <data key="d0">FUS</data>
+      <data key="d1">protein</data>
+      <data key="d2">#2E7D32</data>
+      <data key="d3">True</data>
+      <data key="d4">-14.336523487781298</data>
+      <data key="d5">37.55712090602798</data>
+    </node>
+    <node id="P:CHRNA7">
+      <data key="d0">CHRNA7</data>
+      <data key="d1">protein</data>
+      <data key="d2">#2E7D32</data>
+      <data key="d3">True</data>
+      <data key="d4">-7.015799038403907</data>
+      <data key="d5">95.31926327308531</data>
+    </node>
+    <node id="P:APP">
+      <data key="d0">APP</data>
+      <data key="d1">protein</data>
+      <data key="d2">#2E7D32</data>
+      <data key="d3">True</data>
+      <data key="d4">-5.165856777334843</data>
+      <data key="d5">58.69060616023244</data>
+    </node>
+    <node id="P:IGF1">
+      <data key="d0">IGF1</data>
+      <data key="d1">protein</data>
+      <data key="d2">#C8E6C9</data>
+      <data key="d3">False</data>
+      <data key="d4">-11.578719066882325</data>
+      <data key="d5">57.219492888891125</data>
+    </node>
+    <node id="P:IGF2R">
+      <data key="d0">IGF2R</data>
+      <data key="d1">protein</data>
+      <data key="d2">#C8E6C9</data>
+      <data key="d3">False</data>
+      <data key="d4">-35.25742569157861</data>
+      <data key="d5">63.841918470426904</data>
+    </node>
+    <node id="P:MAPT">
+      <data key="d0">MAPT</data>
+      <data key="d1">protein</data>
+      <data key="d2">#2E7D32</data>
+      <data key="d3">True</data>
+      <data key="d4">-12.839468092078135</data>
+      <data key="d5">52.70912252261329</data>
+    </node>
+    <node id="P:BACE1">
+      <data key="d0">BACE1</data>
+      <data key="d1">protein</data>
+      <data key="d2">#2E7D32</data>
+      <data key="d3">True</data>
+      <data key="d4">-2.7917871134044425</data>
+      <data key="d5">50.98234318222335</data>
+    </node>
+    <node id="P:IL1B">
+      <data key="d0">IL1B</data>
+      <data key="d1">protein</data>
+      <data key="d2">#2E7D32</data>
+      <data key="d3">True</data>
+      <data key="d4">-743.6552574057094</data>
+      <data key="d5">187.59606863317265</data>
+    </node>
+    <node id="P:SNCA">
+      <data key="d0">SNCA</data>
+      <data key="d1">protein</data>
+      <data key="d2">#C8E6C9</data>
+      <data key="d3">False</data>
+      <data key="d4">2.177522619402296</data>
+      <data key="d5">43.928107279925236</data>
+    </node>
+    <node id="P:BDNF">
+      <data key="d0">BDNF</data>
+      <data key="d1">protein</data>
+      <data key="d2">#2E7D32</data>
+      <data key="d3">True</data>
+      <data key="d4">-4.712989075292094</data>
+      <data key="d5">47.84982603097511</data>
+    </node>
+    <node id="P:GRIN1">
+      <data key="d0">GRIN1</data>
+      <data key="d1">protein</data>
+      <data key="d2">#2E7D32</data>
+      <data key="d3">True</data>
+      <data key="d4">-26.2819389051081</data>
+      <data key="d5">19.168899080404405</data>
+    </node>
+    <node id="P:PPARG">
+      <data key="d0">PPARG</data>
+      <data key="d1">protein</data>
+      <data key="d2">#C8E6C9</data>
+      <data key="d3">False</data>
+      <data key="d4">-16.068183806217863</data>
+      <data key="d5">67.05124671017424</data>
+    </node>
+    <node id="P:CALM1">
+      <data key="d0">CALM1</data>
+      <data key="d1">protein</data>
+      <data key="d2">#C8E6C9</data>
+      <data key="d3">False</data>
+      <data key="d4">-36.79418807588545</data>
+      <data key="d5">55.577983583920386</data>
+    </node>
+    <node id="P:OPTN">
+      <data key="d0">OPTN</data>
+      <data key="d1">protein</data>
+      <data key="d2">#C8E6C9</data>
+      <data key="d3">False</data>
+      <data key="d4">18.590228189485273</data>
+      <data key="d5">37.93315390416774</data>
+    </node>
+    <node id="P:NRG1">
+      <data key="d0">NRG1</data>
+      <data key="d1">protein</data>
+      <data key="d2">#C8E6C9</data>
+      <data key="d3">False</data>
+      <data key="d4">-23.304138529731325</data>
+      <data key="d5">35.867200326085616</data>
+    </node>
+    <node id="P:CASP3">
+      <data key="d0">CASP3</data>
+      <data key="d1">protein</data>
+      <data key="d2">#2E7D32</data>
+      <data key="d3">True</data>
+      <data key="d4">-1.0214143156202333</data>
+      <data key="d5">65.16554629279838</data>
+    </node>
+    <node id="P:TARDBP">
+      <data key="d0">TARDBP</data>
+      <data key="d1">protein</data>
+      <data key="d2">#2E7D32</data>
+      <data key="d3">True</data>
+      <data key="d4">26.492979087385386</data>
+      <data key="d5">-708.9439920219296</data>
+    </node>
+    <node id="P:DHCR24">
+      <data key="d0">DHCR24</data>
+      <data key="d1">protein</data>
+      <data key="d2">#C8E6C9</data>
+      <data key="d3">False</data>
+      <data key="d4">-21.55120372571081</data>
+      <data key="d5">80.72090421160031</data>
+    </node>
+    <node id="P:PSEN1">
+      <data key="d0">PSEN1</data>
+      <data key="d1">protein</data>
+      <data key="d2">#2E7D32</data>
+      <data key="d3">True</data>
+      <data key="d4">-8.2569888448085</data>
+      <data key="d5">50.538831313948904</data>
+    </node>
+    <node id="P:TNF">
+      <data key="d0">TNF</data>
+      <data key="d1">protein</data>
+      <data key="d2">#2E7D32</data>
+      <data key="d3">True</data>
+      <data key="d4">3.752778086849106</data>
+      <data key="d5">56.83494520493711</data>
+    </node>
+    <node id="P:APOE">
+      <data key="d0">APOE</data>
+      <data key="d1">protein</data>
+      <data key="d2">#2E7D32</data>
+      <data key="d3">True</data>
+      <data key="d4">-0.45094784375300956</data>
+      <data key="d5">54.36565282307255</data>
+    </node>
+    <node id="P:SETX">
+      <data key="d0">SETX</data>
+      <data key="d1">protein</data>
+      <data key="d2">#C8E6C9</data>
+      <data key="d3">False</data>
+      <data key="d4">615.8644265304</data>
+      <data key="d5">-384.3687052138363</data>
+    </node>
+    <node id="P:CDK5">
+      <data key="d0">CDK5</data>
+      <data key="d1">protein</data>
+      <data key="d2">#2E7D32</data>
+      <data key="d3">True</data>
+      <data key="d4">-13.8350207917598</data>
+      <data key="d5">47.49971092686358</data>
+    </node>
+    <node id="P:GRN">
+      <data key="d0">GRN</data>
+      <data key="d1">protein</data>
+      <data key="d2">#C8E6C9</data>
+      <data key="d3">False</data>
+      <data key="d4">19.038196428548996</data>
+      <data key="d5">46.36925562007036</data>
+    </node>
+    <node id="P:DRD2">
+      <data key="d0">DRD2</data>
+      <data key="d1">protein</data>
+      <data key="d2">#2E7D32</data>
+      <data key="d3">True</data>
+      <data key="d4">-8.967480006405756</data>
+      <data key="d5">24.880300480735258</data>
+    </node>
+    <node id="DIS:Alzheimer's Disease">
+      <data key="d0">Alzheimer's Disease</data>
+      <data key="d1">disease</data>
+      <data key="d2">#B71C1C</data>
+      <data key="d3">True</data>
+      <data key="d4">3.0586564340472444</data>
+      <data key="d5">70.07979153371329</data>
+    </node>
+    <node id="DIS:Parkinson's Disease">
+      <data key="d0">Parkinson's Disease</data>
+      <data key="d1">disease</data>
+      <data key="d2">#EF9A9A</data>
+      <data key="d3">True</data>
+      <data key="d4">-0.5397518242389565</data>
+      <data key="d5">29.993810226482136</data>
+    </node>
+    <node id="DIS:ADHD">
+      <data key="d0">ADHD</data>
+      <data key="d1">disease</data>
+      <data key="d2">#EF9A9A</data>
+      <data key="d3">True</data>
+      <data key="d4">-0.014065957209822856</data>
+      <data key="d5">12.62312415262147</data>
+    </node>
+    <node id="DIS:Bipolar Disorder">
+      <data key="d0">Bipolar Disorder</data>
+      <data key="d1">disease</data>
+      <data key="d2">#EF9A9A</data>
+      <data key="d3">True</data>
+      <data key="d4">-8.810027683574148</data>
+      <data key="d5">36.58880927353075</data>
+    </node>
+    <node id="DIS:ALS">
+      <data key="d0">ALS</data>
+      <data key="d1">disease</data>
+      <data key="d2">#EF9A9A</data>
+      <data key="d3">True</data>
+      <data key="d4">33.81319616901498</data>
+      <data key="d5">29.204083861223122</data>
+    </node>
+    <node id="DIS:Dementia">
+      <data key="d0">Dementia</data>
+      <data key="d1">disease</data>
+      <data key="d2">#EF9A9A</data>
+      <data key="d3">True</data>
+      <data key="d4">7.1506719057774895</data>
+      <data key="d5">42.60227508702609</data>
+    </node>
+    <edge source="D:Tacrine" target="P:HMOX1">
+      <data key="d6">0.38531967997550964</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Tacrine" target="P:TNF">
+      <data key="d6">0.38531967997550964</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Tacrine" target="P:BDNF">
+      <data key="d6">0.38531967997550964</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Tacrine" target="P:ACHE">
+      <data key="d6">0.38531967997550964</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Tacrine" target="DIS:Alzheimer's Disease">
+      <data key="d6">1.0</data>
+      <data key="d7">treats</data>
+      <data key="d8">#E53935</data>
+    </edge>
+    <edge source="D:Lithium" target="P:BDNF">
+      <data key="d6">0.1786157637834549</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Lithium" target="P:SLC6A4">
+      <data key="d6">0.1786157637834549</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Lithium" target="P:GSK3B">
+      <data key="d6">0.1786157637834549</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Lithium" target="P:SOD1">
+      <data key="d6">0.1426132768392563</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Lithium" target="DIS:Alzheimer's Disease">
+      <data key="d6">1.0</data>
+      <data key="d7">treats</data>
+      <data key="d8">#E53935</data>
+    </edge>
+    <edge source="D:Nicotine" target="P:ACHE">
+      <data key="d6">0.8927684426307678</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Nicotine" target="P:BDNF">
+      <data key="d6">0.8927684426307678</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Nicotine" target="P:CALM1">
+      <data key="d6">0.8927684426307678</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Nicotine" target="P:DHCR24">
+      <data key="d6">0.8927684426307678</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Nicotine" target="P:CASP3">
+      <data key="d6">0.8927684426307678</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Nicotine" target="P:GSK3B">
+      <data key="d6">0.8927684426307678</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Nicotine" target="P:HMOX1">
+      <data key="d6">0.8927684426307678</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Nicotine" target="P:IGF1">
+      <data key="d6">0.8927684426307678</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Nicotine" target="P:TNF">
+      <data key="d6">0.8927684426307678</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Nicotine" target="P:PPARG">
+      <data key="d6">0.8927684426307678</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Nicotine" target="P:APOE">
+      <data key="d6">0.8927684426307678</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Nicotine" target="P:APP">
+      <data key="d6">0.8927684426307678</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Nicotine" target="P:CHRNA7">
+      <data key="d6">0.8927684426307678</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Nicotine" target="DIS:Alzheimer's Disease">
+      <data key="d6">1.0</data>
+      <data key="d7">treats</data>
+      <data key="d8">#E53935</data>
+    </edge>
+    <edge source="D:Minocycline" target="P:TREM2">
+      <data key="d6">0.4889819920063019</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Minocycline" target="P:TNF">
+      <data key="d6">0.4889819920063019</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Minocycline" target="P:GSK3B">
+      <data key="d6">0.4889819920063019</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Minocycline" target="P:BACE1">
+      <data key="d6">0.4889819920063019</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Minocycline" target="P:CASP3">
+      <data key="d6">0.4889819920063019</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Minocycline" target="P:ACHE">
+      <data key="d6">0.4889819920063019</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Minocycline" target="P:APP">
+      <data key="d6">0.4889819920063019</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Minocycline" target="DIS:Alzheimer's Disease">
+      <data key="d6">1.0</data>
+      <data key="d7">treats</data>
+      <data key="d8">#E53935</data>
+    </edge>
+    <edge source="D:Curcumin" target="P:GSK3B">
+      <data key="d6">0.8468342423439026</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Curcumin" target="P:PPARG">
+      <data key="d6">0.8468342423439026</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Curcumin" target="P:BACE1">
+      <data key="d6">0.8468342423439026</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Curcumin" target="P:APP">
+      <data key="d6">0.8468342423439026</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Curcumin" target="P:APOE">
+      <data key="d6">0.8468342423439026</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Curcumin" target="P:TNF">
+      <data key="d6">0.8468342423439026</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Curcumin" target="P:DHCR24">
+      <data key="d6">0.8468342423439026</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Curcumin" target="P:BDNF">
+      <data key="d6">0.8468342423439026</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Curcumin" target="P:CASP3">
+      <data key="d6">0.8468342423439026</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Curcumin" target="P:MAPT">
+      <data key="d6">0.8468342423439026</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Curcumin" target="P:HMOX1">
+      <data key="d6">0.8468342423439026</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Curcumin" target="P:IGF1">
+      <data key="d6">0.8468342423439026</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Curcumin" target="P:ACHE">
+      <data key="d6">0.8468342423439026</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Curcumin" target="DIS:Alzheimer's Disease">
+      <data key="d6">1.0</data>
+      <data key="d7">treats</data>
+      <data key="d8">#E53935</data>
+    </edge>
+    <edge source="D:Resveratrol" target="P:SLC2A4">
+      <data key="d6">0.501396656036377</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Resveratrol" target="P:PSEN1">
+      <data key="d6">0.501396656036377</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Resveratrol" target="P:CHRNA7">
+      <data key="d6">0.501396656036377</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Resveratrol" target="P:CASP3">
+      <data key="d6">0.501396656036377</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Resveratrol" target="P:BDNF">
+      <data key="d6">0.501396656036377</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Resveratrol" target="P:APP">
+      <data key="d6">0.501396656036377</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Resveratrol" target="P:APOE">
+      <data key="d6">0.501396656036377</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Resveratrol" target="P:ACHE">
+      <data key="d6">0.501396656036377</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Resveratrol" target="P:MAPT">
+      <data key="d6">0.501396656036377</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Resveratrol" target="P:GSK3B">
+      <data key="d6">0.501396656036377</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Resveratrol" target="P:CLU">
+      <data key="d6">0.501396656036377</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Resveratrol" target="P:HMOX1">
+      <data key="d6">0.501396656036377</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Resveratrol" target="P:TNF">
+      <data key="d6">0.501396656036377</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Resveratrol" target="P:IGF1">
+      <data key="d6">0.501396656036377</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Resveratrol" target="P:PPARG">
+      <data key="d6">0.501396656036377</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Resveratrol" target="P:IGF2R">
+      <data key="d6">0.501396656036377</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Resveratrol" target="P:SOD1">
+      <data key="d6">0.3244878947734833</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Resveratrol" target="P:OPTN">
+      <data key="d6">0.3244878947734833</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Resveratrol" target="DIS:Alzheimer's Disease">
+      <data key="d6">1.0</data>
+      <data key="d7">treats</data>
+      <data key="d8">#E53935</data>
+    </edge>
+    <edge source="D:Trehalose" target="P:SOD1">
+      <data key="d6">0.42132216691970825</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Trehalose" target="DIS:Alzheimer's Disease">
+      <data key="d6">1.0</data>
+      <data key="d7">treats</data>
+      <data key="d8">#E53935</data>
+    </edge>
+    <edge source="D:Berberine" target="P:ACHE">
+      <data key="d6">0.7358783483505249</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Berberine" target="P:TNF">
+      <data key="d6">0.7358783483505249</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Berberine" target="P:APP">
+      <data key="d6">0.7358783483505249</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Berberine" target="P:CASP3">
+      <data key="d6">0.7358783483505249</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Berberine" target="P:GSK3B">
+      <data key="d6">0.7358783483505249</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Berberine" target="P:IGF1">
+      <data key="d6">0.7358783483505249</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Berberine" target="P:HMOX1">
+      <data key="d6">0.7358783483505249</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Berberine" target="P:MAPT">
+      <data key="d6">0.7358783483505249</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Berberine" target="P:PPARG">
+      <data key="d6">0.7358783483505249</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Berberine" target="P:SLC2A4">
+      <data key="d6">0.7358783483505249</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Berberine" target="DIS:Alzheimer's Disease">
+      <data key="d6">1.0</data>
+      <data key="d7">treats</data>
+      <data key="d8">#E53935</data>
+    </edge>
+    <edge source="D:Galantamine" target="P:CHRNA7">
+      <data key="d6">0.42411544919013977</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Galantamine" target="P:APP">
+      <data key="d6">0.42411544919013977</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Galantamine" target="P:ACHE">
+      <data key="d6">0.42411544919013977</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Galantamine" target="P:CASP3">
+      <data key="d6">0.42411544919013977</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Galantamine" target="DIS:Alzheimer's Disease">
+      <data key="d6">1.0</data>
+      <data key="d7">treats</data>
+      <data key="d8">#E53935</data>
+    </edge>
+    <edge source="D:Cannabidiol" target="P:HMOX1">
+      <data key="d6">0.4647734463214874</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Cannabidiol" target="P:GSK3B">
+      <data key="d6">0.4647734463214874</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Cannabidiol" target="P:CLU">
+      <data key="d6">0.4647734463214874</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Cannabidiol" target="P:CHRNA7">
+      <data key="d6">0.4647734463214874</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Cannabidiol" target="P:MAPT">
+      <data key="d6">0.4647734463214874</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Cannabidiol" target="P:TNF">
+      <data key="d6">0.4647734463214874</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Cannabidiol" target="P:PSEN1">
+      <data key="d6">0.4647734463214874</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Cannabidiol" target="P:PPARG">
+      <data key="d6">0.4647734463214874</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Cannabidiol" target="P:BDNF">
+      <data key="d6">0.4647734463214874</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Cannabidiol" target="P:CASP3">
+      <data key="d6">0.4647734463214874</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Cannabidiol" target="P:APP">
+      <data key="d6">0.4647734463214874</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Cannabidiol" target="P:BACE1">
+      <data key="d6">0.4647734463214874</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Cannabidiol" target="P:SLC6A4">
+      <data key="d6">0.09404096752405167</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Cannabidiol" target="DIS:Alzheimer's Disease">
+      <data key="d6">1.0</data>
+      <data key="d7">treats</data>
+      <data key="d8">#E53935</data>
+    </edge>
+    <edge source="D:Melatonin" target="P:ACHE">
+      <data key="d6">1.0</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Melatonin" target="P:BDNF">
+      <data key="d6">1.0</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Melatonin" target="P:BACE1">
+      <data key="d6">1.0</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Melatonin" target="P:APP">
+      <data key="d6">1.0</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Melatonin" target="P:PSEN1">
+      <data key="d6">1.0</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Melatonin" target="P:SLC2A4">
+      <data key="d6">1.0</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Melatonin" target="P:PPARG">
+      <data key="d6">1.0</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Melatonin" target="P:MAPT">
+      <data key="d6">1.0</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Melatonin" target="P:IGF1">
+      <data key="d6">1.0</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Melatonin" target="P:HMOX1">
+      <data key="d6">1.0</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Melatonin" target="P:GSK3B">
+      <data key="d6">1.0</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Melatonin" target="P:CASP3">
+      <data key="d6">1.0</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Melatonin" target="P:CALM1">
+      <data key="d6">1.0</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Melatonin" target="P:TNF">
+      <data key="d6">1.0</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Melatonin" target="P:SOD1">
+      <data key="d6">0.39307883381843567</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Melatonin" target="DIS:Alzheimer's Disease">
+      <data key="d6">1.0</data>
+      <data key="d7">treats</data>
+      <data key="d8">#E53935</data>
+    </edge>
+    <edge source="D:Riluzole" target="P:TNF">
+      <data key="d6">0.11452513933181763</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Riluzole" target="DIS:Alzheimer's Disease">
+      <data key="d6">1.0</data>
+      <data key="d7">treats</data>
+      <data key="d8">#E53935</data>
+    </edge>
+    <edge source="D:Quetiapine" target="P:BDNF">
+      <data key="d6">0.09466169774532318</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Quetiapine" target="P:APP">
+      <data key="d6">0.049968961626291275</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Quetiapine" target="DIS:Alzheimer's Disease">
+      <data key="d6">1.0</data>
+      <data key="d7">treats</data>
+      <data key="d8">#E53935</data>
+    </edge>
+    <edge source="D:Donepezil" target="P:CASP3">
+      <data key="d6">0.5890750885009766</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Donepezil" target="P:APP">
+      <data key="d6">0.5890750885009766</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Donepezil" target="P:BACE1">
+      <data key="d6">0.5890750885009766</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Donepezil" target="P:BDNF">
+      <data key="d6">0.5890750885009766</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Donepezil" target="P:ACHE">
+      <data key="d6">0.5890750885009766</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Donepezil" target="P:GSK3B">
+      <data key="d6">0.5890750885009766</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Donepezil" target="P:TNF">
+      <data key="d6">0.5890750885009766</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Donepezil" target="P:MAPT">
+      <data key="d6">0.5890750885009766</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Donepezil" target="DIS:Alzheimer's Disease">
+      <data key="d6">1.0</data>
+      <data key="d7">treats</data>
+      <data key="d8">#E53935</data>
+    </edge>
+    <edge source="D:Edaravone" target="P:SOD1">
+      <data key="d6">0.1966170072555542</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Edaravone" target="DIS:Alzheimer's Disease">
+      <data key="d6">1.0</data>
+      <data key="d7">treats</data>
+      <data key="d8">#E53935</data>
+    </edge>
+    <edge source="D:Sirolimus" target="DIS:Alzheimer's Disease">
+      <data key="d6">1.0</data>
+      <data key="d7">treats</data>
+      <data key="d8">#E53935</data>
+    </edge>
+    <edge source="D:Haloperidol" target="P:CASP3">
+      <data key="d6">0.3524208664894104</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Haloperidol" target="P:BDNF">
+      <data key="d6">0.3524208664894104</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Haloperidol" target="P:ACHE">
+      <data key="d6">0.3524208664894104</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Haloperidol" target="P:GSK3B">
+      <data key="d6">0.3524208664894104</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Haloperidol" target="P:SLC2A4">
+      <data key="d6">0.3524208664894104</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Haloperidol" target="P:TNF">
+      <data key="d6">0.3524208664894104</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Haloperidol" target="P:PICALM">
+      <data key="d6">0.3524208664894104</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Haloperidol" target="P:SLC6A4">
+      <data key="d6">0.22842954099178314</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Haloperidol" target="DIS:Alzheimer's Disease">
+      <data key="d6">1.0</data>
+      <data key="d7">treats</data>
+      <data key="d8">#E53935</data>
+    </edge>
+    <edge source="D:Rivastigmine" target="P:CASP3">
+      <data key="d6">0.6843575239181519</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Rivastigmine" target="P:ACHE">
+      <data key="d6">0.6843575239181519</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Rivastigmine" target="P:IGF1">
+      <data key="d6">0.6843575239181519</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Rivastigmine" target="P:BDNF">
+      <data key="d6">0.6843575239181519</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Rivastigmine" target="P:TNF">
+      <data key="d6">0.6843575239181519</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Rivastigmine" target="DIS:Alzheimer's Disease">
+      <data key="d6">1.0</data>
+      <data key="d7">treats</data>
+      <data key="d8">#E53935</data>
+    </edge>
+    <edge source="D:Memantine" target="P:TNF">
+      <data key="d6">0.4002172648906708</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Memantine" target="P:APP">
+      <data key="d6">0.4002172648906708</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Memantine" target="P:ACHE">
+      <data key="d6">0.4002172648906708</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Memantine" target="P:GSK3B">
+      <data key="d6">0.4002172648906708</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Memantine" target="P:CASP3">
+      <data key="d6">0.4002172648906708</data>
+      <data key="d7">binds</data>
+      <data key="d8">#5B9BD5</data>
+    </edge>
+    <edge source="D:Memantine" target="DIS:Alzheimer's Disease">
+      <data key="d6">1.0</data>
+      <data key="d7">treats</data>
+      <data key="d8">#E53935</data>
+    </edge>
+    <edge source="P:TREM2" target="P:PSEN1">
+      <data key="d6">1.7059999704360962</data>
+      <data key="d7">ppi</data>
+      <data key="d8">#81C784</data>
+    </edge>
+    <edge source="P:TREM2" target="P:BDNF">
+      <data key="d6">0.9419999718666077</data>
+      <data key="d7">ppi</data>
+      <data key="d8">#81C784</data>
+    </edge>
+    <edge source="P:TREM2" target="P:FUS">
+      <data key="d6">0.8360000252723694</data>
+      <data key="d7">ppi</data>
+      <data key="d8">#81C784</data>
+    </edge>
+    <edge source="P:TREM2" target="P:MAPT">
+      <data key="d6">1.465999960899353</data>
+      <data key="d7">ppi</data>
+      <data key="d8">#81C784</data>
+    </edge>
+    <edge source="P:TREM2" target="DIS:Alzheimer's Disease">
+      <data key="d6">0.9599999785423279</data>
+      <data key="d7">associated</data>
+      <data key="d8">#FFA726</data>
+    </edge>
+    <edge source="P:TREM2" target="DIS:Dementia">
+      <data key="d6">0.9599999785423279</data>
+      <data key="d7">associated</data>
+      <data key="d8">#FFA726</data>
+    </edge>
+    <edge source="P:SOD1" target="P:APP">
+      <data key="d6">1.6039999723434448</data>
+      <data key="d7">ppi</data>
+      <data key="d8">#81C784</data>
+    </edge>
+    <edge source="P:SOD1" target="P:CASP3">
+      <data key="d6">1.2480000257492065</data>
+      <data key="d7">ppi</data>
+      <data key="d8">#81C784</data>
+    </edge>
+    <edge source="P:SOD1" target="P:OPTN">
+      <data key="d6">1.8739999532699585</data>
+      <data key="d7">ppi</data>
+      <data key="d8">#81C784</data>
+    </edge>
+    <edge source="P:SOD1" target="P:CDK5">
+      <data key="d6">1.315999984741211</data>
+      <data key="d7">ppi</data>
+      <data key="d8">#81C784</data>
+    </edge>
+    <edge source="P:SOD1" target="P:FUS">
+      <data key="d6">1.9839999675750732</data>
+      <data key="d7">ppi</data>
+      <data key="d8">#81C784</data>
+    </edge>
+    <edge source="P:SOD1" target="P:IGF1">
+      <data key="d6">1.00600004196167</data>
+      <data key="d7">ppi</data>
+      <data key="d8">#81C784</data>
+    </edge>
+    <edge source="P:SOD1" target="P:SNCA">
+      <data key="d6">1.7940000295639038</data>
+      <data key="d7">ppi</data>
+      <data key="d8">#81C784</data>
+    </edge>
+    <edge source="P:SOD1" target="P:TNF">
+      <data key="d6">1.1480000019073486</data>
+      <data key="d7">ppi</data>
+      <data key="d8">#81C784</data>
+    </edge>
+    <edge source="P:SOD1" target="DIS:Parkinson's Disease">
+      <data key="d6">0.9599999785423279</data>
+      <data key="d7">associated</data>
+      <data key="d8">#FFA726</data>
+    </edge>
+    <edge source="P:SOD1" target="DIS:ALS">
+      <data key="d6">0.9599999785423279</data>
+      <data key="d7">associated</data>
+      <data key="d8">#FFA726</data>
+    </edge>
+    <edge source="P:CLU" target="P:APOE">
+      <data key="d6">1.9980000257492065</data>
+      <data key="d7">ppi</data>
+      <data key="d8">#81C784</data>
+    </edge>
+    <edge source="P:CLU" target="P:CASP3">
+      <data key="d6">0.8019999861717224</data>
+      <data key="d7">ppi</data>
+      <data key="d8">#81C784</data>
+    </edge>
+    <edge source="P:CLU" target="P:CR1">
+      <data key="d6">1.1339999437332153</data>
+      <data key="d7">ppi</data>
+      <data key="d8">#81C784</data>
+    </edge>
+    <edge source="P:CLU" target="P:GRN">
+      <data key="d6">1.1260000467300415</data>
+      <data key="d7">ppi</data>
+      <data key="d8">#81C784</data>
+    </edge>
+    <edge source="P:CLU" target="P:SNCA">
+      <data key="d6">1.722000002861023</data>
+      <data key="d7">ppi</data>
+      <data key="d8">#81C784</data>
+    </edge>
+    <edge source="P:CLU" target="DIS:Alzheimer's Disease">
+      <data key="d6">0.9100000262260437</data>
+      <data key="d7">associated</data>
+      <data key="d8">#FFA726</data>
+    </edge>
+    <edge source="P:CLU" target="DIS:Dementia">
+      <data key="d6">0.9100000262260437</data>
+      <data key="d7">associated</data>
+      <data key="d8">#FFA726</data>
+    </edge>
+    <edge source="P:CLU" target="DIS:ALS">
+      <data key="d6">0.9100000262260437</data>
+      <data key="d7">associated</data>
+      <data key="d8">#FFA726</data>
+    </edge>
+    <edge source="P:GSK3B" target="P:ACHE">
+      <data key="d6">1.034000039100647</data>
+      <data key="d7">ppi</data>
+      <data key="d8">#81C784</data>
+    </edge>
+    <edge source="P:GSK3B" target="P:CDK5">
+      <data key="d6">1.253999948501587</data>
+      <data key="d7">ppi</data>
+      <data key="d8">#81C784</data>
+    </edge>
+    <edge source="P:GSK3B" target="P:MAPT">
+      <data key="d6">1.9980000257492065</data>
+      <data key="d7">ppi</data>
+      <data key="d8">#81C784</data>
+    </edge>
+    <edge source="P:GSK3B" target="P:PPARG">
+      <data key="d6">1.2680000066757202</data>
+      <data key="d7">ppi</data>
+      <data key="d8">#81C784</data>
+    </edge>
+    <edge source="P:GSK3B" target="P:SLC2A4">
+      <data key="d6">1.2100000381469727</data>
+      <data key="d7">ppi</data>
+      <data key="d8">#81C784</data>
+    </edge>
+    <edge source="P:GSK3B" target="P:TNF">
+      <data key="d6">1.2979999780654907</data>
+      <data key="d7">ppi</data>
+      <data key="d8">#81C784</data>
+    </edge>
+    <edge source="P:GSK3B" target="DIS:Alzheimer's Disease">
+      <data key="d6">0.9100000262260437</data>
+      <data key="d7">associated</data>
+      <data key="d8">#FFA726</data>
+    </edge>
+    <edge source="P:GSK3B" target="DIS:Bipolar Disorder">
+      <data key="d6">0.9100000262260437</data>
+      <data key="d7">associated</data>
+      <data key="d8">#FFA726</data>
+    </edge>
+    <edge source="P:HMOX1" target="P:ACHE">
+      <data key="d6">0.9300000071525574</data>
+      <data key="d7">ppi</data>
+      <data key="d8">#81C784</data>
+    </edge>
+    <edge source="P:HMOX1" target="P:APOE">
+      <data key="d6">1.1440000534057617</data>
+      <data key="d7">ppi</data>
+      <data key="d8">#81C784</data>
+    </edge>
+    <edge source="P:HMOX1" target="P:BDNF">
+      <data key="d6">1.253999948501587</data>
+      <data key="d7">ppi</data>
+      <data key="d8">#81C784</data>
+    </edge>
+    <edge source="P:HMOX1" target="P:BACE1">
+      <data key="d6">0.800000011920929</data>
+      <data key="d7">ppi</data>
+      <data key="d8">#81C784</data>
+    </edge>
+    <edge source="P:HMOX1" target="P:IGF1">
+      <data key="d6">0.9639999866485596</data>
+      <data key="d7">ppi</data>
+      <data key="d8">#81C784</data>
+    </edge>
+    <edge source="P:HMOX1" target="P:SNCA">
+      <data key="d6">0.9639999866485596</data>
+      <data key="d7">ppi</data>
+      <data key="d8">#81C784</data>
+    </edge>
+    <edge source="P:HMOX1" target="P:PSEN1">
+      <data key="d6">0.8679999709129333</data>
+      <data key="d7">ppi</data>
+      <data key="d8">#81C784</data>
+    </edge>
+    <edge source="P:SLC6A4" target="P:APOE">
+      <data key="d6">0.9039999842643738</data>
+      <data key="d7">ppi</data>
+      <data key="d8">#81C784</data>
+    </edge>
+    <edge source="P:SLC6A4" target="P:TNF">
+      <data key="d6">0.800000011920929</data>
+      <data key="d7">ppi</data>
+      <data key="d8">#81C784</data>
+    </edge>
+    <edge source="P:SLC6A4" target="P:SNCA">
+      <data key="d6">1.3839999437332153</data>
+      <data key="d7">ppi</data>
+      <data key="d8">#81C784</data>
+    </edge>
+    <edge source="P:SLC6A4" target="DIS:ADHD">
+      <data key="d6">0.9599999785423279</data>
+      <data key="d7">associated</data>
+      <data key="d8">#FFA726</data>
+    </edge>
+    <edge source="P:SLC6A4" target="DIS:Bipolar Disorder">
+      <data key="d6">0.9599999785423279</data>
+      <data key="d7">associated</data>
+      <data key="d8">#FFA726</data>
+    </edge>
+    <edge source="P:CR1" target="P:TNF">
+      <data key="d6">0.8500000238418579</data>
+      <data key="d7">ppi</data>
+      <data key="d8">#81C784</data>
+    </edge>
+    <edge source="P:ACHE" target="P:APP">
+      <data key="d6">1.8739999532699585</data>
+      <data key="d7">ppi</data>
+      <data key="d8">#81C784</data>
+    </edge>
+    <edge source="P:ACHE" target="P:CASP3">
+      <data key="d6">1.059999942779541</data>
+      <data key="d7">ppi</data>
+      <data key="d8">#81C784</data>
+    </edge>
+    <edge source="P:ACHE" target="P:PSEN1">
+      <data key="d6">1.5019999742507935</data>
+      <data key="d7">ppi</data>
+      <data key="d8">#81C784</data>
+    </edge>
+    <edge source="P:ACHE" target="P:APOE">
+      <data key="d6">1.5379999876022339</data>
+      <data key="d7">ppi</data>
+      <data key="d8">#81C784</data>
+    </edge>
+    <edge source="P:ACHE" target="P:CHRNA7">
+      <data key="d6">0.906000018119812</data>
+      <data key="d7">ppi</data>
+      <data key="d8">#81C784</data>
+    </edge>
+    <edge source="P:ACHE" target="DIS:Alzheimer's Disease">
+      <data key="d6">0.9100000262260437</data>
+      <data key="d7">associated</data>
+      <data key="d8">#FFA726</data>
+    </edge>
+    <edge source="P:PICALM" target="P:FUS">
+      <data key="d6">0.9079999923706055</data>
+      <data key="d7">ppi</data>
+      <data key="d8">#81C784</data>
+    </edge>
+    <edge source="P:PICALM" target="P:IGF2R">
+      <data key="d6">1.1180000305175781</data>
+      <data key="d7">ppi</data>
+      <data key="d8">#81C784</data>
+    </edge>
+    <edge source="P:PICALM" target="P:MAPT">
+      <data key="d6">1.4880000352859497</data>
+      <data key="d7">ppi</data>
+      <data key="d8">#81C784</data>
+    </edge>
+    <edge source="P:PICALM" target="P:APP">
+      <data key="d6">1.6399999856948853</data>
+      <data key="d7">ppi</data>
+      <data key="d8">#81C784</data>
+    </edge>
+    <edge source="P:PICALM" target="P:PSEN1">
+      <data key="d6">1.5299999713897705</data>
+      <data key="d7">ppi</data>
+      <data key="d8">#81C784</data>
+    </edge>
+    <edge source="P:PICALM" target="DIS:Alzheimer's Disease">
+      <data key="d6">0.8299999833106995</data>
+      <data key="d7">associated</data>
+      <data key="d8">#FFA726</data>
+    </edge>
+    <edge source="P:SLC2A4" target="P:IGF1">
+      <data key="d6">1.2580000162124634</data>
+      <data key="d7">ppi</data>
+      <data key="d8">#81C784</data>
+    </edge>
+    <edge source="P:SLC2A4" target="P:PPARG">
+      <data key="d6">1.8680000305175781</data>
+      <data key="d7">ppi</data>
+      <data key="d8">#81C784</data>
+    </edge>
+    <edge source="P:FUS" target="P:APOE">
+      <data key="d6">0.8759999871253967</data>
+      <data key="d7">ppi</data>
+      <data key="d8">#81C784</data>
+    </edge>
+    <edge source="P:FUS" target="P:BDNF">
+      <data key="d6">0.8920000195503235</data>
+      <data key="d7">ppi</data>
+      <data key="d8">#81C784</data>
+    </edge>
+    <edge source="P:FUS" target="P:MAPT">
+      <data key="d6">1.8359999656677246</data>
+      <data key="d7">ppi</data>
+      <data key="d8">#81C784</data>
+    </edge>
+    <edge source="P:APP" target="P:BACE1">
+      <data key="d6">1.9980000257492065</data>
+      <data key="d7">ppi</data>
+      <data key="d8">#81C784</data>
+    </edge>
+    <edge source="P:APP" target="P:CDK5">
+      <data key="d6">1.7359999418258667</data>
+      <data key="d7">ppi</data>
+      <data key="d8">#81C784</data>
+    </edge>
+    <edge source="P:APP" target="P:PSEN1">
+      <data key="d6">1.9980000257492065</data>
+      <data key="d7">ppi</data>
+      <data key="d8">#81C784</data>
+    </edge>
+    <edge source="P:APP" target="P:CASP3">
+      <data key="d6">1.815999984741211</data>
+      <data key="d7">ppi</data>
+      <data key="d8">#81C784</data>
+    </edge>
+    <edge source="P:APP" target="P:DHCR24">
+      <data key="d6">1.062000036239624</data>
+      <data key="d7">ppi</data>
+      <data key="d8">#81C784</data>
+    </edge>
+    <edge source="P:APP" target="P:NRG1">
+      <data key="d6">0.9860000014305115</data>
+      <data key="d7">ppi</data>
+      <data key="d8">#81C784</data>
+    </edge>
+    <edge source="P:APP" target="P:OPTN">
+      <data key="d6">1.0499999523162842</data>
+      <data key="d7">ppi</data>
+      <data key="d8">#81C784</data>
+    </edge>
+    <edge source="P:APP" target="P:PPARG">
+      <data key="d6">1.0959999561309814</data>
+      <data key="d7">ppi</data>
+      <data key="d8">#81C784</data>
+    </edge>
+    <edge source="P:APP" target="P:SNCA">
+      <data key="d6">1.9859999418258667</data>
+      <data key="d7">ppi</data>
+      <data key="d8">#81C784</data>
+    </edge>
+    <edge source="P:APP" target="DIS:Alzheimer's Disease">
+      <data key="d6">0.9599999785423279</data>
+      <data key="d7">associated</data>
+      <data key="d8">#FFA726</data>
+    </edge>
+    <edge source="P:APP" target="DIS:Dementia">
+      <data key="d6">0.9599999785423279</data>
+      <data key="d7">associated</data>
+      <data key="d8">#FFA726</data>
+    </edge>
+    <edge source="P:IGF1" target="P:CASP3">
+      <data key="d6">1.3600000143051147</data>
+      <data key="d7">ppi</data>
+      <data key="d8">#81C784</data>
+    </edge>
+    <edge source="P:IGF1" target="P:APOE">
+      <data key="d6">1.1579999923706055</data>
+      <data key="d7">ppi</data>
+      <data key="d8">#81C784</data>
+    </edge>
+    <edge source="P:IGF1" target="P:BDNF">
+      <data key="d6">1.718000054359436</data>
+      <data key="d7">ppi</data>
+      <data key="d8">#81C784</data>
+    </edge>
+    <edge source="P:IGF1" target="P:IGF2R">
+      <data key="d6">1.9900000095367432</data>
+      <data key="d7">ppi</data>
+      <data key="d8">#81C784</data>
+    </edge>
+    <edge source="P:IGF1" target="P:NRG1">
+      <data key="d6">1.1419999599456787</data>
+      <data key="d7">ppi</data>
+      <data key="d8">#81C784</data>
+    </edge>
+    <edge source="P:IGF1" target="P:TNF">
+      <data key="d6">1.6740000247955322</data>
+      <data key="d7">ppi</data>
+      <data key="d8">#81C784</data>
+    </edge>
+    <edge source="P:IGF1" target="P:SNCA">
+      <data key="d6">0.800000011920929</data>
+      <data key="d7">ppi</data>
+      <data key="d8">#81C784</data>
+    </edge>
+    <edge source="P:IGF1" target="DIS:Alzheimer's Disease">
+      <data key="d6">0.9599999785423279</data>
+      <data key="d7">associated</data>
+      <data key="d8">#FFA726</data>
+    </edge>
+    <edge source="P:IGF1" target="DIS:Bipolar Disorder">
+      <data key="d6">0.9599999785423279</data>
+      <data key="d7">associated</data>
+      <data key="d8">#FFA726</data>
+    </edge>
+    <edge source="P:IGF1" target="DIS:Dementia">
+      <data key="d6">0.9599999785423279</data>
+      <data key="d7">associated</data>
+      <data key="d8">#FFA726</data>
+    </edge>
+    <edge source="P:MAPT" target="P:BACE1">
+      <data key="d6">1.5399999618530273</data>
+      <data key="d7">ppi</data>
+      <data key="d8">#81C784</data>
+    </edge>
+    <edge source="P:MAPT" target="P:CASP3">
+      <data key="d6">1.9600000381469727</data>
+      <data key="d7">ppi</data>
+      <data key="d8">#81C784</data>
+    </edge>
+    <edge source="P:MAPT" target="P:APOE">
+      <data key="d6">1.9819999933242798</data>
+      <data key="d7">ppi</data>
+      <data key="d8">#81C784</data>
+    </edge>
+    <edge source="P:MAPT" target="P:CALM1">
+      <data key="d6">1.5420000553131104</data>
+      <data key="d7">ppi</data>
+      <data key="d8">#81C784</data>
+    </edge>
+    <edge source="P:MAPT" target="DIS:Alzheimer's Disease">
+      <data key="d6">0.9599999785423279</data>
+      <data key="d7">associated</data>
+      <data key="d8">#FFA726</data>
+    </edge>
+    <edge source="P:MAPT" target="DIS:Parkinson's Disease">
+      <data key="d6">0.9599999785423279</data>
+      <data key="d7">associated</data>
+      <data key="d8">#FFA726</data>
+    </edge>
+    <edge source="P:MAPT" target="DIS:Dementia">
+      <data key="d6">0.9599999785423279</data>
+      <data key="d7">associated</data>
+      <data key="d8">#FFA726</data>
+    </edge>
+    <edge source="P:BACE1" target="P:APOE">
+      <data key="d6">1.5700000524520874</data>
+      <data key="d7">ppi</data>
+      <data key="d8">#81C784</data>
+    </edge>
+    <edge source="P:BACE1" target="P:DRD2">
+      <data key="d6">0.9279999732971191</data>
+      <data key="d7">ppi</data>
+      <data key="d8">#81C784</data>
+    </edge>
+    <edge source="P:BACE1" target="P:SNCA">
+      <data key="d6">1.3140000104904175</data>
+      <data key="d7">ppi</data>
+      <data key="d8">#81C784</data>
+    </edge>
+    <edge source="P:BACE1" target="P:TNF">
+      <data key="d6">1.0640000104904175</data>
+      <data key="d7">ppi</data>
+      <data key="d8">#81C784</data>
+    </edge>
+    <edge source="P:BACE1" target="DIS:Alzheimer's Disease">
+      <data key="d6">0.9599999785423279</data>
+      <data key="d7">associated</data>
+      <data key="d8">#FFA726</data>
+    </edge>
+    <edge source="P:SNCA" target="P:BDNF">
+      <data key="d6">1.5959999561309814</data>
+      <data key="d7">ppi</data>
+      <data key="d8">#81C784</data>
+    </edge>
+    <edge source="P:SNCA" target="P:CDK5">
+      <data key="d6">1.343999981880188</data>
+      <data key="d7">ppi</data>
+      <data key="d8">#81C784</data>
+    </edge>
+    <edge source="P:SNCA" target="P:DRD2">
+      <data key="d6">1.3480000495910645</data>
+      <data key="d7">ppi</data>
+      <data key="d8">#81C784</data>
+    </edge>
+    <edge source="P:SNCA" target="P:GRN">
+      <data key="d6">1.350000023841858</data>
+      <data key="d7">ppi</data>
+      <data key="d8">#81C784</data>
+    </edge>
+    <edge source="P:SNCA" target="P:PSEN1">
+      <data key="d6">1.7300000190734863</data>
+      <data key="d7">ppi</data>
+      <data key="d8">#81C784</data>
+    </edge>
+    <edge source="P:SNCA" target="P:TNF">
+      <data key="d6">1.187999963760376</data>
+      <data key="d7">ppi</data>
+      <data key="d8">#81C784</data>
+    </edge>
+    <edge source="P:SNCA" target="DIS:Alzheimer's Disease">
+      <data key="d6">0.9100000262260437</data>
+      <data key="d7">associated</data>
+      <data key="d8">#FFA726</data>
+    </edge>
+    <edge source="P:SNCA" target="DIS:Parkinson's Disease">
+      <data key="d6">0.9100000262260437</data>
+      <data key="d7">associated</data>
+      <data key="d8">#FFA726</data>
+    </edge>
+    <edge source="P:SNCA" target="DIS:Dementia">
+      <data key="d6">0.9100000262260437</data>
+      <data key="d7">associated</data>
+      <data key="d8">#FFA726</data>
+    </edge>
+    <edge source="P:BDNF" target="P:CDK5">
+      <data key="d6">1.694000005722046</data>
+      <data key="d7">ppi</data>
+      <data key="d8">#81C784</data>
+    </edge>
+    <edge source="P:BDNF" target="P:NRG1">
+      <data key="d6">1.4739999771118164</data>
+      <data key="d7">ppi</data>
+      <data key="d8">#81C784</data>
+    </edge>
+    <edge source="P:BDNF" target="P:PSEN1">
+      <data key="d6">1.371999979019165</data>
+      <data key="d7">ppi</data>
+      <data key="d8">#81C784</data>
+    </edge>
+    <edge source="P:BDNF" target="P:DRD2">
+      <data key="d6">1.5800000429153442</data>
+      <data key="d7">ppi</data>
+      <data key="d8">#81C784</data>
+    </edge>
+    <edge source="P:BDNF" target="P:TNF">
+      <data key="d6">1.4780000448226929</data>
+      <data key="d7">ppi</data>
+      <data key="d8">#81C784</data>
+    </edge>
+    <edge source="P:BDNF" target="DIS:Alzheimer's Disease">
+      <data key="d6">0.9599999785423279</data>
+      <data key="d7">associated</data>
+      <data key="d8">#FFA726</data>
+    </edge>
+    <edge source="P:BDNF" target="DIS:Parkinson's Disease">
+      <data key="d6">0.9599999785423279</data>
+      <data key="d7">associated</data>
+      <data key="d8">#FFA726</data>
+    </edge>
+    <edge source="P:BDNF" target="DIS:ADHD">
+      <data key="d6">0.9599999785423279</data>
+      <data key="d7">associated</data>
+      <data key="d8">#FFA726</data>
+    </edge>
+    <edge source="P:BDNF" target="DIS:Bipolar Disorder">
+      <data key="d6">0.9599999785423279</data>
+      <data key="d7">associated</data>
+      <data key="d8">#FFA726</data>
+    </edge>
+    <edge source="P:BDNF" target="DIS:Dementia">
+      <data key="d6">0.9599999785423279</data>
+      <data key="d7">associated</data>
+      <data key="d8">#FFA726</data>
+    </edge>
+    <edge source="P:GRIN1" target="P:DRD2">
+      <data key="d6">1.184000015258789</data>
+      <data key="d7">ppi</data>
+      <data key="d8">#81C784</data>
+    </edge>
+    <edge source="P:GRIN1" target="P:PSEN1">
+      <data key="d6">0.8700000047683716</data>
+      <data key="d7">ppi</data>
+      <data key="d8">#81C784</data>
+    </edge>
+    <edge source="P:GRIN1" target="P:NRG1">
+      <data key="d6">1.0820000171661377</data>
+      <data key="d7">ppi</data>
+      <data key="d8">#81C784</data>
+    </edge>
+    <edge source="P:PPARG" target="P:CDK5">
+      <data key="d6">1.8179999589920044</data>
+      <data key="d7">ppi</data>
+      <data key="d8">#81C784</data>
+    </edge>
+    <edge source="P:PPARG" target="P:TNF">
+      <data key="d6">1.6139999628067017</data>
+      <data key="d7">ppi</data>
+      <data key="d8">#81C784</data>
+    </edge>
+    <edge source="P:PPARG" target="DIS:Alzheimer's Disease">
+      <data key="d6">0.9599999785423279</data>
+      <data key="d7">associated</data>
+      <data key="d8">#FFA726</data>
+    </edge>
+    <edge source="P:OPTN" target="P:GRN">
+      <data key="d6">0.9580000042915344</data>
+      <data key="d7">ppi</data>
+      <data key="d8">#81C784</data>
+    </edge>
+    <edge source="P:NRG1" target="DIS:Bipolar Disorder">
+      <data key="d6">0.9100000262260437</data>
+      <data key="d7">associated</data>
+      <data key="d8">#FFA726</data>
+    </edge>
+    <edge source="P:CASP3" target="P:PSEN1">
+      <data key="d6">1.4359999895095825</data>
+      <data key="d7">ppi</data>
+      <data key="d8">#81C784</data>
+    </edge>
+    <edge source="P:DHCR24" target="P:APOE">
+      <data key="d6">0.8259999752044678</data>
+      <data key="d7">ppi</data>
+      <data key="d8">#81C784</data>
+    </edge>
+    <edge source="P:PSEN1" target="P:APOE">
+      <data key="d6">1.9119999408721924</data>
+      <data key="d7">ppi</data>
+      <data key="d8">#81C784</data>
+    </edge>
+    <edge source="P:PSEN1" target="DIS:Alzheimer's Disease">
+      <data key="d6">0.9599999785423279</data>
+      <data key="d7">associated</data>
+      <data key="d8">#FFA726</data>
+    </edge>
+    <edge source="P:PSEN1" target="DIS:Dementia">
+      <data key="d6">0.9599999785423279</data>
+      <data key="d7">associated</data>
+      <data key="d8">#FFA726</data>
+    </edge>
+    <edge source="P:TNF" target="P:GRN">
+      <data key="d6">0.972000002861023</data>
+      <data key="d7">ppi</data>
+      <data key="d8">#81C784</data>
+    </edge>
+    <edge source="P:TNF" target="DIS:Alzheimer's Disease">
+      <data key="d6">1.0</data>
+      <data key="d7">associated</data>
+      <data key="d8">#FFA726</data>
+    </edge>
+    <edge source="P:TNF" target="DIS:Parkinson's Disease">
+      <data key="d6">1.0</data>
+      <data key="d7">associated</data>
+      <data key="d8">#FFA726</data>
+    </edge>
+    <edge source="P:TNF" target="DIS:Bipolar Disorder">
+      <data key="d6">1.0</data>
+      <data key="d7">associated</data>
+      <data key="d8">#FFA726</data>
+    </edge>
+    <edge source="P:TNF" target="DIS:Dementia">
+      <data key="d6">1.0</data>
+      <data key="d7">associated</data>
+      <data key="d8">#FFA726</data>
+    </edge>
+    <edge source="P:APOE" target="P:CDK5">
+      <data key="d6">1.2619999647140503</data>
+      <data key="d7">ppi</data>
+      <data key="d8">#81C784</data>
+    </edge>
+    <edge source="P:APOE" target="P:GRN">
+      <data key="d6">1.149999976158142</data>
+      <data key="d7">ppi</data>
+      <data key="d8">#81C784</data>
+    </edge>
+    <edge source="P:APOE" target="DIS:Alzheimer's Disease">
+      <data key="d6">0.9599999785423279</data>
+      <data key="d7">associated</data>
+      <data key="d8">#FFA726</data>
+    </edge>
+    <edge source="P:APOE" target="DIS:Bipolar Disorder">
+      <data key="d6">0.9599999785423279</data>
+      <data key="d7">associated</data>
+      <data key="d8">#FFA726</data>
+    </edge>
+    <edge source="P:APOE" target="DIS:Dementia">
+      <data key="d6">0.9599999785423279</data>
+      <data key="d7">associated</data>
+      <data key="d8">#FFA726</data>
+    </edge>
+    <edge source="P:GRN" target="DIS:Alzheimer's Disease">
+      <data key="d6">0.9599999785423279</data>
+      <data key="d7">associated</data>
+      <data key="d8">#FFA726</data>
+    </edge>
+    <edge source="P:GRN" target="DIS:Dementia">
+      <data key="d6">0.9599999785423279</data>
+      <data key="d7">associated</data>
+      <data key="d8">#FFA726</data>
+    </edge>
+    <edge source="P:DRD2" target="DIS:Parkinson's Disease">
+      <data key="d6">0.9599999785423279</data>
+      <data key="d7">associated</data>
+      <data key="d8">#FFA726</data>
+    </edge>
+    <edge source="P:DRD2" target="DIS:ADHD">
+      <data key="d6">0.9599999785423279</data>
+      <data key="d7">associated</data>
+      <data key="d8">#FFA726</data>
+    </edge>
+    <edge source="P:DRD2" target="DIS:Bipolar Disorder">
+      <data key="d6">0.9599999785423279</data>
+      <data key="d7">associated</data>
+      <data key="d8">#FFA726</data>
+    </edge>
+  </graph>
+</graphml>

@@ -1,105 +1,115 @@
 
 ================== RESULT 1: METRIC TEST ==================
-Testing whether model ranks FDA-approved AD drugs above non-AD drugs.
+Testing whether model ranks approved disease drugs above non-CNS drugs.
 
   Drug                     Score  Expected  Category
-  -----------------------------------------------------------------
-  Donepezil               0.4421      HIGH  AChE inhibitor, FDA-approved AD  [PASS]
-  Memantine               0.4350      HIGH  NMDA antagonist, FDA-approved AD  [PASS]
-  Rivastigmine            0.4449      HIGH  AChE/BuChE inhibitor, FDA-approved AD  [PASS]
-  Galantamine             0.4493      HIGH  AChE inhibitor + nAChR, FDA-approved AD  [PASS]
-  Tacrine                 0.4494      HIGH  AChE inhibitor, first FDA-approved AD drug  [PASS]
+  ----------------------------------------------------------------------
+  Donepezil               0.8907      HIGH  AChE inhibitor, FDA-approved AD  [PASS]
+  Memantine               0.8723      HIGH  NMDA antagonist, FDA-approved AD  [PASS]
+  Rivastigmine            0.8883      HIGH  AChE/BuChE inhibitor, FDA-approved AD  [PASS]
+  Galantamine             0.8664      HIGH  AChE inhibitor + nAChR, FDA-approved AD  [PASS]
+  Tacrine                 0.8948      HIGH  AChE inhibitor, first FDA-approved AD drug  [PASS]
+  Riluzole                0.8986      HIGH  glutamate antagonist, FDA-approved ALS  [PASS]
+  Edaravone               0.8963      HIGH  free radical scavenger, FDA-approved ALS  [PASS]
+  Lithium                 0.8921      HIGH  GSK-3b inhibitor, Bipolar first-line  [PASS]
+  Haloperidol             0.8969      HIGH  D2 antagonist, approved Bipolar/psychosis  [PASS]
 
-  Amoxicillin             0.3998       LOW  Penicillin antibiotic, no AD pathway  [PASS]
-  Warfarin                0.3978       LOW  Anticoagulant, Vitamin K pathway only  [PASS]
-  Omeprazole              0.3980       LOW  Proton pump inhibitor, GI only  [PASS]
-  Furosemide              0.3846       LOW  Loop diuretic, renal only  [PASS]
-  Atenolol                0.4007       LOW  Beta-blocker, cardiovascular only  [PASS]
+  Amoxicillin             0.1476       LOW  Penicillin antibiotic, no CNS pathway  [PASS]
+  Warfarin                0.1205       LOW  Anticoagulant, Vitamin K pathway only  [PASS]
+  Omeprazole              0.5919       LOW  Proton pump inhibitor, GI only  [REVIEW]
+  Furosemide              0.7001       LOW  Loop diuretic, renal only  [REVIEW]
+  Cisplatin               0.1336       LOW  Platinum chemotherapy, DNA crosslinker  [PASS]
+  Methotrexate            0.6629       LOW  Antifolate chemotherapy, no CNS  [REVIEW]
+  Fluconazole             0.4415       LOW  Antifungal, ergosterol synthesis  [REVIEW]
 
-  Approved AD drugs  — mean=0.4441, std=0.0053
-  Non-AD drugs       — mean=0.3962, std=0.0059
-  Score separation   — Δ=0.0480
-  Mann-Whitney U     — p=0.0040 (significant, p<0.05)
-  Perfect separation — YES: all AD drugs rank above all non-AD drugs
+  Approved drugs  — mean=0.8885, std=0.0108
+  Non-CNS drugs   — mean=0.3997, std=0.2422
+  Score separation — Delta=0.4888
+  Mann-Whitney U   — p=0.0001 (significant, p<0.05)
+  Perfect separation — YES
 
 
 =============== RESULT 2: DUMMY / NULL TEST ===============
-Drugs with no known AD mechanism should score below the approved-AD mean.
+Off-pathway drugs should score below the approved-drug mean.
 
-  Reference — approved AD drug mean score: 0.4441
+  Reference — approved drug mean score: 0.8885
 
-  Drug                     Score  vs AD mean  Notes
+  Drug                     Score   vs mean  Notes
   -----------------------------------------------------------------
-  Cisplatin               0.3909     -0.0532  platinum chemotherapy, DNA crosslinker  [PASS]
-  Methotrexate            0.4016     -0.0425  antifolate chemotherapy  [PASS]
-  Doxorubicin             0.4067     -0.0374  anthracycline, topoisomerase inhibitor  [PASS]
-  Spironolactone          0.3918     -0.0523  aldosterone antagonist, renal  [PASS]
-  Tamoxifen               0.3926     -0.0515  selective estrogen receptor modulator  [PASS]
-  Dexamethasone           0.3889     -0.0552  corticosteroid, anti-inflammatory  [PASS]
-  Cisplatin               0.3909     -0.0532  DNA crosslinking agent  [PASS]
-  Azithromycin            0.3929     -0.0512  macrolide antibiotic, ribosome inhibitor  [PASS]
-  Ciprofloxacin           0.3915     -0.0526  fluoroquinolone antibiotic  [PASS]
-  Fluconazole             0.3916     -0.0525  antifungal, ergosterol synthesis  [PASS]
+  Cisplatin               0.1336   -0.7549  platinum chemotherapy, DNA crosslinker  [PASS]
+  Methotrexate            0.6629   -0.2256  antifolate chemotherapy  [PASS]
+  Doxorubicin             0.4776   -0.4109  anthracycline, topoisomerase inhibitor  [PASS]
+  Spironolactone          0.5842   -0.3043  aldosterone antagonist, renal  [PASS]
+  Azithromycin            0.1583   -0.7302  macrolide antibiotic, ribosome inhibitor  [PASS]
+  Ciprofloxacin           0.5791   -0.3094  fluoroquinolone antibiotic  [PASS]
+  Fluconazole             0.4415   -0.4470  antifungal, ergosterol synthesis  [PASS]
+  Baclofen                0.2873   -0.6012  GABA-B agonist, muscle relaxant  [PASS]
+  Bisoprolol              0.3852   -0.5033  beta-1 blocker, cardiovascular only  [PASS]
+  Tamoxifen               0.1427   -0.7458  selective estrogen receptor modulator  [PASS]
 
-  10/10 off-pathway drugs scored below approved-AD mean
-  Model correctly suppresses scores for non-AD drugs.
+  10/10 off-pathway drugs scored below approved mean
+  Model correctly suppresses scores for non-CNS drugs.
 
 
 ============ RESULT 3: K-FOLD CROSS VALIDATION ============
 K-Fold Cross Validation Results (k=5)
-Mean AUC : 0.9549
-Std  AUC : 0.0437
-Per-fold : [0.986111111111111, 0.8680555555555555, 0.9756944444444445, 0.9722222222222222, 0.9722222222222222]
+Mean AUC : 0.9966
+Std  AUC : 0.0012
+Per-fold : [0.9977324263038548, 0.997732426303855, 0.9965986394557823, 0.9965986394557823, 0.9943310657596371]
 
   Interpretation:
-  AUC = 0.9549 means the model correctly ranked a known AD drug
-  above a non-AD drug in 95.49% of comparisons on held-out data.
-  This exceeds the 0.80 threshold for strong discriminative performance.
-  The ± 0.044 std indicates consistent performance across folds.
+  AUC = 0.9966: model ranked a known therapeutic above a
+  non-therapeutic in 99.7% of held-out comparisons.
+  NOTE: AUC > 0.99 may indicate overfitting given dataset size.
+  Recommend validating predictions against independent clinical data.
 
 
 ========= RESULT 4: DISCOVERY / REPURPOSING SCREEN =========
-Screening repurposing candidates against approved-AD drug mean.
+Screening repurposing candidates across all 6 diseases.
 
-  Reference threshold (approved AD mean): 0.4441
+  Reference threshold (approved drug mean): 0.8885
 
-  Metformin                   0.3954
-  Rapamycin                   0.3954
-  Sildenafil                  0.3931
-  Lithium carbonate           0.3978
-  Doxycycline                 0.4047
-  Minocycline                 0.4423  * borderline
-  Fluoxetine                  0.3971
-  Carbamazepine               0.3933
-  Simvastatin                 0.3971
-  Dexamethasone               0.3889
-  Ketamine                    0.3930
-  Melatonin                   0.4492  *** DISCOVERY CANDIDATE ***
-  Curcumin                    0.4486  *** DISCOVERY CANDIDATE ***
-  Resveratrol                 0.4517  *** DISCOVERY CANDIDATE ***
-  Berberine                   0.4436  * borderline
-  Cannabidiol                 0.4478  *** DISCOVERY CANDIDATE ***
-  Nicotine                    0.4583  *** DISCOVERY CANDIDATE ***
-  Amoxicillin                 0.3998
-  Warfarin                    0.3978
-  Omeprazole                  0.3980
+  Metformin                     0.3607
+  Rapamycin                     0.6799
+  Sildenafil                    0.6582
+  Doxycycline                   0.5662
+  Melatonin                     0.8750
+  Curcumin                      0.8882  * borderline
+  Resveratrol                   0.8965  *** DISCOVERY CANDIDATE ***
+  Berberine                     0.8961  *** DISCOVERY CANDIDATE ***
+  Cannabidiol                   0.8780
+  Nicotine                      0.8891  *** DISCOVERY CANDIDATE ***
+  Trehalose                     0.8933  *** DISCOVERY CANDIDATE ***
+  Thalidomide                   0.8940  *** DISCOVERY CANDIDATE ***
+  Lenalidomide                  0.8557
+  Kenpaullone                   0.8881  * borderline
+  Verapamil                     0.8848  * borderline
+  N-Acetylcysteine              0.8929  *** DISCOVERY CANDIDATE ***
+  Topiramate                    0.8907  *** DISCOVERY CANDIDATE ***
+  Sirolimus                     0.8954  *** DISCOVERY CANDIDATE ***
+  Vorinostat                    0.8923  *** DISCOVERY CANDIDATE ***
+  Sertraline                    0.8697
+  Amoxicillin                   0.1476
+  Warfarin                      0.1205
+  Cisplatin                     0.1336
 
-  Discovery candidates scoring >= approved AD mean (0.4441):
-    Nicotine                   0.4583  — nicotinic receptor agonist, CHRNA7
-    Resveratrol                0.4517  — SIRT1 activator, amyloid clearance
-    Melatonin                  0.4492  — antioxidant, circadian, amyloid clearance
-    Curcumin                   0.4486  — polyphenol, tau and amyloid aggregation
-    Cannabidiol                0.4478  — anti-inflammatory, neuroprotective
+  Discovery candidates scoring >= 0.8885:
+    Resveratrol                  0.8965  — SIRT1 activator, amyloid clearance
+    Berberine                    0.8961  — GSK-3b/tau, cholinesterase inhibition
+    Sirolimus                    0.8954  — mTOR inhibitor, Huntington/dementia
+    Thalidomide                  0.8940  — TNF inhibitor, ALS trials
+    Trehalose                    0.8933  — autophagy inducer, ALS preclinical
+    N-Acetylcysteine             0.8929  — antioxidant, Bipolar adjunct trials
+    Vorinostat                   0.8923  — HDAC inhibitor, FTD/GRN pathway
+    Topiramate                   0.8907  — anticonvulsant, Bipolar adjunct
+    Nicotine                     0.8891  — nicotinic receptor agonist, CHRNA7
 
-  Cross-reference these against:
-    ClinicalTrials.gov — is there already an AD trial?
-    ChEMBL/BindingDB   — do they bind BACE1, MAPT, APP, APOE?
-    PubMed             — search '<drug> Alzheimer'
+  Cross-reference against ClinicalTrials.gov, ChEMBL, PubMed.
 
-  Full ranked results saved → 99_ISEF_Docs/discovery_candidates.csv
+  Saved -> 99_ISEF_Docs/discovery_candidates.csv
 
 ============================================================
-  K-Fold AUC: 0.9549 ± 0.0437 (5-fold cross-validation)
-  Graph: 118 drugs, 75 proteins, 3 diseases
-  Training edges: 60 positive drug-disease associations
+  Mean AUC : 0.9966
+  Graph: 160 drugs, 96 proteins, 6 diseases
+  Training edges: 105 positive drug-disease associations
 ============================================================
