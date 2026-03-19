@@ -42,6 +42,14 @@ def main():
     "MAOB", "MPO", "NCSTN", "NOS3", "NPY", "PLAU",
     "PPARG", "PYY", "RELN", "SLC2A4", "SOD2", "TF",
     "TFAM", "TPI1", "VEGFA", "VSNL1",
+    # Bipolar Disorder
+    "ANK3", "CACNA1C", "DISC1", "BDNF", "GSK3B", "DTNBP1",
+    "NRG1", "DAOA", "SLC6A4", "TPH2", "COMT", "DRD2", "HTR2A",
+    # Dementia / FTD
+    "APP", "PSEN1", "PSEN2", "GRN", "FUS", "VCP", "SQSTM1",
+    "UBQLN2", "C9orf72",
+    # ALS
+    "SOD1", "OPTN", "TBK1", "NEK1", "SETX",
 ]
     logging.info(f"Fetching interactions for {len(proteins)} proteins from STRING DB...")
     interactions = fetch_string_interactions(proteins)
