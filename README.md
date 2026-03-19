@@ -5,7 +5,7 @@
 ## Network Visualization
 The model operates on a complex biological network connecting drugs, proteins, and diseases. Below is a visual representation of the core network (Created via Cytoscape):
 
-<img src="network_visualization.graphml.jpeg" alt="Network Visualization" width="300" height="200">
+<img src="network_visualization.graphml.jpeg" alt="Network Visualization" width="800" height="500">
 
 ## Interactive Demo
 Try the model live without installations -- 
@@ -89,7 +89,8 @@ drug-disease-interaction/
 │   ├── kfold_results.txt                # 5-fold AUC per fold + mean ± std
 │   ├── results_validation.txt           # Full 4-section results report
 │   └── discovery_candidates.csv        # Ranked repurposing candidates with scores
-│          
+│      
+├── network_visualization.graphml.jpeg  # Network Visualization .jpeg file   
 ├── network_visualization.graphml        # Cytoscape import file
 ├── Drug_Discovery_GNN_Demo.ipynb        # Google Colab live demo notebook
 └── README.md
