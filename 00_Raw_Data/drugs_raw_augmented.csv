@@ -128,45 +128,45 @@ DP 155,CTD-derived,,CCCCCCCCCCCCCCCCCC(=O)OCC(COP(=O)([O-])OCC[N+](C)(C)C)OC(=O)
 BMS 708163,CTD-derived,,C1=CC(=CC=C1S(=O)(=O)N(CC2=C(C=C(C=C2)C3=NOC=N3)F)C(CCC(F)(F)F)C(=O)N)Cl,,
 Trazodone,CTD-derived,,C1CN(CCN1CCCN2C(=O)N3C=CC=CC3=N2)C4=CC(=CC=C4)Cl,,
 Maprotiline,CTD-derived,,CNCCCC12CCC(C3=CC=CC=C31)C4=CC=CC=C24,,
-Trehalose,CTD-derived,,,,CTD-ALS
-Lipoic acid,CTD-derived,,,,CTD-ALS
-Tocopherol,CTD-derived,,,,CTD-ALS
-Edaravone,CTD-derived,,,,CTD-ALS
-Levodopa,CTD-derived,,,,CTD-ALS
-Riluzole,CTD-derived,,,,CTD-ALS
-Thalidomide,CTD-derived,,,,CTD-ALS
-PRE-084,CTD-derived,,,,CTD-ALS
-Promethazine,CTD-derived,,,,CTD-ALS
-Bromocriptine,CTD-derived,,,,CTD-ALS
-Unithiol,CTD-derived,,,,CTD-ALS
-Gabapentin,CTD-derived,,,,CTD-ALS
-Lenalidomide,CTD-derived,,,,CTD-ALS
-Kenpaullone,CTD-derived,,,,CTD-ALS
-Fluphenazine,CTD-derived,,,,CTD-Bipolar
-Quetiapine,CTD-derived,,,,CTD-Bipolar
-Sulpiride,CTD-derived,,,,CTD-Bipolar
-N-Acetylcysteine,CTD-derived,,,,CTD-Bipolar
-Aripiprazole,CTD-derived,,,,CTD-Bipolar
-Topiramate,CTD-derived,,,,CTD-Bipolar
-Verapamil,CTD-derived,,,,CTD-Bipolar
-Tranylcypromine,CTD-derived,,,,CTD-Bipolar
-Nimodipine,CTD-derived,,,,CTD-Bipolar
-Atenolol,CTD-derived,,,,CTD-Bipolar
-Reboxetine,CTD-derived,,,,CTD-Bipolar
-Oxcarbazepine,CTD-derived,,,,CTD-Bipolar
-Zonisamide,CTD-derived,,,,CTD-Bipolar
-Allopurinol,CTD-derived,,,,CTD-Bipolar
-Modafinil,CTD-derived,,,,CTD-Bipolar
-Perphenazine,CTD-derived,,,,CTD-Bipolar
-Folic Acid,CTD-derived,,,,CTD-Bipolar
-Benztropine,CTD-derived,,,,CTD-Bipolar
-Trifluoperazine,CTD-derived,,,,CTD-Bipolar
-Mianserin,CTD-derived,,,,CTD-Bipolar
-Clozapine,CTD-derived,,,,CTD-Dementia
-Sertraline,CTD-derived,,,,CTD-Dementia
-Sirolimus,CTD-derived,,,,CTD-Dementia
-S-Adenosylmethionine,CTD-derived,,,,CTD-Dementia
-Olanzapine,CTD-derived,,,,CTD-Dementia
-Vorinostat,CTD-derived,,,,CTD-Dementia
-Ginsenoside Rg1,CTD-derived,,,,CTD-Dementia
-Carvedilol,CTD-derived,,,,CTD-Dementia
+Trehalose,CTD-derived,,C(C1C(C(C(C(O1)OC2C(C(C(C(O2)CO)O)O)O)O)O)O)O,,CTD-ALS
+Lipoic acid,CTD-derived,,C1CSSC1CCCCC(=O)O,,CTD-ALS
+Tocopherol,CTD-derived,,CC1=C(C=C2CCC(OC2=C1C)(C)CCCC(C)CCCC(C)CCCC(C)C)O,,CTD-ALS
+Edaravone,CTD-derived,,CC1=NN(C(=O)C1)C2=CC=CC=C2,,CTD-ALS
+Levodopa,CTD-derived,,C1=CC(=C(C=C1CC(C(=O)O)N)O)O,,CTD-ALS
+Riluzole,CTD-derived,,C1=CC2=C(C=C1OC(F)(F)F)SC(=N2)N,,CTD-ALS
+Thalidomide,CTD-derived,,C1CC(=O)NC(=O)C1N2C(=O)C3=CC=CC=C3C2=O,,CTD-ALS
+PRE-084,CTD-derived,,C1CCC(CC1)(C2=CC=CC=C2)C(=O)OCCN3CCOCC3,,CTD-ALS
+Promethazine,CTD-derived,,CC(CN1C2=CC=CC=C2SC3=CC=CC=C31)N(C)C,,CTD-ALS
+Bromocriptine,CTD-derived,,CC(C)CC1C(=O)N2CCCC2C3(N1C(=O)C(O3)(C(C)C)NC(=O)C4CN(C5CC6=C(NC7=CC=CC(=C67)C5=C4)Br)C)O,,CTD-ALS
+Unithiol,CTD-derived,,C(C(CS(=O)(=O)[O-])S)S.[Na+],,CTD-ALS
+Gabapentin,CTD-derived,,C1CCC(CC1)(CC(=O)O)CN,,CTD-ALS
+Lenalidomide,CTD-derived,,C1CC(=O)NC(=O)C1N2CC3=C(C2=O)C=CC=C3N,,CTD-ALS
+Kenpaullone,CTD-derived,,C1C2=C(C3=CC=CC=C3NC1=O)NC4=C2C=C(C=C4)Br,,CTD-ALS
+Fluphenazine,CTD-derived,,C1CN(CCN1CCCN2C3=CC=CC=C3SC4=C2C=C(C=C4)C(F)(F)F)CCO,,CTD-Bipolar
+Quetiapine,CTD-derived,,C1CN(CCN1CCOCCO)C2=NC3=CC=CC=C3SC4=CC=CC=C42,,CTD-Bipolar
+Sulpiride,CTD-derived,,CCN1CCCC1CNC(=O)C2=C(C=CC(=C2)S(=O)(=O)N)OC,,CTD-Bipolar
+N-Acetylcysteine,CTD-derived,,CC(=O)NC(CS)C(=O)O,,CTD-Bipolar
+Aripiprazole,CTD-derived,,C1CC(=O)NC2=C1C=CC(=C2)OCCCCN3CCN(CC3)C4=C(C(=CC=C4)Cl)Cl,,CTD-Bipolar
+Topiramate,CTD-derived,,CC1(OC2COC3(C(C2O1)OC(O3)(C)C)COS(=O)(=O)N)C,,CTD-Bipolar
+Verapamil,CTD-derived,,CC(C)C(CCCN(C)CCC1=CC(=C(C=C1)OC)OC)(C#N)C2=CC(=C(C=C2)OC)OC,,CTD-Bipolar
+Tranylcypromine,CTD-derived,,C1C(C1N)C2=CC=CC=C2,,CTD-Bipolar
+Nimodipine,CTD-derived,,CC1=C(C(C(=C(N1)C)C(=O)OC(C)C)C2=CC(=CC=C2)[N+](=O)[O-])C(=O)OCCOC,,CTD-Bipolar
+Atenolol,CTD-derived,,CC(C)NCC(COC1=CC=C(C=C1)CC(=O)N)O,,CTD-Bipolar
+Reboxetine,CTD-derived,,CCOC1=CC=CC=C1OC(C2CNCCO2)C3=CC=CC=C3,,CTD-Bipolar
+Oxcarbazepine,CTD-derived,,C1C2=CC=CC=C2N(C3=CC=CC=C3C1=O)C(=O)N,,CTD-Bipolar
+Zonisamide,CTD-derived,,C1=CC=C2C(=C1)C(=NO2)CS(=O)(=O)N,,CTD-Bipolar
+Allopurinol,CTD-derived,,C1=NNC2=C1C(=O)NC=N2,,CTD-Bipolar
+Modafinil,CTD-derived,,C1=CC=C(C=C1)C(C2=CC=CC=C2)S(=O)CC(=O)N,,CTD-Bipolar
+Perphenazine,CTD-derived,,C1CN(CCN1CCCN2C3=CC=CC=C3SC4=C2C=C(C=C4)Cl)CCO,,CTD-Bipolar
+Folic Acid,CTD-derived,,C1=CC(=CC=C1C(=O)NC(CCC(=O)O)C(=O)O)NCC2=CN=C3C(=N2)C(=O)NC(=N3)N,,CTD-Bipolar
+Benztropine,CTD-derived,,CN1C2CCC1CC(C2)OC(C3=CC=CC=C3)C4=CC=CC=C4,,CTD-Bipolar
+Trifluoperazine,CTD-derived,,CN1CCN(CC1)CCCN2C3=CC=CC=C3SC4=C2C=C(C=C4)C(F)(F)F,,CTD-Bipolar
+Mianserin,CTD-derived,,CN1CCN2C(C1)C3=CC=CC=C3CC4=CC=CC=C42,,CTD-Bipolar
+Clozapine,CTD-derived,,CN1CCN(CC1)C2=NC3=C(C=CC(=C3)Cl)NC4=CC=CC=C42,,CTD-Dementia
+Sertraline,CTD-derived,,CNC1CCC(C2=CC=CC=C12)C3=CC(=C(C=C3)Cl)Cl,,CTD-Dementia
+Sirolimus,CTD-derived,,CC1CCC2CC(C(=CC=CC=CC(CC(C(=O)C(C(C(=CC(C(=O)CC(OC(=O)C3CCCCN3C(=O)C(=O)C1(O2)O)C(C)CC4CCC(C(C4)OC)O)C)C)O)OC)C)C)C)OC,,CTD-Dementia
+S-Adenosylmethionine,CTD-derived,,C[S+](CCC(C(=O)[O-])N)CC1C(C(C(O1)N2C=NC3=C(N=CN=C32)N)O)O,,CTD-Dementia
+Olanzapine,CTD-derived,,CC1=CC2=C(S1)NC3=CC=CC=C3N=C2N4CCN(CC4)C,,CTD-Dementia
+Vorinostat,CTD-derived,,C1=CC=C(C=C1)NC(=O)CCCCCCC(=O)NO,,CTD-Dementia
+Ginsenoside Rg1,CTD-derived,,CC(=CCCC(C)(C1CCC2(C1C(CC3C2(CC(C4C3(CCC(C4(C)C)O)C)OC5C(C(C(C(O5)CO)O)O)O)C)O)C)OC6C(C(C(C(O6)CO)O)O)O)C,,CTD-Dementia
+Carvedilol,CTD-derived,,COC1=CC=CC=C1OCCNCC(COC2=CC=CC3=C2C4=CC=CC=C4N3)O,,CTD-Dementia
