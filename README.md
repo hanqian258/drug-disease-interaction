@@ -228,9 +228,9 @@ Scores are compressed below 0.5 due to `pos_weight=2.0` training. The meaningful
 
 | Score | Interpretation |
 |-------|---------------|
-| ≥ 0.43 | 🟢 High Potential |
-| 0.40 – 0.43 | 🟡 Moderate Potential |
-| < 0.40 | 🔴 Low / No Predicted Correlation |
+| ≥ 0.75 | 🟢 High Potential |
+| 0.35 – 0.75 | 🟡 Moderate Potential |
+| < 0.35 | 🔴 Low / No Predicted Correlation |
 
 ---
 

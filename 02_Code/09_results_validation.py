@@ -61,13 +61,13 @@ def run_metric_test():
     for drug, note in POSITIVE_CONTROLS:
         s = get_score(drug)
         pos_scores.append(s)
-        status = 'PASS' if s and s >= 0.40 else 'REVIEW'
+        status = 'PASS' if s and s >= 0.75 else 'REVIEW'
         lines.append(f"  {drug:<22} {s:>7.4f}  {'HIGH':>8}  {note}  [{status}]")
     lines.append('')
     for drug, note in NEGATIVE_CONTROLS:
         s = get_score(drug)
         neg_scores.append(s)
-        status = 'PASS' if s and s < 0.43 else 'REVIEW'
+        status = 'PASS' if s and s < 0.35 else 'REVIEW'
         lines.append(f"  {drug:<22} {s:>7.4f}  {'LOW':>8}  {note}  [{status}]")
     pos_scores = [s for s in pos_scores if s is not None]
     neg_scores = [s for s in neg_scores if s is not None]

@@ -103,8 +103,9 @@ PRED_PATH  = os.path.join(MODEL_DIR, "predictor_best.pt")
 MAP_PATH   = os.path.join(MODEL_DIR, "mappings.pt")
 
 # Calibrated to the training score distribution (pos_weight=2.0 compresses scores)
-SCORE_HIGH     = 0.43
-SCORE_MODERATE = 0.40
+SCORE_HIGH     = 0.75   # clearly therapeutic — all approved drugs score 0.86–0.90
+SCORE_MODERATE = 0.35   # biological signal detected but below approved range
+# Below 0.35 = Low / no predicted correlation
 
 
 # ── Helpers ───────────────────────────────────────────────────────────────────
