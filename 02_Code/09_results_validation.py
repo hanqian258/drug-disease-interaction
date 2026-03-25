@@ -143,54 +143,120 @@ def run_kfold_summary():
     return '\n'.join(lines)
 
 REPURPOSING_CANDIDATES = [
-    ("Metformin",        "AMPK activator, active TAME trial for AD"),
-    ("Rapamycin",        "mTOR inhibitor, autophagy, preclinical AD data"),
-    ("Sildenafil",       "PDE5/cGMP pathway, retrospective AD data"),
-    ("Doxycycline",      "tetracycline, amyloid aggregation inhibitor"),
-    ("Melatonin",        "antioxidant, circadian, amyloid clearance"),
-    ("Curcumin",         "polyphenol, tau and amyloid aggregation"),
-    ("Resveratrol",      "SIRT1 activator, amyloid clearance"),
-    ("Berberine",        "GSK-3b/tau, cholinesterase inhibition"),
-    ("Cannabidiol",      "anti-inflammatory, neuroprotective"),
-    ("Nicotine",         "nicotinic receptor agonist, CHRNA7"),
-    ("Trehalose",        "autophagy inducer, ALS preclinical"),
-    ("Thalidomide",      "TNF inhibitor, ALS trials"),
-    ("Lenalidomide",     "thalidomide analogue, anti-inflammatory"),
-    ("Kenpaullone",      "CDK inhibitor, ALS motor neuron protection"),
-    ("Verapamil",        "calcium channel blocker, Bipolar trials"),
-    ("N-Acetylcysteine", "antioxidant, Bipolar adjunct trials"),
-    ("Topiramate",       "anticonvulsant, Bipolar adjunct"),
-    ("Sirolimus",        "mTOR inhibitor, Huntington/dementia"),
-    ("Vorinostat",       "HDAC inhibitor, FTD/GRN pathway"),
-    ("Sertraline",       "SSRI, dementia behavioral symptoms"),
-    ("Amoxicillin",      "antibiotic — reference negative"),
-    ("Warfarin",         "anticoagulant — reference negative"),
-    ("Cisplatin",        "chemotherapy — reference negative"),
+
+    # ── SECTION A: AD TRIAL VALIDATION ──────────────────────────────
+    # These drugs have published AD clinical trials — used to show
+    # the model independently recovers known candidates.
+    ("Resveratrol",      "SIRT1 activator — Phase 2 AD trial completed"),
+    ("Berberine",        "GSK-3b/tau + cholinesterase — AD trials published"),
+    ("Metformin",        "AMPK activator — active TAME trial, AD arm"),
+    ("Sildenafil",       "PDE5/cGMP pathway — retrospective AD cohort data"),
+    ("Melatonin",        "antioxidant/circadian — AD trials published"),
+    ("Curcumin",         "tau + amyloid aggregation inhibitor — AD trials"),
+    ("Nicotine",         "nAChR agonist CHRNA7 — AD patch trials"),
+    ("Doxycycline",      "tetracycline — amyloid aggregation inhibitor, AD trial"),
+    ("Rapamycin",        "mTOR inhibitor — Phase 1/2 AD trials ongoing"),
+    ("Cannabidiol",      "anti-inflammatory/neuroprotective — AD trials"),
+    ("Lenalidomide",     "thalidomide analogue — AD neuroinflammation trials"),
+
+    # ── SECTION B: OFF-LABEL DISCOVERY CANDIDATES ───────────────────
+    # FDA-approved for other indications, no dedicated AD trial.
+    # High scores here represent genuine novel predictions.
+
+    # Cardiovascular / Metabolic
+    ("Losartan",         "AT1R blocker, antihypertensive — neuroinflammation hypothesis"),
+    ("Empagliflozin",    "SGLT2 inhibitor, T2D — mTOR/autophagy adjacent, no AD trial"),
+    ("Canagliflozin",    "SGLT2 inhibitor, T2D — neuroinflammation hypothesis"),
+    ("Pravastatin",      "HMG-CoA reductase inhibitor — no dedicated AD trial"),
+    ("Pioglitazone",     "PPAR-gamma agonist, T2D — insulin resistance pathway"),
+
+    # Immunology / Autoimmune
+    ("Hydroxychloroquine","antimalarial/lupus — lysosomal pathway, no AD trial"),
+    ("Tofacitinib",      "JAK1/3 inhibitor, RA — neuroinflammation, no AD trial"),
+    ("Baricitinib",      "JAK1/2 inhibitor, RA — neuroinflammation hypothesis"),
+    ("Mycophenolate",    "inosine monophosphate dehydrogenase inhibitor, immunosuppressant"),
+
+    # Neurology (non-AD)
+    ("Levetiracetam",    "SV2A modulator, epilepsy — synaptic vesicle pathway"),
+    ("Fingolimod",       "S1P receptor modulator, MS — blood-brain barrier integrity"),
+    ("Imatinib",         "BCR-ABL/c-Abl inhibitor, CML — tau phosphorylation pathway"),
+    ("Dasatinib",        "tyrosine kinase inhibitor — senolytic, no AD trial"),
+
+    # Endocrinology
+    ("Liraglutide",      "GLP-1 agonist, T2D/obesity — neuroprotection, no AD trial"),
+    ("Exenatide",        "GLP-1 agonist, T2D — Parkinson's trial but not AD"),
+
+    # ── SECTION C: REFERENCE NEGATIVES ──────────────────────────────
+    # Off-pathway drugs with no biological connection to AD.
+    # Should score low — used to anchor the threshold.
+    ("Amoxicillin",      "penicillin antibiotic — reference negative"),
+    ("Warfarin",         "anticoagulant, Vitamin K pathway — reference negative"),
+    ("Cisplatin",        "platinum chemotherapy, DNA crosslinker — reference negative"),
+    ("Furosemide",       "loop diuretic, renal only — reference negative"),
+    ("Azithromycin",     "macrolide antibiotic — reference negative"),
 ]
+
 
 def run_discovery_screen(pos_mean):
     lines = [separator('RESULT 4: DISCOVERY / REPURPOSING SCREEN')]
-    lines.append("Screening repurposing candidates across all 6 diseases.\n")
-    lines.append(f"  Reference threshold (approved drug mean): {pos_mean:.4f}\n")
+    lines.append("Candidates split into three sections:\n"
+                 "  A) AD trial validation — model should recover known candidates\n"
+                 "  B) Off-label discovery — FDA-approved, no AD trial, genuine predictions\n"
+                 "  C) Reference negatives — should score below threshold\n")
+    lines.append(f"  Approval threshold (approved drug mean): {pos_mean:.4f}\n")
+
+    # ── Tag each drug by section ──────────────────────────────────
+    section_map = {}
+    for drug, note in REPURPOSING_CANDIDATES:
+        if 'reference negative' in note:
+            section_map[drug] = 'C'
+        elif 'no AD trial' in note or 'not AD' in note:
+            section_map[drug] = 'B'
+        else:
+            section_map[drug] = 'A'
+
     rows = []
     for drug, note in REPURPOSING_CANDIDATES:
         s = get_score(drug)
-        rows.append({'Drug': drug, 'Score': s, 'Notes': note})
-        marker = ('  *** DISCOVERY CANDIDATE ***' if s and s >= pos_mean
-                  else ('  * borderline' if s and s >= pos_mean - 0.01 else ''))
-        score_str = f"{s:.4f}" if s is not None else "N/A"
-        lines.append(f"  {drug:<28} {score_str:>7}{marker}")
-    candidates = [r for r in rows if r['Score'] is not None
-                  and r['Score'] >= pos_mean and 'negative' not in r['Notes']]
-    lines.append(f"\n  Discovery candidates scoring >= {pos_mean:.4f}:")
-    if candidates:
-        for r in sorted(candidates, key=lambda x: -x['Score']):
-            lines.append(f"    {r['Drug']:<28} {r['Score']:.4f}  — {r['Notes']}")
-        lines.append("\n  Cross-reference against ClinicalTrials.gov, ChEMBL, PubMed.")
-    else:
-        lines.append("    None scored above threshold.")
-        lines.append("    All repurposing candidates scored above negative controls.")
-    df = pd.DataFrame(rows).sort_values('Score', ascending=False)
+        rows.append({
+            'Drug': drug,
+            'Score': s,
+            'Notes': note,
+            'Section': section_map[drug]
+        })
+
+    for sec, label in [
+        ('A', 'SECTION A — AD Trial Validation (model should recover these)'),
+        ('B', 'SECTION B — Off-Label Discovery (genuine novel predictions)'),
+        ('C', 'SECTION C — Reference Negatives (should score below threshold)'),
+    ]:
+        lines.append(f"\n  {label}")
+        lines.append(f"  {'-'*65}")
+        sec_rows = [r for r in rows if r['Section'] == sec]
+        for r in sorted(sec_rows, key=lambda x: -(x['Score'] or 0)):
+            s = r['Score']
+            score_str = f"{s:.4f}" if s is not None else "N/A"
+            flag = ''
+            if sec == 'A' and s and s >= pos_mean:
+                flag = '  ✓ RECOVERED'
+            elif sec == 'B' and s and s >= pos_mean:
+                flag = '  *** NOVEL CANDIDATE ***'
+            elif sec == 'C' and s and s >= pos_mean:
+                flag = '  !! UNEXPECTED — review'
+            lines.append(f"  {r['Drug']:<28} {score_str:>7}  {r['Notes']}{flag}")
+
+    # ── Summary statistics per section ───────────────────────────
+    lines.append(f"\n  {'─'*60}")
+    for sec, label in [('A', 'AD Validation'), ('B', 'Off-Label Discovery'), ('C', 'Negatives')]:
+        sec_scores = [r['Score'] for r in rows
+                      if r['Section'] == sec and r['Score'] is not None]
+        if sec_scores:
+            above = sum(1 for s in sec_scores if s >= pos_mean)
+            lines.append(f"  {label}: {above}/{len(sec_scores)} scored >= threshold "
+                         f"(mean={np.mean(sec_scores):.4f})")
+
+    # ── Save CSV with section column ─────────────────────────────
+    df = pd.DataFrame(rows).sort_values(['Section', 'Score'], ascending=[True, False])
     df.to_csv(os.path.join(OUT_DIR, 'discovery_candidates.csv'), index=False)
     lines.append(f"\n  Saved -> {OUT_DIR}/discovery_candidates.csv")
     return '\n'.join(lines)
