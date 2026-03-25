@@ -65,46 +65,58 @@ Per-fold : [0.9977324263038548, 0.997732426303855, 0.9965986394557823, 0.9965986
 
 
 ========= RESULT 4: DISCOVERY / REPURPOSING SCREEN =========
-Screening repurposing candidates across all 6 diseases.
+Candidates split into three sections:
+  A) AD trial validation — model should recover known candidates
+  B) Off-label discovery — FDA-approved, no AD trial, genuine predictions
+  C) Reference negatives — should score below threshold
 
-  Reference threshold (approved drug mean): 0.8885
+  Approval threshold (approved drug mean): 0.8885
 
-  Metformin                     0.3607
-  Rapamycin                     0.6799
-  Sildenafil                    0.6582
-  Doxycycline                   0.5662
-  Melatonin                     0.8750
-  Curcumin                      0.8882  * borderline
-  Resveratrol                   0.8965  *** DISCOVERY CANDIDATE ***
-  Berberine                     0.8961  *** DISCOVERY CANDIDATE ***
-  Cannabidiol                   0.8780
-  Nicotine                      0.8891  *** DISCOVERY CANDIDATE ***
-  Trehalose                     0.8933  *** DISCOVERY CANDIDATE ***
-  Thalidomide                   0.8940  *** DISCOVERY CANDIDATE ***
-  Lenalidomide                  0.8557
-  Kenpaullone                   0.8881  * borderline
-  Verapamil                     0.8848  * borderline
-  N-Acetylcysteine              0.8929  *** DISCOVERY CANDIDATE ***
-  Topiramate                    0.8907  *** DISCOVERY CANDIDATE ***
-  Sirolimus                     0.8954  *** DISCOVERY CANDIDATE ***
-  Vorinostat                    0.8923  *** DISCOVERY CANDIDATE ***
-  Sertraline                    0.8697
-  Amoxicillin                   0.1476
-  Warfarin                      0.1205
-  Cisplatin                     0.1336
 
-  Discovery candidates scoring >= 0.8885:
-    Resveratrol                  0.8965  — SIRT1 activator, amyloid clearance
-    Berberine                    0.8961  — GSK-3b/tau, cholinesterase inhibition
-    Sirolimus                    0.8954  — mTOR inhibitor, Huntington/dementia
-    Thalidomide                  0.8940  — TNF inhibitor, ALS trials
-    Trehalose                    0.8933  — autophagy inducer, ALS preclinical
-    N-Acetylcysteine             0.8929  — antioxidant, Bipolar adjunct trials
-    Vorinostat                   0.8923  — HDAC inhibitor, FTD/GRN pathway
-    Topiramate                   0.8907  — anticonvulsant, Bipolar adjunct
-    Nicotine                     0.8891  — nicotinic receptor agonist, CHRNA7
+  SECTION A — AD Trial Validation (model should recover these)
+  -----------------------------------------------------------------
+  Resveratrol                   0.8965  SIRT1 activator — Phase 2 AD trial completed  ✓ RECOVERED
+  Berberine                     0.8961  GSK-3b/tau + cholinesterase — AD trials published  ✓ RECOVERED
+  Nicotine                      0.8891  nAChR agonist CHRNA7 — AD patch trials  ✓ RECOVERED
+  Curcumin                      0.8882  tau + amyloid aggregation inhibitor — AD trials
+  Cannabidiol                   0.8780  anti-inflammatory/neuroprotective — AD trials
+  Melatonin                     0.8750  antioxidant/circadian — AD trials published
+  Lenalidomide                  0.8557  thalidomide analogue — AD neuroinflammation trials
+  Rapamycin                     0.6799  mTOR inhibitor — Phase 1/2 AD trials ongoing
+  Sildenafil                    0.6582  PDE5/cGMP pathway — retrospective AD cohort data
+  Imatinib                      0.6549  BCR-ABL/c-Abl inhibitor, CML — tau phosphorylation pathway
+  Baricitinib                   0.6013  JAK1/2 inhibitor, RA — neuroinflammation hypothesis
+  Canagliflozin                 0.5830  SGLT2 inhibitor, T2D — neuroinflammation hypothesis
+  Doxycycline                   0.5662  tetracycline — amyloid aggregation inhibitor, AD trial
+  Losartan                      0.4677  AT1R blocker, antihypertensive — neuroinflammation hypothesis
+  Metformin                     0.3607  AMPK activator — active TAME trial, AD arm
+  Mycophenolate                 0.3527  inosine monophosphate dehydrogenase inhibitor, immunosuppressant
+  Pioglitazone                  0.3242  PPAR-gamma agonist, T2D — insulin resistance pathway
+  Pravastatin                   0.3001  HMG-CoA reductase inhibitor — no dedicated AD trial
+  Fingolimod                    0.2790  S1P receptor modulator, MS — blood-brain barrier integrity
+  Levetiracetam                 0.1328  SV2A modulator, epilepsy — synaptic vesicle pathway
 
-  Cross-reference against ClinicalTrials.gov, ChEMBL, PubMed.
+  SECTION B — Off-Label Discovery (genuine novel predictions)
+  -----------------------------------------------------------------
+  Tofacitinib                   0.6190  JAK1/3 inhibitor, RA — neuroinflammation, no AD trial
+  Dasatinib                     0.5646  tyrosine kinase inhibitor — senolytic, no AD trial
+  Empagliflozin                 0.4072  SGLT2 inhibitor, T2D — mTOR/autophagy adjacent, no AD trial
+  Liraglutide                   0.2933  GLP-1 agonist, T2D/obesity — neuroprotection, no AD trial
+  Hydroxychloroquine            0.2388  antimalarial/lupus — lysosomal pathway, no AD trial
+  Exenatide                     0.2096  GLP-1 agonist, T2D — Parkinson's trial but not AD
+
+  SECTION C — Reference Negatives (should score below threshold)
+  -----------------------------------------------------------------
+  Furosemide                    0.7001  loop diuretic, renal only — reference negative
+  Azithromycin                  0.1583  macrolide antibiotic — reference negative
+  Amoxicillin                   0.1476  penicillin antibiotic — reference negative
+  Cisplatin                     0.1336  platinum chemotherapy, DNA crosslinker — reference negative
+  Warfarin                      0.1205  anticoagulant, Vitamin K pathway — reference negative
+
+  ────────────────────────────────────────────────────────────
+  AD Validation: 3/20 scored >= threshold (mean=0.6070)
+  Off-Label Discovery: 0/6 scored >= threshold (mean=0.3887)
+  Negatives: 0/5 scored >= threshold (mean=0.2520)
 
   Saved -> 99_ISEF_Docs/discovery_candidates.csv
 
