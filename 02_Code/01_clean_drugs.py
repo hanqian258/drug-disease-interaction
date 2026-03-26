@@ -35,6 +35,30 @@ NAME_CORRECTIONS = {
     "ginsenoside Rg1": "Ginsenoside Rg1",
     "Aspirin": "Acetylsalicylic acid",
     "Acetylsalicylic acid (aspirin)": "Acetylsalicylic acid",
+
+    # AD (new CTD file)
+    "6,7-dihydroxyflavone":               "6,7-Dihydroxyflavone",
+    "bisdemethoxycurcumin":               "Bisdemethoxycurcumin",
+    "huperzine A":                        "Huperzine A",
+    "icariin":                            "Icariin",
+    "notoginsenoside R1":                 "Notoginsenoside R1",
+    "puag-haad":                          "Puag-haad",
+    "sulindac sulfide":                   "Sulindac Sulfide",
+    "tideglusib":                         "Tideglusib",
+    "entacapone":                         "Entacapone",
+    # Parkinson's (new CTD file)
+    "4-phenylbutyric acid":               "4-Phenylbutyric Acid",
+    "mangiferin":                         "Mangiferin",
+    "nardosinone":                        "Nardosinone",
+    "nootkatone":                         "Nootkatone",
+    "rasagiline":                         "Rasagiline",
+    "ropinirole":                         "Ropinirole",
+    "rotigotine":                         "Rotigotine",
+    "safinamide":                         "Safinamide",
+    # ADHD (new CTD file)
+    "Venlafaxine Hydrochloride":          "Venlafaxine",
+    "ginsenoside Rg3":                    "Ginsenoside Rg3",
+    "pozanicline":                        "Pozanicline",
 }
 
 
@@ -120,6 +144,9 @@ def merge_drug_links() -> None:
         '00_Raw_Data/drug_links_als.csv',
         '00_Raw_Data/drug_links_bipolar.csv',
         '00_Raw_Data/drug_links_dementia.csv',
+        '00_Raw_Data/drug_links_ad.csv',       # new full AD CTD file
+        '00_Raw_Data/drug_links_adhd.csv',     # new ADHD CTD file
+        '00_Raw_Data/drug_links_parkinsons.csv', # new Parkinson's CTD file
     ]
 
     frames = []
@@ -163,6 +190,9 @@ def merge_positive_drugs() -> None:
         '01_Cleaned_Data/positive_drugs_als.csv',
         '01_Cleaned_Data/positive_drugs_bipolar.csv',
         '01_Cleaned_Data/positive_drugs_dementia.csv',
+        '01_Cleaned_Data/positive_drugs_ad.csv',        # new full AD CTD file
+        '01_Cleaned_Data/positive_drugs_adhd.csv',      # new ADHD CTD file
+        '01_Cleaned_Data/positive_drugs_parkinsons.csv', # new Parkinson's CTD file
     ]
 
     frames = []
@@ -233,8 +263,8 @@ if __name__ == "__main__":
             "00_Raw_Data/postive_drugs_ctd.csv"
         )
 
-    # ── Step 2: Clean three new disease files ────────────────────────────────
-    for disease in ['als', 'bipolar', 'dementia']:
+    # ── Step 2: Clean all disease-specific drug files ───────────────────────
+    for disease in ['als', 'bipolar', 'dementia', 'ad', 'adhd', 'parkinsons']:
         raw_path = f'00_Raw_Data/positive_drugs_{disease}.csv'
         out_path = f'01_Cleaned_Data/positive_drugs_{disease}.csv'
         if os.path.exists(raw_path):
@@ -266,3 +296,4 @@ if __name__ == "__main__":
     logging.info("\nAll done. Files written to 01_Cleaned_Data/")
     logging.info("Next: run 04a_inject_ctd_drug_names.py for each new disease file,")
     logging.info("      then run 03_build_hetero_graph.py → 04_expand_graph.py")
+

@@ -2,7 +2,7 @@ name,Type,Inference Score,label,smiles,disease,inference_score,proteins
 Melatonin,therapeutic,64.44,1,CC(=O)NCCC1=CNC2=C1C=C(C=C2)OC,,,
 Nicotine,therapeutic,57.53,1,CN1CCCC1C2=CN=CC=C2,,,
 Curcumin,therapeutic,54.57,1,COC1=C(C=CC(=C1)C=CC(=O)CC(=O)C=CC2=CC(=C(C=C2)O)OC)O,,,
-notoginsenoside R1,therapeutic,50.91,1,CC(=CCCC(C)(C1CCC2(C1C(CC3C2(CC(C4C3(CCC(C4(C)C)O)C)OC5C(C(C(C(O5)CO)O)O)OC6C(C(C(CO6)O)O)O)C)O)C)OC7C(C(C(C(O7)CO)O)O)O)C,,,
+Notoginsenoside R1,therapeutic,50.91,1,CC(=CCCC(C)(C1CCC2(C1C(CC3C2(CC(C4C3(CCC(C4(C)C)O)C)OC5C(C(C(C(O5)CO)O)O)OC6C(C(C(CO6)O)O)O)C)O)C)OC7C(C(C(C(O7)CO)O)O)O)C,,,
 Berberine,therapeutic,47.42,1,COC1=C(C2=C[N+]3=C(C=C2C=C1)C4=CC5=C(C=C4CC3)OCO5)OC,,,
 Rosiglitazone,therapeutic,44.53,1,CN(CCOC1=CC=C(C=C1)CC2C(=O)NC(=O)S2)C3=CC=CC=N3,,,
 Plant Preparations,therapeutic,44.51,1,,,,
@@ -27,27 +27,27 @@ Niacin,therapeutic,30.42,1,C1=CC(=CN=C1)C(=O)O,,,
 Trichlorfon,therapeutic,30.07,1,COP(=O)(C(C(Cl)(Cl)Cl)O)OC,,,
 Cannabidiol,therapeutic,29.95,1,CCCCCC1=CC(=C(C(=C1)O)C2C=C(CCC2C(=C)C)C)O,,,
 Tolonium Chloride,therapeutic,29.85,1,CC1=CC2=C(C=C1N)SC3=CC(=[N+](C)C)C=CC3=N2.[Cl-],,,
-"6,7-dihydroxyflavone",therapeutic,27.73,1,C1=CC=C(C=C1)C2=CC(=O)C3=CC(=C(C=C3O2)O)O,,,
+"6,7-Dihydroxyflavone",therapeutic,27.73,1,C1=CC=C(C=C1)C2=CC(=O)C3=CC(=C(C=C3O2)O)O,,,
 Plant Extracts,therapeutic,27.38,1,,,,
 Galantamine,therapeutic,27.33,1,CN1CCC23C=CC(CC2OC4=C(C=CC(=C34)C1)OC)O,,,
-icariin,therapeutic,26.22,1,CC1C(C(C(C(O1)OC2=C(OC3=C(C2=O)C(=CC(=C3CC=C(C)C)OC4C(C(C(C(O4)CO)O)O)O)O)C5=CC=C(C=C5)OC)O)O)O,,,
-huperzine A,therapeutic,26.12,1,CC=C1C2CC3=C(C1(CC(=C2)C)N)C=CC(=O)N3,,,
+Icariin,therapeutic,26.22,1,CC1C(C(C(C(O1)OC2=C(OC3=C(C2=O)C(=CC(=C3CC=C(C)C)OC4C(C(C(C(O4)CO)O)O)O)O)C5=CC=C(C=C5)OC)O)O)O,,,
+Huperzine A,therapeutic,26.12,1,CC=C1C2CC3=C(C1(CC(=C2)C)N)C=CC(=O)N3,,,
 Ibuprofen,therapeutic,25.96,1,CC(C)CC1=CC=C(C=C1)C(C)C(=O)O,,,
 Memantine,therapeutic,25.79,1,CC12CC3CC(C1)(CC(C3)(C2)N)C,,,
 Tacrine,therapeutic,24.83,1,C1CCC2=NC3=CC=CC=C3C(=C2C1)N,,,
-bisdemethoxycurcumin,therapeutic,22.93,1,C1=CC(=CC=C1C=CC(=O)CC(=O)C=CC2=CC=C(C=C2)O)O,,,
+Bisdemethoxycurcumin,therapeutic,22.93,1,C1=CC(=CC=C1C=CC(=O)CC(=O)C=CC2=CC=C(C=C2)O)O,,,
 Haloperidol,therapeutic,22.71,1,C1CN(CCC1(C2=CC=C(C=C2)Cl)O)CCCC(=O)C3=CC=C(C=C3)F,,,
 Dronabinol,therapeutic,21.99,1,CCCCCC1=CC(=C2C3C=C(CCC3C(OC2=C1)(C)C)C)O,,,
 Cholecalciferol,therapeutic,21.24,1,CC(C)CCCC(C)C1CCC2C1(CCCC2=CC=C3CC(CCC3=C)O)C,,,
 Reserpine,therapeutic,20.83,1,COC1C(CC2CN3CCC4=C(C3CC2C1C(=O)OC)NC5=C4C=CC(=C5)OC)OC(=O)C6=CC(=C(C(=C6)OC)OC)OC,,,
-sulindac sulfide,therapeutic,20.19,1,CC1=C(C2=C(C1=CC3=CC=C(C=C3)SC)C=CC(=C2)F)CC(=O)O,,,
+Sulindac Sulfide,therapeutic,20.19,1,CC1=C(C2=C(C1=CC3=CC=C(C=C3)SC)C=CC(=C2)F)CC(=O)O,,,
 Physostigmine,therapeutic,19.89,1,CC12CCN(C1N(C3=C2C=C(C=C3)OC(=O)NC)C)C,,,
 Dipyridamole,therapeutic,18.39,1,C1CCN(CC1)C2=NC(=NC3=C2N=C(N=C3N4CCCCC4)N(CCO)CCO)N(CCO)CCO,,,
-entacapone,therapeutic,14.6,1,CCN(CC)C(=O)C(=CC1=CC(=C(C(=C1)O)O)[N+](=O)[O-])C#N,,,
+Entacapone,therapeutic,14.6,1,CCN(CC)C(=O)C(=CC1=CC(=C(C(=C1)O)O)[N+](=O)[O-])C#N,,,
 Thiourea,therapeutic,14.44,1,C(=S)(N)N,,,
 Androgens,therapeutic,13.93,1,,,,
-tideglusib,therapeutic,13.41,1,C1=CC=C(C=C1)CN2C(=O)N(SC2=O)C3=CC=CC4=CC=CC=C43,,,
-puag-haad,therapeutic,13.29,1,C1=CC(=C(C=C1O)O)C=CC2=CC(=CC(=C2)O)O,,,
+Tideglusib,therapeutic,13.41,1,C1=CC=C(C=C1)CN2C(=O)N(SC2=O)C3=CC=CC4=CC=CC=C43,,,
+Puag-haad,therapeutic,13.29,1,C1=CC(=C(C=C1O)O)C=CC2=CC(=CC(=C2)O)O,,,
 "Heparin, Low-Molecular-Weight",therapeutic,12.19,1,,,,
 Ginkgo biloba extract,therapeutic,11.89,1,,,,
 Cholinesterase Inhibitors,therapeutic,11.04,1,,,,
@@ -115,3 +115,45 @@ Olanzapine,,,1,,Huntington Disease,5.32,MAOA|MAOB
 Vorinostat,,,1,,Frontotemporal Dementia,3.41,GRN
 Ginsenoside Rg1,,,1,,Dementia,3.22,APP
 Carvedilol,,,1,,Dementia,2.85,APP
+Pozanicline,,,1,CC1=C(C=CC=N1)OCC2CCCN2,ADHD,8.83,CHRNA4|CHRNB2
+Risperidone,,,1,CC1=C(C(=O)N2CCCCC2=N1)CCN3CCC(CC3)C4=NOC5=C4C=CC(=C5)F,ADHD,6.29,COMT|DRD2|DRD4
+Citalopram,,,1,CN(C)CCCC1(C2=C(CO1)C=C(C=C2)C#N)C3=CC=C(C=C3)F,ADHD,4.43,CNR1|SLC6A3
+Ginsenoside Rg3,,,1,CC(=CCCC(C)(C1CCC2(C1C(CC3C2(CCC4C3(CCC(C4(C)C)OC5C(C(C(C(O5)CO)O)O)OC6C(C(C(C(O6)CO)O)O)O)C)C)O)C)O)C,ADHD,3.6,SLC6A3
+Pergolide,,,1,CCCN1CC(CC2C1CC3=CNC4=CC=CC2=C34)CSC,ADHD,3.6,DRD2
+Caffeine,,,1,CN1C=NC2=C1C(=O)N(C(=O)N2C)C,ADHD,3.27,AS3MT|CIC|COMT|DRD2|FGD1|GIT1|GRM1|SLC6A3|TPH2
+Clonidine,,,1,C1CN=C(N1)NC2=C(C=CC=C2Cl)Cl,ADHD,3.26,COMT
+Imipramine,,,1,CN(C)CCCN1C2=CC=CC=C2CCC3=CC=CC=C31,ADHD,3.09,CNR1
+Venlafaxine,,,1,CN(C)CC(C1=CC=C(C=C1)OC)C2(CCCCC2)O,ADHD,3.05,CNR1
+Chlorpromazine,,,1,CN(C)CCCN1C2=CC=CC=C2SC3=C1C=C(C=C3)Cl,ADHD,3.03,DRD2|STS
+Carbamazepine,,,1,C1=CC=C2C(=C1)C=CC3=CC=CC=C3N2C(=O)N,ADHD,2.18,CHRNA4|CHRNB2|DRD2|SLC6A3
+4-Phenylbutyric Acid,,,1,C1=CC=C(C=C1)CCCC(=O)O,Parkinson's Disease,43.59,DNM1L|GSTA4|HGF|HMOX1|HSPA1A|HSPA9|IL6|INS|MAP3K5|NQO1|PARK7|PINK1|PPARGC1A|PRKN|SLC38A2|SNCA|SOD1|SOD2|TH|TNF
+Mangiferin,,,1,C1=C2C(=CC(=C1O)O)OC3=C(C2=O)C(=C(C(=C3)O)C4C(C(C(C(O4)CO)O)O)O)O,Parkinson's Disease,27.35,ABCB1|CYP2D6|CYP2E1|DNM1L|FBP1|HMOX1|IL6|INS|NGF|NQO1|PPARGC1A|SOD1|TNF
+Propranolol,,,1,CC(C)NCC(COC1=CC=CC2=CC=CC=C21)O,Parkinson's Disease,24.32,ABCB1|CYP2D6|GFAP|HMOX1|IL6|INS|LRRK2|NGF|PARK7|PINK1|PPARGC1A|SLC18A2|SOD1|TNF
+Eicosapentaenoic Acid,,,1,CCC=CCC=CCC=CCC=CCC=CCCCC(=O)O,Parkinson's Disease,22.86,CYP2E1|GSTP1|HMOX1|IL6|NGF|NQO1|PPARGC1A|SOD1|TNF|TRPM2
+Selegiline,,,1,CC(CC1=CC=CC=C1)N(C)CC#C,Parkinson's Disease,22.8,HMOX1|MAOA|MAOB|NQO1|PRKN|SNCA|SOD2|TH
+Eugenol,,,1,COC1=C(C=CC(=C1)CC=C)O,Parkinson's Disease,20.87,BDNF|CYP2D6|CYP2E1|DRD1|GSTM1|GSTP1|HMOX1|IL6|MAOA|MAP3K5|NQO1|RPL6|SOD1|SOD2|TNF
+Roflumilast,,,1,C1CC1COC2=C(C=CC(=C2)C(=O)NC3=C(C=NC=C3Cl)Cl)OC(F)F,Parkinson's Disease,19.48,BDNF|HMOX1|IL6|NGF|NQO1|SNCA|TNF
+Pioglitazone,,,1,CCC1=CN=C(C=C1)CCOC2=CC=C(C=C2)CC3C(=O)NC(=O)S3,Parkinson's Disease,17.59,ABCB1|BDNF|CYP2E1|DDIT4|DRD1|EDN1|GSTP1|HMOX1|IL6|INS|MAOB|NQO1|PPARGC1A|SLC2A14|SOD1|SOD2|TNF
+Nardosinone,,,1,CC1CCC=C2C1(C3C(CC2=O)OOC3(C)C)C,Parkinson's Disease,17.31,SLC38A2|SNCA|TH|TNF
+Cabergoline,,,1,CCNC(=O)N(CCCN(C)C)C(=O)C1CC2C(CC3=CNC4=CC=CC2=C34)N(C1)CC=C,Parkinson's Disease,14.98,BDNF|DRD1|DRD2|GDNF|NGF
+Carbidopa,,,1,CC(CC1=CC(=C(C=C1)O)O)(C(=O)O)NN,Parkinson's Disease,14.06,DDC|DNM1L|MAOA|SNCA|TNF
+Ketoconazole,,,1,CC(=O)N1CCN(CC1)C2=CC=C(C=C2)OCC3COC(O3)(CN4C=CN=C4)C5=C(C=C(C=C5)Cl)Cl,Parkinson's Disease,12.64,ABCB1|CYP2D6|CYP2E1|GSTM1|GSTP1|HMOX1|IL6|INSR|NQO1|PPARGC1A|PRKN|SLC18A2|SOD1|TH|TNF
+Domperidone,,,1,C1CN(CCC1N2C3=C(C=C(C=C3)Cl)NC2=O)CCCN4C5=CC=CC=C5NC4=O,Parkinson's Disease,12.58,ABCB1|CYP2D6|DRD1|DRD2|IL6
+Desipramine,,,1,CNCCCN1C2=CC=CC=C2CCC3=CC=CC=C31,Parkinson's Disease,11.5,BDNF|CYP2D6|CYP2E1|IL6|TH|TNF
+Estradiol,,,1,CC12CCC3C(C1CCC2O)CCC4=C3C=CC(=C4)O,Parkinson's Disease,10.96,ABCB1|ADARB2|AIF1|ALDH2|BAG5|BDNF|BST1|CEACAM6|CP|CYP2E1|DDC|DDIT4|DNM1L|DRD1|DRD2|EDN1|ENO2|FBP1|FCER2|FGB|GDNF|GFAP|GSTA4|GSTM1|GSTP1|HBG1|HFE|HGF|HLA-DRA|HMOX1|HSPA1A|HSPA9|IGF1R|IGF2|IGF2R|IL6|INS|INSR|LRRK2|MAG|MAOA|MAOB|MAP2|MAP3K5|MAPT|MTA1|MTHFR|NCAPG2|NECTIN2|NGF|NOS1|NQO1|PARK7|PINK1|PPARGC1A|PRKN|RAB32|RPL14|RPL6|RPS8|SLC18A2|SLC2A14|SLC30A10|SLC38A2|SLC6A3|SNCA|SOD1|SOD2|TALDO1|TCL1B|TH|TNF|TRPM2|VPS35
+Benserazide,,,1,C1=CC(=C(C(=C1CNNC(=O)C(CO)N)O)O)O,Parkinson's Disease,10.64,DDC|DRD1|DRD2
+Astemizole,,,1,COC1=CC=C(C=C1)CCN2CCC(CC2)NC3=NC4=CC=CC=C4N3CC5=CC=C(C=C5)F,Parkinson's Disease,9.78,HMOX1|MAOA|MAPT|PARK7|SOD2
+Mirtazapine,,,1,CN1CCN2C(C1)C3=CC=CC=C3CC4=C2N=CC=C4,Parkinson's Disease,9.64,ABCB1|DRD1|DRD2|IL6|TNF
+Rotigotine,,,1,CCCN(CCC1=CC=CS1)C2CCC3=C(C2)C=CC=C3O,Parkinson's Disease,8.15,DRD1|DRD2
+Apomorphine,,,1,CN1CCC2=C3C1CC4=C(C3=CC=C2)C(=C(C=C4)O)O,Parkinson's Disease,7.86,DRD1|DRD2|GDNF|IL6
+Rasagiline,,,1,C#CCNC1CCC2=CC=CC=C12,Parkinson's Disease,7.34,GDNF|MAOB
+Nootkatone,,,1,CC1CC(=O)C=C2C1(CC(CC2)C(=C)C)C,Parkinson's Disease,7.31,SNCA|TH
+Pyridoxine,,,1,CC1=NC=C(C(=C1O)CO)CO,Parkinson's Disease,6.5,HMOX1|PPARGC1A|TNF
+Aprepitant,,,1,CC(C1=CC(=CC(=C1)C(F)(F)F)C(F)(F)F)OC2C(N(CCO2)CC3=NNC(=O)N3)C4=CC=C(C=C4)F,Parkinson's Disease,5.88,SNCA|TH
+Ropinirole,,,1,CCCN(CCC)CCC1=C2CC(=O)NC2=CC=C1,Parkinson's Disease,5.42,DRD2|TNF
+Pramipexole,,,1,CCCNC1CCC2=C(C1)SC(=N2)N,Parkinson's Disease,5.39,DRD2|PPARGC1A
+Safinamide,,,1,CC(C(=O)N)NCC1=CC=C(C=C1)OCC2=CC(=CC=C2)F,Parkinson's Disease,4.77,MAOB
+Orphenadrine,,,1,CC1=CC=CC=C1C(C2=CC=CC=C2)OCCN(C)C,Parkinson's Disease,4.3,CYP2E1|GSTP1|HGF|HSPA1A|TRPM2
+Amantadine,,,1,C1C2CC3CC1CC(C2)(C3)N,Parkinson's Disease,4.29,BDNF|MAP2
+Piribedil,,,1,C1CN(CCN1CC2=CC3=C(C=C2)OCO3)C4=NC=CC=N4,Parkinson's Disease,3.87,DRD2
+Lisuride,,,1,CCN(CC)C(=O)NC1CN(C2CC3=CNC4=CC=CC(=C34)C2=C1)C,Parkinson's Disease,3.46,DRD2

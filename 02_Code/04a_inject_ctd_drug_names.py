@@ -21,6 +21,30 @@ NAME_CORRECTIONS = {
     "ginsenoside Rg1": "Ginsenoside Rg1",
     "Aspirin": "Acetylsalicylic acid",
     "Acetylsalicylic acid (aspirin)": "Acetylsalicylic acid",
+
+    # AD (new CTD file)
+    "6,7-dihydroxyflavone":               "6,7-Dihydroxyflavone",
+    "bisdemethoxycurcumin":               "Bisdemethoxycurcumin",
+    "huperzine A":                        "Huperzine A",
+    "icariin":                            "Icariin",
+    "notoginsenoside R1":                 "Notoginsenoside R1",
+    "puag-haad":                          "Puag-haad",
+    "sulindac sulfide":                   "Sulindac Sulfide",
+    "tideglusib":                         "Tideglusib",
+    "entacapone":                         "Entacapone",
+    # Parkinson's (new CTD file)
+    "4-phenylbutyric acid":               "4-Phenylbutyric Acid",
+    "mangiferin":                         "Mangiferin",
+    "nardosinone":                        "Nardosinone",
+    "nootkatone":                         "Nootkatone",
+    "rasagiline":                         "Rasagiline",
+    "ropinirole":                         "Ropinirole",
+    "rotigotine":                         "Rotigotine",
+    "safinamide":                         "Safinamide",
+    # ADHD (new CTD file)
+    "Venlafaxine Hydrochloride":          "Venlafaxine",
+    "ginsenoside Rg3":                    "Ginsenoside Rg3",
+    "pozanicline":                        "Pozanicline",
 }
 
 
@@ -142,12 +166,11 @@ if __name__ == '__main__':
     ctd_sources = [
         # Original Alzheimer's file
         (
-            '01_Cleaned_Data/CTD_D000544_chemicals_20260315024131.csv', 
-            'ChemicalName', 
+            '01_Cleaned_Data/CTD_D000544_chemicals_20260315024131.csv',
+            'ChemicalName',
             'AD'
         ),
-        # New disease files — use 'name' column because these are
-        # the already-cleaned positive_drugs_*.csv files
+        # Existing disease files
         (
             '00_Raw_Data/positive_drugs_als.csv',
             'name',
@@ -162,6 +185,22 @@ if __name__ == '__main__':
             '00_Raw_Data/positive_drugs_dementia.csv',
             'name',
             'Dementia',
+        ),
+        # New disease files from full CTD chemical query
+        (
+            '00_Raw_Data/positive_drugs_ad.csv',
+            'name',
+            'AD-full',
+        ),
+        (
+            '00_Raw_Data/positive_drugs_adhd.csv',
+            'name',
+            'ADHD',
+        ),
+        (
+            '00_Raw_Data/positive_drugs_parkinsons.csv',
+            'name',
+            'Parkinsons',
         ),
     ]
 

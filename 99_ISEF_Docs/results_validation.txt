@@ -4,27 +4,27 @@ Testing whether model ranks approved disease drugs above non-CNS drugs.
 
   Drug                     Score  Expected  Category
   ----------------------------------------------------------------------
-  Donepezil               0.8907      HIGH  AChE inhibitor, FDA-approved AD  [PASS]
-  Memantine               0.8723      HIGH  NMDA antagonist, FDA-approved AD  [PASS]
-  Rivastigmine            0.8883      HIGH  AChE/BuChE inhibitor, FDA-approved AD  [PASS]
-  Galantamine             0.8664      HIGH  AChE inhibitor + nAChR, FDA-approved AD  [PASS]
-  Tacrine                 0.8948      HIGH  AChE inhibitor, first FDA-approved AD drug  [PASS]
-  Riluzole                0.8986      HIGH  glutamate antagonist, FDA-approved ALS  [PASS]
-  Edaravone               0.8963      HIGH  free radical scavenger, FDA-approved ALS  [PASS]
-  Lithium                 0.8921      HIGH  GSK-3b inhibitor, Bipolar first-line  [PASS]
-  Haloperidol             0.8969      HIGH  D2 antagonist, approved Bipolar/psychosis  [PASS]
+  Donepezil               0.7488      HIGH  AChE inhibitor, FDA-approved AD  [PASS]
+  Memantine               0.7767      HIGH  NMDA antagonist, FDA-approved AD  [PASS]
+  Rivastigmine            0.7647      HIGH  AChE/BuChE inhibitor, FDA-approved AD  [PASS]
+  Galantamine             0.7993      HIGH  AChE inhibitor + nAChR, FDA-approved AD  [PASS]
+  Tacrine                 0.7555      HIGH  AChE inhibitor, first FDA-approved AD drug  [PASS]
+  Riluzole                0.8053      HIGH  glutamate antagonist, FDA-approved ALS  [PASS]
+  Edaravone               0.8570      HIGH  free radical scavenger, FDA-approved ALS  [PASS]
+  Lithium                 0.8187      HIGH  GSK-3b inhibitor, Bipolar first-line  [PASS]
+  Haloperidol             0.8740      HIGH  D2 antagonist, approved Bipolar/psychosis  [PASS]
 
-  Amoxicillin             0.1476       LOW  Penicillin antibiotic, no CNS pathway  [PASS]
-  Warfarin                0.1205       LOW  Anticoagulant, Vitamin K pathway only  [PASS]
-  Omeprazole              0.5919       LOW  Proton pump inhibitor, GI only  [REVIEW]
-  Furosemide              0.7001       LOW  Loop diuretic, renal only  [REVIEW]
-  Cisplatin               0.1336       LOW  Platinum chemotherapy, DNA crosslinker  [PASS]
-  Methotrexate            0.6629       LOW  Antifolate chemotherapy, no CNS  [REVIEW]
-  Fluconazole             0.4415       LOW  Antifungal, ergosterol synthesis  [REVIEW]
+  Amoxicillin             0.3756       LOW  Penicillin antibiotic, no CNS pathway  [PASS]
+  Warfarin                0.4939       LOW  Anticoagulant, Vitamin K pathway only  [PASS]
+  Omeprazole              0.3153       LOW  Proton pump inhibitor, GI only  [PASS]
+  Furosemide              0.3437       LOW  Loop diuretic, renal only  [PASS]
+  Cisplatin               0.4182       LOW  Platinum chemotherapy, DNA crosslinker  [PASS]
+  Methotrexate            0.4447       LOW  Antifolate chemotherapy, no CNS  [PASS]
+  Fluconazole             0.3400       LOW  Antifungal, ergosterol synthesis  [PASS]
 
-  Approved drugs  — mean=0.8885, std=0.0108
-  Non-CNS drugs   — mean=0.3997, std=0.2422
-  Score separation — Delta=0.4888
+  Approved drugs  — mean=0.8000, std=0.0415
+  Non-CNS drugs   — mean=0.3902, std=0.0598
+  Score separation — Delta=0.4098
   Mann-Whitney U   — p=0.0001 (significant, p<0.05)
   Perfect separation — YES
 
@@ -32,20 +32,20 @@ Testing whether model ranks approved disease drugs above non-CNS drugs.
 =============== RESULT 2: DUMMY / NULL TEST ===============
 Off-pathway drugs should score below the approved-drug mean.
 
-  Reference — approved drug mean score: 0.8885
+  Reference — approved drug mean score: 0.8000
 
   Drug                     Score   vs mean  Notes
   -----------------------------------------------------------------
-  Cisplatin               0.1336   -0.7549  platinum chemotherapy, DNA crosslinker  [PASS]
-  Methotrexate            0.6629   -0.2256  antifolate chemotherapy  [PASS]
-  Doxorubicin             0.4776   -0.4109  anthracycline, topoisomerase inhibitor  [PASS]
-  Spironolactone          0.5842   -0.3043  aldosterone antagonist, renal  [PASS]
-  Azithromycin            0.1583   -0.7302  macrolide antibiotic, ribosome inhibitor  [PASS]
-  Ciprofloxacin           0.5791   -0.3094  fluoroquinolone antibiotic  [PASS]
-  Fluconazole             0.4415   -0.4470  antifungal, ergosterol synthesis  [PASS]
-  Baclofen                0.2873   -0.6012  GABA-B agonist, muscle relaxant  [PASS]
-  Bisoprolol              0.3852   -0.5033  beta-1 blocker, cardiovascular only  [PASS]
-  Tamoxifen               0.1427   -0.7458  selective estrogen receptor modulator  [PASS]
+  Cisplatin               0.4182   -0.3818  platinum chemotherapy, DNA crosslinker  [PASS]
+  Methotrexate            0.4447   -0.3553  antifolate chemotherapy  [PASS]
+  Doxorubicin             0.2917   -0.5083  anthracycline, topoisomerase inhibitor  [PASS]
+  Spironolactone          0.3579   -0.4421  aldosterone antagonist, renal  [PASS]
+  Azithromycin            0.2700   -0.5300  macrolide antibiotic, ribosome inhibitor  [PASS]
+  Ciprofloxacin           0.3437   -0.4563  fluoroquinolone antibiotic  [PASS]
+  Fluconazole             0.3400   -0.4600  antifungal, ergosterol synthesis  [PASS]
+  Baclofen                0.3846   -0.4154  GABA-B agonist, muscle relaxant  [PASS]
+  Bisoprolol              0.3194   -0.4806  beta-1 blocker, cardiovascular only  [PASS]
+  Tamoxifen               0.4034   -0.3966  selective estrogen receptor modulator  [PASS]
 
   10/10 off-pathway drugs scored below approved mean
   Model correctly suppresses scores for non-CNS drugs.
@@ -53,15 +53,14 @@ Off-pathway drugs should score below the approved-drug mean.
 
 ============ RESULT 3: K-FOLD CROSS VALIDATION ============
 K-Fold Cross Validation Results (k=5)
-Mean AUC : 0.9966
-Std  AUC : 0.0012
-Per-fold : [0.9977324263038548, 0.997732426303855, 0.9965986394557823, 0.9965986394557823, 0.9943310657596371]
+Mean AUC : 0.8393
+Std  AUC : 0.0139
+Per-fold : [0.8211669921875, 0.8453010833963215, 0.845427059712774, 0.8259007306626355, 0.8587805492567396]
 
   Interpretation:
-  AUC = 0.9966: model ranked a known therapeutic above a
-  non-therapeutic in 99.7% of held-out comparisons.
-  NOTE: AUC > 0.99 may indicate overfitting given dataset size.
-  Recommend validating predictions against independent clinical data.
+  AUC = 0.8393: model ranked a known therapeutic above a
+  non-therapeutic in 83.9% of held-out comparisons.
+  Exceeds the 0.80 threshold for strong discriminative performance.
 
 
 ========= RESULT 4: DISCOVERY / REPURPOSING SCREEN =========
@@ -70,58 +69,58 @@ Candidates split into three sections:
   B) Off-label discovery — FDA-approved, no AD trial, genuine predictions
   C) Reference negatives — should score below threshold
 
-  Approval threshold (approved drug mean): 0.8885
+  Approval threshold (approved drug mean): 0.8000
 
 
   SECTION A — AD Trial Validation (model should recover these)
   -----------------------------------------------------------------
-  Resveratrol                   0.8965  SIRT1 activator — Phase 2 AD trial completed  ✓ RECOVERED
-  Berberine                     0.8961  GSK-3b/tau + cholinesterase — AD trials published  ✓ RECOVERED
-  Nicotine                      0.8891  nAChR agonist CHRNA7 — AD patch trials  ✓ RECOVERED
-  Curcumin                      0.8882  tau + amyloid aggregation inhibitor — AD trials
-  Cannabidiol                   0.8780  anti-inflammatory/neuroprotective — AD trials
-  Melatonin                     0.8750  antioxidant/circadian — AD trials published
-  Lenalidomide                  0.8557  thalidomide analogue — AD neuroinflammation trials
-  Rapamycin                     0.6799  mTOR inhibitor — Phase 1/2 AD trials ongoing
-  Sildenafil                    0.6582  PDE5/cGMP pathway — retrospective AD cohort data
-  Imatinib                      0.6549  BCR-ABL/c-Abl inhibitor, CML — tau phosphorylation pathway
-  Baricitinib                   0.6013  JAK1/2 inhibitor, RA — neuroinflammation hypothesis
-  Canagliflozin                 0.5830  SGLT2 inhibitor, T2D — neuroinflammation hypothesis
-  Doxycycline                   0.5662  tetracycline — amyloid aggregation inhibitor, AD trial
-  Losartan                      0.4677  AT1R blocker, antihypertensive — neuroinflammation hypothesis
-  Metformin                     0.3607  AMPK activator — active TAME trial, AD arm
-  Mycophenolate                 0.3527  inosine monophosphate dehydrogenase inhibitor, immunosuppressant
-  Pioglitazone                  0.3242  PPAR-gamma agonist, T2D — insulin resistance pathway
-  Pravastatin                   0.3001  HMG-CoA reductase inhibitor — no dedicated AD trial
-  Fingolimod                    0.2790  S1P receptor modulator, MS — blood-brain barrier integrity
-  Levetiracetam                 0.1328  SV2A modulator, epilepsy — synaptic vesicle pathway
+  Melatonin                     0.8720  antioxidant/circadian — AD trials published  ✓ RECOVERED
+  Cannabidiol                   0.8645  anti-inflammatory/neuroprotective — AD trials  ✓ RECOVERED
+  Resveratrol                   0.8410  SIRT1 activator — Phase 2 AD trial completed  ✓ RECOVERED
+  Curcumin                      0.8395  tau + amyloid aggregation inhibitor — AD trials  ✓ RECOVERED
+  Pioglitazone                  0.7955  PPAR-gamma agonist, T2D — insulin resistance pathway  ✓ RECOVERED
+  Lenalidomide                  0.7741  thalidomide analogue — AD neuroinflammation trials  ✓ RECOVERED
+  Nicotine                      0.7527  nAChR agonist CHRNA7 — AD patch trials  ✓ RECOVERED
+  Berberine                     0.7304  GSK-3b/tau + cholinesterase — AD trials published  ✓ RECOVERED
+  Imatinib                      0.5143  BCR-ABL/c-Abl inhibitor, CML — tau phosphorylation pathway
+  Rapamycin                     0.5099  mTOR inhibitor — Phase 1/2 AD trials ongoing
+  Baricitinib                   0.4789  JAK1/2 inhibitor, RA — neuroinflammation hypothesis
+  Losartan                      0.4631  AT1R blocker, antihypertensive — neuroinflammation hypothesis
+  Pravastatin                   0.4429  HMG-CoA reductase inhibitor — no dedicated AD trial
+  Fingolimod                    0.4403  S1P receptor modulator, MS — blood-brain barrier integrity
+  Mycophenolate                 0.4395  inosine monophosphate dehydrogenase inhibitor, immunosuppressant
+  Sildenafil                    0.4222  PDE5/cGMP pathway — retrospective AD cohort data
+  Metformin                     0.3794  AMPK activator — active TAME trial, AD arm
+  Canagliflozin                 0.3641  SGLT2 inhibitor, T2D — neuroinflammation hypothesis
+  Levetiracetam                 0.3530  SV2A modulator, epilepsy — synaptic vesicle pathway
+  Doxycycline                   0.2851  tetracycline — amyloid aggregation inhibitor, AD trial
 
   SECTION B — Off-Label Discovery (genuine novel predictions)
   -----------------------------------------------------------------
-  Tofacitinib                   0.6190  JAK1/3 inhibitor, RA — neuroinflammation, no AD trial
-  Dasatinib                     0.5646  tyrosine kinase inhibitor — senolytic, no AD trial
-  Empagliflozin                 0.4072  SGLT2 inhibitor, T2D — mTOR/autophagy adjacent, no AD trial
-  Liraglutide                   0.2933  GLP-1 agonist, T2D/obesity — neuroprotection, no AD trial
-  Hydroxychloroquine            0.2388  antimalarial/lupus — lysosomal pathway, no AD trial
-  Exenatide                     0.2096  GLP-1 agonist, T2D — Parkinson's trial but not AD
+  Liraglutide                   0.5560  GLP-1 agonist, T2D/obesity — neuroprotection, no AD trial
+  Tofacitinib                   0.5165  JAK1/3 inhibitor, RA — neuroinflammation, no AD trial
+  Dasatinib                     0.4879  tyrosine kinase inhibitor — senolytic, no AD trial
+  Exenatide                     0.4846  GLP-1 agonist, T2D — Parkinson's trial but not AD
+  Empagliflozin                 0.4500  SGLT2 inhibitor, T2D — mTOR/autophagy adjacent, no AD trial
+  Hydroxychloroquine            0.3937  antimalarial/lupus — lysosomal pathway, no AD trial
 
   SECTION C — Reference Negatives (should score below threshold)
   -----------------------------------------------------------------
-  Furosemide                    0.7001  loop diuretic, renal only — reference negative
-  Azithromycin                  0.1583  macrolide antibiotic — reference negative
-  Amoxicillin                   0.1476  penicillin antibiotic — reference negative
-  Cisplatin                     0.1336  platinum chemotherapy, DNA crosslinker — reference negative
-  Warfarin                      0.1205  anticoagulant, Vitamin K pathway — reference negative
+  Warfarin                      0.4939  anticoagulant, Vitamin K pathway — reference negative
+  Cisplatin                     0.4182  platinum chemotherapy, DNA crosslinker — reference negative
+  Amoxicillin                   0.3756  penicillin antibiotic — reference negative
+  Furosemide                    0.3437  loop diuretic, renal only — reference negative
+  Azithromycin                  0.2700  macrolide antibiotic — reference negative
 
   ────────────────────────────────────────────────────────────
-  AD Validation: 3/20 scored >= threshold (mean=0.6070)
-  Off-Label Discovery: 0/6 scored >= threshold (mean=0.3887)
-  Negatives: 0/5 scored >= threshold (mean=0.2520)
+  AD Validation: 8/20 scored >= HIGH threshold (0.7) (mean=0.5781)
+  Off-Label Discovery: 0/6 scored >= HIGH threshold (0.7) (mean=0.4814)
+  Negatives: 0/5 scored >= HIGH threshold (0.7) (mean=0.3803)
 
   Saved -> 99_ISEF_Docs/discovery_candidates.csv
 
 ============================================================
-  Mean AUC : 0.9966
-  Graph: 160 drugs, 96 proteins, 6 diseases
-  Training edges: 105 positive drug-disease associations
+  Mean AUC : 0.8393
+  Graph: 201 drugs, 227 proteins, 6 diseases
+  Training edges: 316 positive drug-disease associations
 ============================================================

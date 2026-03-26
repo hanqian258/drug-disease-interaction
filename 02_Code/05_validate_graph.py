@@ -34,3 +34,31 @@ if __name__ == "__main__":
         validate_graph('01_Cleaned_Data/expanded_graph.pt')
     else:
         validate_graph('01_Cleaned_Data/master_graph.pt')
+
+##Checks##
+import torch
+data = torch.load('01_Cleaned_Data/expanded_graph.pt', weights_only=False)
+maps = torch.load('01_Cleaned_Data/mappings.pt', weights_only=False)
+ei = data['drug', 'treats', 'disease'].edge_index
+dis_map = maps['dis_map']
+idx_to_dis = {v: k for k, v in dis_map.items()}
+from collections import Counter
+counts = Counter(ei[1].tolist())
+for dis_idx, count in sorted(counts.items()):
+    print(f"  {idx_to_dis[dis_idx]}: {count} edges")
+
+import torch, pandas as pd
+
+maps = torch.load('01_Cleaned_Data/mappings.pt', weights_only=False)
+d_map = maps['d_map']
+
+for fname, disease in [
+    ('01_Cleaned_Data/positive_drugs_parkinsons.csv', "Parkinson's"),
+    ('01_Cleaned_Data/positive_drugs_adhd.csv',       'ADHD'),
+]:
+    df = pd.read_csv(fname)
+    missing = [r['name'] for _, r in df.iterrows()
+               if str(r['name']).strip() not in d_map]
+    print(f"\n{disease} — {len(missing)} drugs not in graph:")
+    for m in missing:
+        print(f"  {m}")

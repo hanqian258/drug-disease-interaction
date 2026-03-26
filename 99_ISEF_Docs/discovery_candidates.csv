@@ -1,32 +1,32 @@
 Drug,Score,Notes,Section
-Resveratrol,0.8965,SIRT1 activator — Phase 2 AD trial completed,A
-Berberine,0.8961,GSK-3b/tau + cholinesterase — AD trials published,A
-Nicotine,0.8891,nAChR agonist CHRNA7 — AD patch trials,A
-Curcumin,0.8882,tau + amyloid aggregation inhibitor — AD trials,A
-Cannabidiol,0.878,anti-inflammatory/neuroprotective — AD trials,A
-Melatonin,0.875,antioxidant/circadian — AD trials published,A
-Lenalidomide,0.8557,thalidomide analogue — AD neuroinflammation trials,A
-Rapamycin,0.6799,mTOR inhibitor — Phase 1/2 AD trials ongoing,A
-Sildenafil,0.6582,PDE5/cGMP pathway — retrospective AD cohort data,A
-Imatinib,0.6549,"BCR-ABL/c-Abl inhibitor, CML — tau phosphorylation pathway",A
-Baricitinib,0.6013,"JAK1/2 inhibitor, RA — neuroinflammation hypothesis",A
-Canagliflozin,0.583,"SGLT2 inhibitor, T2D — neuroinflammation hypothesis",A
-Doxycycline,0.5662,"tetracycline — amyloid aggregation inhibitor, AD trial",A
-Losartan,0.4677,"AT1R blocker, antihypertensive — neuroinflammation hypothesis",A
-Metformin,0.3607,"AMPK activator — active TAME trial, AD arm",A
-Mycophenolate,0.3527,"inosine monophosphate dehydrogenase inhibitor, immunosuppressant",A
-Pioglitazone,0.3242,"PPAR-gamma agonist, T2D — insulin resistance pathway",A
-Pravastatin,0.3001,HMG-CoA reductase inhibitor — no dedicated AD trial,A
-Fingolimod,0.279,"S1P receptor modulator, MS — blood-brain barrier integrity",A
-Levetiracetam,0.1328,"SV2A modulator, epilepsy — synaptic vesicle pathway",A
-Tofacitinib,0.619,"JAK1/3 inhibitor, RA — neuroinflammation, no AD trial",B
-Dasatinib,0.5646,"tyrosine kinase inhibitor — senolytic, no AD trial",B
-Empagliflozin,0.4072,"SGLT2 inhibitor, T2D — mTOR/autophagy adjacent, no AD trial",B
-Liraglutide,0.2933,"GLP-1 agonist, T2D/obesity — neuroprotection, no AD trial",B
-Hydroxychloroquine,0.2388,"antimalarial/lupus — lysosomal pathway, no AD trial",B
-Exenatide,0.2096,"GLP-1 agonist, T2D — Parkinson's trial but not AD",B
-Furosemide,0.7001,"loop diuretic, renal only — reference negative",C
-Azithromycin,0.1583,macrolide antibiotic — reference negative,C
-Amoxicillin,0.1476,penicillin antibiotic — reference negative,C
-Cisplatin,0.1336,"platinum chemotherapy, DNA crosslinker — reference negative",C
-Warfarin,0.1205,"anticoagulant, Vitamin K pathway — reference negative",C
+Melatonin,0.872,antioxidant/circadian — AD trials published,A
+Cannabidiol,0.8645,anti-inflammatory/neuroprotective — AD trials,A
+Resveratrol,0.841,SIRT1 activator — Phase 2 AD trial completed,A
+Curcumin,0.8395,tau + amyloid aggregation inhibitor — AD trials,A
+Pioglitazone,0.7955,"PPAR-gamma agonist, T2D — insulin resistance pathway",A
+Lenalidomide,0.7741,thalidomide analogue — AD neuroinflammation trials,A
+Nicotine,0.7527,nAChR agonist CHRNA7 — AD patch trials,A
+Berberine,0.7304,GSK-3b/tau + cholinesterase — AD trials published,A
+Imatinib,0.5143,"BCR-ABL/c-Abl inhibitor, CML — tau phosphorylation pathway",A
+Rapamycin,0.5099,mTOR inhibitor — Phase 1/2 AD trials ongoing,A
+Baricitinib,0.4789,"JAK1/2 inhibitor, RA — neuroinflammation hypothesis",A
+Losartan,0.4631,"AT1R blocker, antihypertensive — neuroinflammation hypothesis",A
+Pravastatin,0.4429,HMG-CoA reductase inhibitor — no dedicated AD trial,A
+Fingolimod,0.4403,"S1P receptor modulator, MS — blood-brain barrier integrity",A
+Mycophenolate,0.4395,"inosine monophosphate dehydrogenase inhibitor, immunosuppressant",A
+Sildenafil,0.4222,PDE5/cGMP pathway — retrospective AD cohort data,A
+Metformin,0.3794,"AMPK activator — active TAME trial, AD arm",A
+Canagliflozin,0.3641,"SGLT2 inhibitor, T2D — neuroinflammation hypothesis",A
+Levetiracetam,0.353,"SV2A modulator, epilepsy — synaptic vesicle pathway",A
+Doxycycline,0.2851,"tetracycline — amyloid aggregation inhibitor, AD trial",A
+Liraglutide,0.556,"GLP-1 agonist, T2D/obesity — neuroprotection, no AD trial",B
+Tofacitinib,0.5165,"JAK1/3 inhibitor, RA — neuroinflammation, no AD trial",B
+Dasatinib,0.4879,"tyrosine kinase inhibitor — senolytic, no AD trial",B
+Exenatide,0.4846,"GLP-1 agonist, T2D — Parkinson's trial but not AD",B
+Empagliflozin,0.45,"SGLT2 inhibitor, T2D — mTOR/autophagy adjacent, no AD trial",B
+Hydroxychloroquine,0.3937,"antimalarial/lupus — lysosomal pathway, no AD trial",B
+Warfarin,0.4939,"anticoagulant, Vitamin K pathway — reference negative",C
+Cisplatin,0.4182,"platinum chemotherapy, DNA crosslinker — reference negative",C
+Amoxicillin,0.3756,penicillin antibiotic — reference negative,C
+Furosemide,0.3437,"loop diuretic, renal only — reference negative",C
+Azithromycin,0.27,macrolide antibiotic — reference negative,C

@@ -22,6 +22,7 @@ Melatonin,MAPT,64.44
 Melatonin,MPO,64.44
 Melatonin,NOS3,64.44
 Melatonin,PPARG,64.44
+Melatonin,PRNP,64.44
 Melatonin,PSEN1,64.44
 Melatonin,SLC2A4,64.44
 Melatonin,SOD2,64.44
@@ -50,6 +51,7 @@ Nicotine,ENO1,57.53
 Nicotine,ESR1,57.53
 Nicotine,F2,57.53
 Nicotine,GSK3B,57.53
+Nicotine,HLA-DRB5,57.53
 Nicotine,HMOX1,57.53
 Nicotine,IGF1,57.53
 Nicotine,IGF1R,57.53
@@ -101,6 +103,22 @@ Curcumin,TF,54.57
 Curcumin,TFAM,54.57
 Curcumin,TNF,54.57
 Curcumin,VEGFA,54.57
+Notoginsenoside R1,APOE,50.91
+Notoginsenoside R1,APP,50.91
+Notoginsenoside R1,BAX,50.91
+Notoginsenoside R1,BCL2,50.91
+Notoginsenoside R1,CASP3,50.91
+Notoginsenoside R1,ESR1,50.91
+Notoginsenoside R1,GSK3B,50.91
+Notoginsenoside R1,HMOX1,50.91
+Notoginsenoside R1,IDE,50.91
+Notoginsenoside R1,IL1B,50.91
+Notoginsenoside R1,MPO,50.91
+Notoginsenoside R1,NOS3,50.91
+Notoginsenoside R1,PLAU,50.91
+Notoginsenoside R1,PPARG,50.91
+Notoginsenoside R1,PSEN1,50.91
+Notoginsenoside R1,TNF,50.91
 Berberine,ACHE,47.42
 Berberine,APP,47.42
 Berberine,BAX,47.42
@@ -136,6 +154,7 @@ Rosiglitazone,CYP2D6,44.53
 Rosiglitazone,ENO1,44.53
 Rosiglitazone,ESR1,44.53
 Rosiglitazone,F2,44.53
+Rosiglitazone,GAPDHS,44.53
 Rosiglitazone,GSK3B,44.53
 Rosiglitazone,HMOX1,44.53
 Rosiglitazone,IDE,44.53
@@ -149,6 +168,7 @@ Rosiglitazone,LEP,44.53
 Rosiglitazone,MAOB,44.53
 Rosiglitazone,MAPT,44.53
 Rosiglitazone,MPO,44.53
+Rosiglitazone,MTHFR,44.53
 Rosiglitazone,NOS3,44.53
 Rosiglitazone,NPY,44.53
 Rosiglitazone,PPARG,44.53
@@ -157,6 +177,7 @@ Rosiglitazone,SOD2,44.53
 Rosiglitazone,TF,44.53
 Rosiglitazone,TFAM,44.53
 Rosiglitazone,TNF,44.53
+Rosiglitazone,TOMM40,44.53
 Rosiglitazone,TPI1,44.53
 Rosiglitazone,VEGFA,44.53
 Rivastigmine,ACE,44.1
@@ -185,36 +206,39 @@ Apigenin,IL1B,43.07
 Apigenin,LEP,43.07
 Apigenin,NOS3,43.07
 Apigenin,PPARG,43.07
+Apigenin,PTK2B,43.07
 Apigenin,SLC2A4,43.07
 Apigenin,SOD2,43.07
 Apigenin,TNF,43.07
 Apigenin,VEGFA,43.07
-Raloxifene Hydrochloride,ACE,39.18
-Raloxifene Hydrochloride,ACHE,39.18
-Raloxifene Hydrochloride,APOE,39.18
-Raloxifene Hydrochloride,APP,39.18
-Raloxifene Hydrochloride,BAX,39.18
-Raloxifene Hydrochloride,BCL2,39.18
-Raloxifene Hydrochloride,CALM1,39.18
-Raloxifene Hydrochloride,CASP3,39.18
-Raloxifene Hydrochloride,CLU,39.18
-Raloxifene Hydrochloride,DHCR24,39.18
-Raloxifene Hydrochloride,EIF2S1,39.18
-Raloxifene Hydrochloride,ESR1,39.18
-Raloxifene Hydrochloride,HMOX1,39.18
-Raloxifene Hydrochloride,IGF1,39.18
-Raloxifene Hydrochloride,IGF2,39.18
-Raloxifene Hydrochloride,IL1B,39.18
-Raloxifene Hydrochloride,MPO,39.18
-Raloxifene Hydrochloride,NOS3,39.18
-Raloxifene Hydrochloride,PLAU,39.18
-Raloxifene Hydrochloride,PPARG,39.18
-Raloxifene Hydrochloride,PYY,39.18
-Raloxifene Hydrochloride,SLC2A4,39.18
-Raloxifene Hydrochloride,SOD2,39.18
-Raloxifene Hydrochloride,TFAM,39.18
-Raloxifene Hydrochloride,TNF,39.18
-Raloxifene Hydrochloride,VEGFA,39.18
+Raloxifene,ACE,39.18
+Raloxifene,ACHE,39.18
+Raloxifene,APOE,39.18
+Raloxifene,APP,39.18
+Raloxifene,BAX,39.18
+Raloxifene,BCL2,39.18
+Raloxifene,CALM1,39.18
+Raloxifene,CASP3,39.18
+Raloxifene,CLU,39.18
+Raloxifene,DHCR24,39.18
+Raloxifene,EIF2S1,39.18
+Raloxifene,EPHA1,39.18
+Raloxifene,ESR1,39.18
+Raloxifene,HMOX1,39.18
+Raloxifene,IGF1,39.18
+Raloxifene,IGF2,39.18
+Raloxifene,IL1B,39.18
+Raloxifene,MPO,39.18
+Raloxifene,MTHFR,39.18
+Raloxifene,NOS3,39.18
+Raloxifene,PLAU,39.18
+Raloxifene,PPARG,39.18
+Raloxifene,PYY,39.18
+Raloxifene,SLC2A4,39.18
+Raloxifene,SOD2,39.18
+Raloxifene,TFAM,39.18
+Raloxifene,TNF,39.18
+Raloxifene,VEGFA,39.18
 Donepezil,ACHE,37.96
 Donepezil,APP,37.96
 Donepezil,BACE1,37.96
@@ -247,6 +271,7 @@ Ellagic Acid,BCL2,33.61
 Ellagic Acid,CASP3,33.61
 Ellagic Acid,HMOX1,33.61
 Ellagic Acid,IL1B,33.61
+Ellagic Acid,INPP5D,33.61
 Ellagic Acid,PPARG,33.61
 Ellagic Acid,SOD2,33.61
 Ellagic Acid,TFAM,33.61
@@ -271,6 +296,7 @@ Deferoxamine,TPI1,33.06
 Deferoxamine,VEGFA,33.06
 Resveratrol,ACE,32.31
 Resveratrol,ACHE,32.31
+Resveratrol,ADAM10,32.31
 Resveratrol,AMFR,32.31
 Resveratrol,APOC1,32.31
 Resveratrol,APOE,32.31
@@ -282,12 +308,15 @@ Resveratrol,BCHE,32.31
 Resveratrol,BCL2,32.31
 Resveratrol,BDNF,32.31
 Resveratrol,CASP3,32.31
+Resveratrol,CD2AP,32.31
 Resveratrol,CHRNA7,32.31
 Resveratrol,CLU,32.31
 Resveratrol,CST3,32.31
 Resveratrol,CYP2D6,32.31
+Resveratrol,DPYSL2,32.31
 Resveratrol,EIF2S1,32.31
 Resveratrol,ENO1,32.31
+Resveratrol,EPHA1,32.31
 Resveratrol,ESR1,32.31
 Resveratrol,F2,32.31
 Resveratrol,GSK3B,32.31
@@ -305,14 +334,21 @@ Resveratrol,LEP,32.31
 Resveratrol,MAOB,32.31
 Resveratrol,MAPT,32.31
 Resveratrol,MPO,32.31
+Resveratrol,NECTIN2,32.31
 Resveratrol,NOS3,32.31
 Resveratrol,NPY,32.31
+Resveratrol,PGRMC1,32.31
 Resveratrol,PLAU,32.31
+Resveratrol,PLCG2,32.31
 Resveratrol,PPARG,32.31
+Resveratrol,PRNP,32.31
 Resveratrol,PSEN1,32.31
+Resveratrol,PSEN2,32.31
+Resveratrol,PTK2B,32.31
 Resveratrol,PYY,32.31
 Resveratrol,RELN,32.31
 Resveratrol,SLC2A4,32.31
+Resveratrol,SLC30A6,32.31
 Resveratrol,SOD2,32.31
 Resveratrol,TF,32.31
 Resveratrol,TFAM,32.31
@@ -377,6 +413,15 @@ Prodigiosin,CASP3,31.14
 Prodigiosin,HMOX1,31.14
 Prodigiosin,IL1B,31.14
 Prodigiosin,TNF,31.14
+5-Methoxypsoralen,APP,31.13
+5-Methoxypsoralen,BAX,31.13
+5-Methoxypsoralen,BDNF,31.13
+5-Methoxypsoralen,CASP3,31.13
+5-Methoxypsoralen,GSK3B,31.13
+5-Methoxypsoralen,IL1B,31.13
+5-Methoxypsoralen,MAPT,31.13
+5-Methoxypsoralen,NOS3,31.13
+5-Methoxypsoralen,TNF,31.13
 Paroxetine,APP,30.97
 Paroxetine,ARC,30.97
 Paroxetine,BAX,30.97
@@ -391,8 +436,10 @@ Paroxetine,SOD2,30.97
 Paroxetine,TNF,30.97
 Paroxetine,VEGFA,30.97
 Indomethacin,A2M,30.83
+Indomethacin,ABI3,30.83
 Indomethacin,ACE,30.83
 Indomethacin,ACHE,30.83
+Indomethacin,ADAM10,30.83
 Indomethacin,ADAMTS1,30.83
 Indomethacin,APOC1,30.83
 Indomethacin,APOE,30.83
@@ -408,7 +455,9 @@ Indomethacin,CST3,30.83
 Indomethacin,DHCR24,30.83
 Indomethacin,ENO1,30.83
 Indomethacin,F2,30.83
+Indomethacin,GAPDHS,30.83
 Indomethacin,GSK3B,30.83
+Indomethacin,HFE,30.83
 Indomethacin,HMOX1,30.83
 Indomethacin,IGF1,30.83
 Indomethacin,IGF1R,30.83
@@ -423,6 +472,8 @@ Indomethacin,MPO,30.83
 Indomethacin,NCSTN,30.83
 Indomethacin,NOS3,30.83
 Indomethacin,NPY,30.83
+Indomethacin,PICALM,30.83
+Indomethacin,PILRA,30.83
 Indomethacin,PLAU,30.83
 Indomethacin,PPARG,30.83
 Indomethacin,SLC2A4,30.83
@@ -431,7 +482,9 @@ Indomethacin,TF,30.83
 Indomethacin,TFAM,30.83
 Indomethacin,TNF,30.83
 Indomethacin,TPI1,30.83
+Indomethacin,TPP1,30.83
 Indomethacin,VEGFA,30.83
+Indomethacin,WWOX,30.83
 Niacin,ACE,30.42
 Niacin,ACHE,30.42
 Niacin,BDNF,30.42
@@ -463,6 +516,7 @@ Cannabidiol,BAX,29.95
 Cannabidiol,BCL2,29.95
 Cannabidiol,BDNF,29.95
 Cannabidiol,CASP3,29.95
+Cannabidiol,CD33,29.95
 Cannabidiol,CHRNA7,29.95
 Cannabidiol,CLU,29.95
 Cannabidiol,CRH,29.95
@@ -472,6 +526,7 @@ Cannabidiol,GSK3B,29.95
 Cannabidiol,HMOX1,29.95
 Cannabidiol,IDE,29.95
 Cannabidiol,IL1B,29.95
+Cannabidiol,INPP5D,29.95
 Cannabidiol,LEP,29.95
 Cannabidiol,MAOB,29.95
 Cannabidiol,MAPT,29.95
@@ -480,16 +535,25 @@ Cannabidiol,NCSTN,29.95
 Cannabidiol,NPY,29.95
 Cannabidiol,PPARG,29.95
 Cannabidiol,PSEN1,29.95
+Cannabidiol,PSEN2,29.95
 Cannabidiol,SOD2,29.95
 Cannabidiol,TNF,29.95
 Cannabidiol,VEGFA,29.95
 Cannabidiol,VSNL1,29.95
+Cannabidiol,WWOX,29.95
 Tolonium Chloride,ACHE,29.85
 Tolonium Chloride,APP,29.85
 Tolonium Chloride,BACE1,29.85
 Tolonium Chloride,GSK3B,29.85
 Tolonium Chloride,MAPT,29.85
 Tolonium Chloride,PSEN1,29.85
+"6,7-Dihydroxyflavone",APP,27.73
+"6,7-Dihydroxyflavone",BACE1,27.73
+"6,7-Dihydroxyflavone",BAX,27.73
+"6,7-Dihydroxyflavone",BCL2,27.73
+"6,7-Dihydroxyflavone",BDNF,27.73
+"6,7-Dihydroxyflavone",CASP3,27.73
+"6,7-Dihydroxyflavone",HMOX1,27.73
 Galantamine,ACHE,27.33
 Galantamine,APP,27.33
 Galantamine,BAX,27.33
@@ -498,25 +562,25 @@ Galantamine,BCL2,27.33
 Galantamine,CASP3,27.33
 Galantamine,CHRNA7,27.33
 Galantamine,CHRNB2,27.33
-icariin,APP,26.22
-icariin,BACE1,26.22
-icariin,BAX,26.22
-icariin,BCL2,26.22
-icariin,CASP3,26.22
-icariin,IGF1,26.22
-icariin,IL1B,26.22
-icariin,NOS3,26.22
-icariin,PPARG,26.22
-icariin,SOD2,26.22
-icariin,TNF,26.22
-icariin,VEGFA,26.22
-huperzine A,ACHE,26.12
-huperzine A,APP,26.12
-huperzine A,BAX,26.12
-huperzine A,BCL2,26.12
-huperzine A,CASP3,26.12
-huperzine A,IL1B,26.12
-huperzine A,TNF,26.12
+Icariin,APP,26.22
+Icariin,BACE1,26.22
+Icariin,BAX,26.22
+Icariin,BCL2,26.22
+Icariin,CASP3,26.22
+Icariin,IGF1,26.22
+Icariin,IL1B,26.22
+Icariin,NOS3,26.22
+Icariin,PPARG,26.22
+Icariin,SOD2,26.22
+Icariin,TNF,26.22
+Icariin,VEGFA,26.22
+Huperzine A,ACHE,26.12
+Huperzine A,APP,26.12
+Huperzine A,BAX,26.12
+Huperzine A,BCL2,26.12
+Huperzine A,CASP3,26.12
+Huperzine A,IL1B,26.12
+Huperzine A,TNF,26.12
 Ibuprofen,ACHE,25.96
 Ibuprofen,APP,25.96
 Ibuprofen,BACE1,25.96
@@ -554,13 +618,13 @@ Tacrine,CHRNB2,24.83
 Tacrine,HMOX1,24.83
 Tacrine,IL1B,24.83
 Tacrine,TNF,24.83
-bisdemethoxycurcumin,APP,22.93
-bisdemethoxycurcumin,HMOX1,22.93
-bisdemethoxycurcumin,IL1B,22.93
-bisdemethoxycurcumin,PLAU,22.93
-bisdemethoxycurcumin,PPARG,22.93
-bisdemethoxycurcumin,TNF,22.93
-bisdemethoxycurcumin,VEGFA,22.93
+Bisdemethoxycurcumin,APP,22.93
+Bisdemethoxycurcumin,HMOX1,22.93
+Bisdemethoxycurcumin,IL1B,22.93
+Bisdemethoxycurcumin,PLAU,22.93
+Bisdemethoxycurcumin,PPARG,22.93
+Bisdemethoxycurcumin,TNF,22.93
+Bisdemethoxycurcumin,VEGFA,22.93
 Haloperidol,ACHE,22.71
 Haloperidol,APOC1,22.71
 Haloperidol,ARC,22.71
@@ -577,12 +641,14 @@ Haloperidol,IL1B,22.71
 Haloperidol,INS,22.71
 Haloperidol,MAOB,22.71
 Haloperidol,NPY,22.71
+Haloperidol,PICALM,22.71
 Haloperidol,RELN,22.71
 Haloperidol,SLC2A4,22.71
 Haloperidol,SOD2,22.71
 Haloperidol,TNF,22.71
 Haloperidol,TPI1,22.71
 Haloperidol,VSNL1,22.71
+Dronabinol,ABCA7,21.99
 Dronabinol,ACHE,21.99
 Dronabinol,ADAMTS1,21.99
 Dronabinol,APP,21.99
@@ -595,6 +661,7 @@ Dronabinol,BDNF,21.99
 Dronabinol,CASP3,21.99
 Dronabinol,CLU,21.99
 Dronabinol,CRH,21.99
+Dronabinol,CYP46A1,21.99
 Dronabinol,DHCR24,21.99
 Dronabinol,EIF2S1,21.99
 Dronabinol,ENO1,21.99
@@ -609,6 +676,7 @@ Dronabinol,LEP,21.99
 Dronabinol,MAOB,21.99
 Dronabinol,NCSTN,21.99
 Dronabinol,NOS3,21.99
+Dronabinol,PGRMC1,21.99
 Dronabinol,PLAU,21.99
 Dronabinol,PPARG,21.99
 Dronabinol,PSEN1,21.99
@@ -619,16 +687,16 @@ Dronabinol,TFAM,21.99
 Dronabinol,TNF,21.99
 Dronabinol,TREM2,21.99
 Dronabinol,VEGFA,21.99
-Vitamin D,ACHE,21.24
-Vitamin D,BAX,21.24
-Vitamin D,BCL2,21.24
-Vitamin D,CASP3,21.24
-Vitamin D,CYP2D6,21.24
-Vitamin D,INS,21.24
-Vitamin D,PPARG,21.24
-Vitamin D,SLC2A4,21.24
-Vitamin D,TNF,21.24
-Vitamin D,VEGFA,21.24
+Cholecalciferol,ACHE,21.24
+Cholecalciferol,BAX,21.24
+Cholecalciferol,BCL2,21.24
+Cholecalciferol,CASP3,21.24
+Cholecalciferol,CYP2D6,21.24
+Cholecalciferol,INS,21.24
+Cholecalciferol,PPARG,21.24
+Cholecalciferol,SLC2A4,21.24
+Cholecalciferol,TNF,21.24
+Cholecalciferol,VEGFA,21.24
 Reserpine,ACHE,20.83
 Reserpine,ARC,20.83
 Reserpine,BAX,20.83
@@ -639,16 +707,16 @@ Reserpine,CRH,20.83
 Reserpine,LEP,20.83
 Reserpine,NPY,20.83
 Reserpine,TNF,20.83
-sulindac sulfide,APP,20.19
-sulindac sulfide,BAX,20.19
-sulindac sulfide,BCL2,20.19
-sulindac sulfide,CASP3,20.19
-sulindac sulfide,DHCR24,20.19
-sulindac sulfide,ESR1,20.19
-sulindac sulfide,PLAU,20.19
-sulindac sulfide,PPARG,20.19
-sulindac sulfide,PSEN1,20.19
-sulindac sulfide,TNF,20.19
+Sulindac Sulfide,APP,20.19
+Sulindac Sulfide,BAX,20.19
+Sulindac Sulfide,BCL2,20.19
+Sulindac Sulfide,CASP3,20.19
+Sulindac Sulfide,DHCR24,20.19
+Sulindac Sulfide,ESR1,20.19
+Sulindac Sulfide,PLAU,20.19
+Sulindac Sulfide,PPARG,20.19
+Sulindac Sulfide,PSEN1,20.19
+Sulindac Sulfide,TNF,20.19
 Physostigmine,ACHE,19.89
 Physostigmine,APP,19.89
 Physostigmine,BCHE,19.89
@@ -665,19 +733,24 @@ Dipyridamole,INSR,18.39
 Dipyridamole,LEP,18.39
 Dipyridamole,TNF,18.39
 Dipyridamole,VEGFA,18.39
-entacapone,BAX,14.6
-entacapone,BCL2,14.6
-entacapone,CASP3,14.6
-entacapone,HMOX1,14.6
-entacapone,IL1B,14.6
+Entacapone,BAX,14.6
+Entacapone,BCL2,14.6
+Entacapone,CASP3,14.6
+Entacapone,HMOX1,14.6
+Entacapone,IL1B,14.6
 Thiourea,ACHE,14.44
 Thiourea,APP,14.44
 Thiourea,BAX,14.44
 Thiourea,BCHE,14.44
 Thiourea,CASP3,14.44
-tideglusib,GSK3B,13.41
-tideglusib,HMOX1,13.41
-tideglusib,PPARG,13.41
+Tideglusib,GSK3B,13.41
+Tideglusib,HMOX1,13.41
+Tideglusib,PPARG,13.41
+Puag-haad,BCL2,13.29
+Puag-haad,CASP3,13.29
+Puag-haad,HMOX1,13.29
+Puag-haad,PPARG,13.29
+Puag-haad,TNF,13.29
 Amphotericin B,APP,10.21
 Amphotericin B,CASP3,10.21
 Amphotericin B,CLU,10.21
@@ -691,8 +764,8 @@ Clioquinol,APP,10.1
 Clioquinol,CASP3,10.1
 Clioquinol,HMOX1,10.1
 Clioquinol,VEGFA,10.1
-"N2-((2S)-2-(3,5-difluorophenyl)-2-hydroxyethanoyl)-N1-((7S)-5-methyl-6-oxo-6,7-dihydro-5H-dibenzo(b,d)azepin-7-yl)-L-alaninamide",APP,9.84
-"N2-((2S)-2-(3,5-difluorophenyl)-2-hydroxyethanoyl)-N1-((7S)-5-methyl-6-oxo-6,7-dihydro-5H-dibenzo(b,d)azepin-7-yl)-L-alaninamide",PSEN1,9.84
+Semagacestat,APP,9.84
+Semagacestat,PSEN1,9.84
 Midazolam,BCL2,9.74
 Midazolam,CYP2D6,9.74
 Midazolam,IL1B,9.74
@@ -710,12 +783,17 @@ Tolcapone,AMFR,7.46
 Tolcapone,APOE,7.46
 Tolcapone,DHCR24,7.46
 Tolcapone,SOD2,7.46
+Tolcapone,TOMM40,7.46
 Tolcapone,VSNL1,7.46
+1-(3-chlorophenyl)piperazine,CYP2D6,6.55
+1-(3-chlorophenyl)piperazine,LEP,6.55
+Goserelin,BCL2,6.51
+Goserelin,ESR1,6.51
 Thioridazine,CASP3,5.19
 Thioridazine,CRH,5.19
 Thioridazine,CYP2D6,5.19
-3-methyl-5-(1-methyl-2-pyrrolidinyl)isoxazole,CHRNB2,4.76
-BMS 708163,APP,3.99
+ABT-418,CHRNB2,4.76
+Avagacestat,APP,3.99
 Trazodone,IL1B,3.84
 Trazodone,SOD2,3.84
 Maprotiline,CASP3,2.39
